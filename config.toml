@@ -1,8 +1,9 @@
 # Hugo variables
 #
-baseurl = "https://example.org/"
+baseurl = "https://github.com/go-spatial/tegola-ui-docs/"
+publishDir = "docs"
 languageCode = "en-us"
-title = "Tegola With Open Layersg"
+title = "Tegola With Open Layers"
 theme = "hugo-theme-bootstrap4-blog"
 # number of posts to show on home/category/tag pages (Default: 10)
 paginate = 5

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Tegola With Open Layers" />
+<meta property="og:description" content="Tegola With Open Layers" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://github.com/go-spatial/tegola-ui-docs/" />
+
+
+
+<meta property="og:updated_time" content="2017-11-29T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Tegola With Open Layers"/>
+<meta name="twitter:description" content="Tegola With Open Layers"/>
+<meta name="twitter:site" content="@username"/>
+<meta name="generator" content="Hugo 0.32-DEV" />
+
+        
+      
+    
+
+        <link rel="canonical" href="https://github.com/go-spatial/tegola-ui-docs/">
+        <title>Tegola With Open Layers</title>
+
+        
+            <!-- RSS 2.0 feed -->
+            <link href="https://github.com/go-spatial/tegola-ui-docs/index.xml" rel="alternate" type="application/rss+xml" title="Tegola With Open Layers" />
+        
+
+        
+            
+
+        
+
+
+        <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+        <link href="https://github.com/go-spatial/tegola-ui-docs/css/site.css" rel="stylesheet"/>
+        <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    </head>
+    <body>
+        <iframe src="/map.html" id="mapIframe"></iframe>
+        <div class="position-relative">
+
+            <div class="container-fluid pt-4 pb-3 pl-4 pr-3 heading">
+
+                <div class="position-absolute t0 r0 b0 col-sm-3 pt-3 d-none d-sm-block">
+                    <img class="img-fluid" src="/images/go-spatial@2x.png"/>
+                    <div class="sticky-top pt-3">
+                        <h4>Sections</h4>
+                        <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#getting-started">Getting Started</a></li>
+<li><a href="#setup-the-html">Setup the HTML</a></li>
+</ul></li>
+</ul>
+</nav>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-9">
+                        <h1 class="display-4">
+                            Tegola With Open Layers
+                        </h1>
+                        
+                            <p class="lead text-muted">An open source mapping solution for web and mobile</p>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid mb-4 pl-4">
+                <div class="row">
+                    <div class="col-sm-8">
+                        
+
+<h2 id="introduction">Introduction</h2>
+
+<p><a href="https://github.com/terranodo/tegola">Tegola</a> is a map vector tile (MVT) server written in Go. Tegola takes geospatial data from a PostGIS Database and slices it into vector tiles that can be efficiently delivered to any client.</p>
+
+<p><a href="https://openlayers.org/">Open Layers</a> is a client library for rendering MVT and raster maps. Combined with Tegola, developers may now render maps in the web or on mobile utilizing all open source technology.</p>
+
+<p>This guide will take you through the steps to get Tegola rendering a map using Open Layers and visualized in a web browser.</p>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<p>The first thing you&rsquo;ll need is a Tegola endpoint. You can either setup one locally by following the instructions located in the <a href="http://tegola.io/getting-started/">Tegola docs</a> or you can use an existing endpoint.</p>
+
+<p>For the following example we&rsquo;ll be pulling in data from a Tegola instance located at <a href="https://osm.tegola.io">https://osm.tegola.io</a>.</p>
+
+<h2 id="setup-the-html">Setup the HTML</h2>
+
+<p>Next, we make an HTML page that will show the map. The following is a minimal example HTML page for rendering a map with Open Layers. Copy and paste the following code into an empty file and name it index.html.</p>
+
+<pre><code class="language-html">&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;https://openlayers.org/en/v4.5.0/css/ol.css&quot; type=&quot;text/css&quot;&gt;
+        &lt;style&gt;
+            .map{height:600px;width:100%;}
+        &lt;/style&gt;
+        &lt;script src=&quot;https://openlayers.org/en/v4.5.0/build/ol.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+        &lt;title&gt;OpenLayers example&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id=&quot;map&quot; class=&quot;map&quot;&gt;&lt;/div&gt;
+        &lt;script type=&quot;text/javascript&quot;&gt;
+            var map = new ol.Map({
+                target: 'map',
+                layers: [
+                    new ol.layer.VectorTile({
+                        source: new ol.source.VectorTile({
+                            format: new ol.format.MVT(),
+                            url:'https://osm.tegola.io/maps/osm/{z}/{x}/{y}.pbf'
+                        })
+                    })
+                ],
+                view: new ol.View({
+                    center: ol.proj.fromLonLat([-117.15,32.72]), //coordinates the map will center on initially
+                    zoom: 14
+                })
+            });
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Open the HTML file in a browser and you should see the following:</p>
+
+<p><img src="/images/screenshotMap.png" alt="alt text" title="Map" /></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <script>hljs.initHighlightingOnLoad();</script>
+
+    </body>
+
+</html>
