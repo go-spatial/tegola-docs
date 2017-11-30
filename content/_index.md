@@ -61,7 +61,7 @@ Next, we make an HTML page that will show the map. The following is a minimal ex
 
 Open the HTML file in a browser and you should see the following:
 
-![alt text](/images/screenshotMap.png "Map")
+![alt text](images/screenshotMap.png "Map")
 
 
 
