@@ -68,6 +68,9 @@
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#getting-started">Getting Started</a></li>
 <li><a href="#setup-the-html">Setup the HTML</a></li>
+<li><a href="#styling-the-map">Styling the Map</a></li>
+<li><a href="#defining-feature-styles">Defining Feature Styles</a></li>
+<li><a href="#all-together">All Together</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -102,7 +105,7 @@
 
 <p>The first thing you&rsquo;ll need is a Tegola endpoint. You can either setup one locally by following the instructions located in the <a href="http://tegola.io/getting-started/">Tegola docs</a> or you can use an existing endpoint.</p>
 
-<p>For the following example we&rsquo;ll be pulling in data from a Tegola instance located at <a href="https://osm.tegola.io">https://osm.tegola.io</a>.</p>
+<p>For the following example we&rsquo;ll be pulling in data from a Tegola instance hosted at <a href="https://osm.tegola.io">https://osm.tegola.io</a>.</p>
 
 <h2 id="setup-the-html">Setup the HTML</h2>
 
@@ -113,13 +116,13 @@
     &lt;head&gt;
         &lt;link rel=&quot;stylesheet&quot; href=&quot;https://openlayers.org/en/v4.5.0/css/ol.css&quot; type=&quot;text/css&quot;&gt;
         &lt;style&gt;
-            .map{height:600px;width:100%;}
+            #map{height:600px;width:100%;}
         &lt;/style&gt;
         &lt;script src=&quot;https://openlayers.org/en/v4.5.0/build/ol.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
         &lt;title&gt;OpenLayers example&lt;/title&gt;
     &lt;/head&gt;
     &lt;body&gt;
-        &lt;div id=&quot;map&quot; class=&quot;map&quot;&gt;&lt;/div&gt;
+        &lt;div id=&quot;map&quot;&gt;&lt;/div&gt;
         &lt;script type=&quot;text/javascript&quot;&gt;
             var map = new ol.Map({
                 target: 'map',
@@ -141,9 +144,223 @@
 &lt;/html&gt;
 </code></pre>
 
+<p>We are including the Open Layers library from <a href="https://openlayers.org/en/v4.5.0/build/ol.js">https://openlayers.org/en/v4.5.0/build/ol.js</a> in the head of the document. In the body, we define <code>&lt;div id=&quot;map&quot;&gt;&lt;/div&gt;</code> which is the container that will hold the rendered map.</p>
+
+<p>To render the map we will use a javascript snippet that creates a new instance of <code>ol.Map</code>.</p>
+
+<pre><code class="language-javascript">var map = new ol.Map({
+    target: 'map',
+    layers: [
+        new ol.layer.VectorTile({
+            source: new ol.source.VectorTile({
+                format: new ol.format.MVT(),
+                url:'https://osm.tegola.io/maps/osm/{z}/{x}/{y}.pbf'
+            })
+        })
+    ],
+    view: new ol.View({
+        center: ol.proj.fromLonLat([-117.15,32.72]), //coordinates the map will center on initially
+        zoom: 14
+    })
+});
+</code></pre>
+
+<p>Important details to note in this snippet are the <code>target:'map'</code> piece which tells Open Layers to instantiate the map into the div with an id of map. The layers array are where the sources for geospatial data are defined. For Tegola, we&rsquo;ll be using the <code>VectorTile</code> source which is of type <code>MVT</code>. The URL inside the source is the endpoint which will be queried to get the data. In this case we are using a Tegola endpoint which serves up Open Street Maps (OSM) data.</p>
+
 <p>Open the HTML file in a browser and you should see the following:</p>
 
-<p><img src="images/screenshotMap.png" alt="alt text" title="Map" /></p>
+<p><img src="images/screenshotMap.png" alt="basic map screenshot" title="Map" /></p>
+
+<p>A map of San Diego, CA rendered with the default styles provided by the Open Layer&rsquo;s library. Next, let&rsquo;s add some custom styles to your new map.</p>
+
+<h2 id="styling-the-map">Styling the Map</h2>
+
+<p>To style the map we&rsquo;ll need to define a javascript function to apply fills and borders to the various features of our map. Let&rsquo;s start by applying a default style to every feature on the map.</p>
+
+<p>Open Layers applies map styling by utilizing a style function. Every feature in a given map layer will call the style function. The style function then returns an array of styles to apply to the given feature.</p>
+
+<pre><code class="language-javascript">var defaultStyle = new ol.style.Style({
+    fill: new ol.style.Fill({
+        color: [234,231,221,1]
+    }),
+    stroke: new ol.style.Stroke({
+        color: [182,177,162,1],
+        width: 1
+    })
+});
+
+// the styleFunction will define how our features on the map get styled
+function styleFunction(feature, resolution){
+    console.log('feature:',feature);
+    return [defaultStyle];
+}
+
+var map = new ol.Map({
+    target: 'map',
+    layers: [
+        new ol.layer.VectorTile({
+            source: new ol.source.VectorTile({
+                format: new ol.format.MVT(),
+                url:'https://osm.tegola.io/maps/osm/{z}/{x}/{y}.pbf'
+            }),
+            style:styleFunction // here we apply the styleFunction to the layer
+        })
+    ],
+    view: new ol.View({
+        center: ol.proj.fromLonLat([-117.15,32.72]), //coordinates the map will center on initially
+        zoom: 14
+    })
+}); 
+</code></pre>
+
+<p>Copy and paste the above code into the script tag of the HTML document defined above.</p>
+
+<p>Here we&rsquo;re defining <code>styleFunction</code> which will take over responsibility for styling the features of the map. In this case we&rsquo;re setting a default style to be used on all map features. The map should now render in two shades of beige. Next, we&rsquo;ll be selecting features to give custom styles to.</p>
+
+<h2 id="defining-feature-styles">Defining Feature Styles</h2>
+
+<p>Now we can start to pick out the features we&rsquo;d like to apply custom styles to. Inside the <code>styleFunction</code> we can determine different features based on their attributes. The attributes we&rsquo;ll be using in the following example are <code>type</code> and <code>layer</code>.</p>
+
+<p>Open Layers allows you to reference attributes using the <code>feature.get()</code> function. The following snippet shows an console log example of this usage.</p>
+
+<pre><code class="language-javascript">function styleFunction(feature, resolution){
+    console.log('feature type:',feature.get('type'),'layer:',feature.get('layer'));
+});
+</code></pre>
+
+<p>By including a console log into the style function, the feature attributes will be logged out to the console. This will give you an idea of which features are available for styling.</p>
+
+<p>Once the features have been identified, we&rsquo;re ready to start giving them some style. Now we can define the feature specific styles.</p>
+
+<pre><code class="language-javascript">var waterStyle = new ol.style.Style({
+    fill: new ol.style.Fill({
+        color: [28,121,181,1]
+    }),
+    stroke: new ol.style.Stroke({
+        color: [27,107,159,1],
+        width: 1
+    })
+});
+
+var streetStyle = new ol.style.Style({
+    fill: new ol.style.Fill({
+        color: [111,44,173,1]
+    }),
+    stroke: new ol.style.Stroke({
+        color: [93,32,150,1],
+        width: 1
+    })
+});
+</code></pre>
+
+<p>Here we define two styles - a deep blue for the water features and a violet for streets. Next we can apply these styles to specific features with <code>if</code> statements inside <code>styleFunction</code>.</p>
+
+<pre><code class="language-javascript">function styleFunction(feature, resolution){
+    if (feature.get('type') == 'water' || feature.get('layer') == 'water_areas' || feature.get('layer') == 'water_lines'){
+        return [waterStyle];
+    }
+    if (feature.get('layer') == 'transport_lines'){
+        return [streetStyle];
+    }
+    if (feature.get('layer') == 'country_polygons' || feature.get('layer') == 'landuse_areas'){
+        return null; // return null for no style to be applied
+    }
+    return [defaultStyle];
+}
+</code></pre>
+
+<p>Finally the oceans are generally not defined as features inside of the data sources. To give the oceans a color, let&rsquo;s give our div a <code>background-color</code>.</p>
+
+<pre><code class="language-css">#map{height:600px;width:100%;background-color:#1C79B5;}
+</code></pre>
+
+<h2 id="all-together">All Together</h2>
+
+<p>The following is the full HTML file with custom styling for water and streets.</p>
+
+<pre><code class="language-html">&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;https://openlayers.org/en/v4.5.0/css/ol.css&quot; type=&quot;text/css&quot;&gt;
+        &lt;style&gt;
+            #map{height:600px;width:100%;background-color:#1C79B5;}
+        &lt;/style&gt;
+        &lt;script src=&quot;https://openlayers.org/en/v4.5.0/build/ol.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+        &lt;title&gt;OpenLayers example&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id=&quot;map&quot; class=&quot;map&quot;&gt;&lt;/div&gt;
+        &lt;script type=&quot;text/javascript&quot;&gt;
+
+            var defaultStyle = new ol.style.Style({
+                fill: new ol.style.Fill({
+                    color: [234,231,221,1]
+                }),
+                stroke: new ol.style.Stroke({
+                    color: [182,177,162,1],
+                    width: 1
+                })
+            });
+
+            var waterStyle = new ol.style.Style({
+                fill: new ol.style.Fill({
+                    color: [28,121,181,1]
+                }),
+                stroke: new ol.style.Stroke({
+                    color: [27,107,159,1],
+                    width: 1
+                })
+            });
+
+            var streetStyle = new ol.style.Style({
+                fill: new ol.style.Fill({
+                    color: [111,44,173,1]
+                }),
+                stroke: new ol.style.Stroke({
+                    color: [93,32,150,1],
+                    width: 1
+                })
+            });
+
+            function styleFunction(feature, resolution){
+                if (feature.get('type') == 'water' || feature.get('layer') == 'water_areas' || feature.get('layer') == 'water_lines'){
+                    return [waterStyle];
+                }
+                if (feature.get('layer') == 'transport_lines'){
+                    return [streetStyle];
+                }
+                if (feature.get('layer') == 'country_polygons' || feature.get('layer') == 'landuse_areas'){
+                    return null; // return null for no style to be applied
+                }
+                return [defaultStyle];
+            }
+
+            var map = new ol.Map({
+                target: 'map',
+                layers: [
+                    new ol.layer.VectorTile({
+                        source: new ol.source.VectorTile({
+                            format: new ol.format.MVT(),
+                            url:'https://osm.tegola.io/maps/osm/{z}/{x}/{y}.pbf'
+                        }),
+                        style:styleFunction
+                    })
+                ],
+                view: new ol.View({
+                    center: ol.proj.fromLonLat([-117.15,32.72]), //coordinates the map will center on initially
+                    zoom: 14
+                })
+            });
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>And here&rsquo;s what you should see when you open up a browser:</p>
+
+<p><img src="images/customStylesScreenshot.png" alt="custom styles screenshot" title="Map" /></p>
+
+<p>For more information on styling Open Layers maps check out the official documentation: <a href="https://openlayersbook.github.io/ch06-styling-vector-layers/intro.html">styling vector layers</a>.</p>
 
                     </div>
                 </div>
