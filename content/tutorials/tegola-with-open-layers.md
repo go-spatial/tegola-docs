@@ -283,7 +283,7 @@ The following is the full HTML file with custom styling for water and streets.
 
 And here's what you should see when you open up a browser:
 
-![custom styles screenshot](images/customStylesScreenshot.png "Map")
+![custom styles screenshot](/images/customStylesScreenshot.png "Map")
 
 For more information on styling Open Layers maps check out the official documentation: [styling vector layers](https://openlayersbook.github.io/ch06-styling-vector-layers/intro.html).
 
