@@ -3,84 +3,84 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://github.com/go-spatial/tegola-ui-docs/documentation/</loc>
+    <loc>/documentation/</loc>
     <lastmod>2017-11-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://github.com/go-spatial/tegola-ui-docs/download/download/</loc>
+    <loc>/download/download/</loc>
     <lastmod>2017-11-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://github.com/go-spatial/tegola-ui-docs/tutorials/</loc>
+    <loc>/tutorials/</loc>
     <lastmod>2017-11-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://github.com/go-spatial/tegola-ui-docs/documentation/getting-started/</loc>
+    <loc>/documentation/getting-started/</loc>
     <lastmod>2017-11-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://github.com/go-spatial/tegola-ui-docs/documentation/configuration/</loc>
+    <loc>/documentation/configuration/</loc>
     <lastmod>2017-11-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://github.com/go-spatial/tegola-ui-docs/demo/map/</loc>
+    <loc>/demo/map/</loc>
     <lastmod>2017-11-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://github.com/go-spatial/tegola-ui-docs/documentation/http-endpoints/</loc>
+    <loc>/documentation/http-endpoints/</loc>
     <lastmod>2017-11-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://github.com/go-spatial/tegola-ui-docs/</loc>
+    <loc>/</loc>
     <lastmod>2017-11-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://github.com/go-spatial/tegola-ui-docs/tutorials/tegola-with-mapbox/</loc>
+    <loc>/tutorials/tegola-with-mapbox/</loc>
     <lastmod>2017-11-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://github.com/go-spatial/tegola-ui-docs/tutorials/tegola-with-olms/</loc>
+    <loc>/tutorials/tegola-with-olms/</loc>
     <lastmod>2017-11-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://github.com/go-spatial/tegola-ui-docs/tutorials/tegola-with-open-layers/</loc>
+    <loc>/tutorials/tegola-with-open-layers/</loc>
     <lastmod>2017-11-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://github.com/go-spatial/tegola-ui-docs/documentation/debugging/</loc>
+    <loc>/documentation/debugging/</loc>
     <lastmod>2017-11-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://github.com/go-spatial/tegola-ui-docs/categories/</loc>
+    <loc>/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://github.com/go-spatial/tegola-ui-docs/demo/</loc>
-    <lastmod>2017-11-29T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://github.com/go-spatial/tegola-ui-docs/download/</loc>
+    <loc>/demo/</loc>
     <lastmod>2017-11-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://github.com/go-spatial/tegola-ui-docs/tags/</loc>
+    <loc>/download/</loc>
+    <lastmod>2017-11-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
     <priority>0</priority>
   </url>
   

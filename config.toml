@@ -1,8 +1,9 @@
 # Hugo variables
 
 # turn off for local dev
-baseurl = "https://github.com/go-spatial/tegola-ui-docs/"
+# baseurl = "https://github.com/go-spatial/tegola-ui-docs/"
 publishDir = "docs"
+relativeURLs = true
 
 languageCode = "en-us"
 title = "Tegola With Open Layers"

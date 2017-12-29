@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Downloads on Tegola With Open Layers</title>
-    <link>https://github.com/go-spatial/tegola-ui-docs/download/</link>
+    <link>/download/</link>
     <description>Recent content in Downloads on Tegola With Open Layers</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 29 Nov 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://github.com/go-spatial/tegola-ui-docs/download/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/download/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Download Tegola</title>
-      <link>https://github.com/go-spatial/tegola-ui-docs/download/download/</link>
+      <link>/download/download/</link>
       <pubDate>Wed, 29 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/go-spatial/tegola-ui-docs/download/download/</guid>
+      <guid>/download/download/</guid>
       <description>Latest Version Download the latest release for you operating system:
  Linux OSX Windows  Additional binaries for other operating systems and versions are here.
 Next Steps Once you&amp;rsquo;ve downloaded Tegola, read the Getting Started Guide.</description>
