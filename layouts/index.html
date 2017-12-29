@@ -19,49 +19,74 @@
         {{ end }}
 
         {{ partial "head-custom.html" . }}
-
-        <link rel="stylesheet" href="css/bootstrap.min.css"/>
-        <link href="css/site.css" rel="stylesheet"/>
-        <link rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     </head>
     <body>
-        <iframe src="map.html" id="mapIframe"></iframe>
-        <div class="position-relative">
+        {{ partial "nav.html" . }}
+        
+        <div class="position-relative overflow-hidden">
+            <iframe src="{{.Site.Params.pathroot}}homeMap.html" id="mapIframe"></iframe>
 
-            <div class="container-fluid pt-4 pb-3 pl-4 pr-3 heading">
-
-                <div class="position-absolute t0 r0 b0 col-sm-3 pt-3 d-none d-sm-block">
-                    <img class="img-fluid" src="images/go-spatial@2x.png"/>
-                    <div class="sticky-top pt-3">
-                        <h4>Sections</h4>
-                        {{ .TableOfContents }}
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-9">
-                        <h1 class="display-4">
+            <div class="welcome">
+                <div class="d-flex h-100">
+                    <div class="justify-content-center align-self-center pb-5 content text-light">
+                        <h1 class="display-3">
                             {{.Title}}
                         </h1>
                         {{ with .Params.subtitle }}
-                            <p class="lead text-muted">{{.}}</p>
+                            <p class="lead">{{.}}</p>
                         {{ end }}
-                    </div>
-                </div>
-            </div>
-            <div class="container-fluid mb-4 pl-4">
-                <div class="row">
-                    <div class="col-sm-8">
-                        {{ .Content }}
+                        <div class="pt-2">
+                            <a href="/documentation/getting-started/" class="btn btn-lg btn-outline-light">
+                                Get Started
+                            </a>
+                            <a href="/demo/map" class="btn btn-lg btn-outline-light ml-2">
+                                Try it
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="position-relative">
+            <div class="container-fluid pt-4 pb-3">
+                <div class="row mr-0 ml-0">
+                    <div class="col-md-4 mb-2">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h4 class="card-title">Installation</h4>
+                                <p class="card-text">Select your system to download and get running Tegola.</p>
+                                <span class="btn-group">
+                                    <a href="https://github.com/terranodo/tegola/releases/download/v0.3.2/tegola_linux_amd64" class="btn btn-secondary">Linux</a>
+                                    <a href="https://github.com/terranodo/tegola/releases/download/v0.3.2/tegola_darwin_amd64" class="btn btn-dark">OSX</a>
+                                    <a href="https://github.com/terranodo/tegola/releases/download/v0.3.2/tegola_windows_amd64.exe" class="btn btn-info">Windows</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h4 class="card-title">Documentation</h4>
+                                <p class="card-text">How to talk to Tegola and train it to do the things you want.</p>
+                                <a href="/documentation" class="btn btn-info">Read Docs</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h4 class="card-title">Tutorials</h4>
+                                <p class="card-text">Some quick implementations to get you confidently up and running with Tegola.</p>
+                                <a href="/tutorials" class="btn btn-info">Do Tutorials</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{ partial "footer.html" }}
+        </div>
 
-        <!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script-->
-        <script>hljs.initHighlightingOnLoad();</script>
+        {{ partial "scripts.html" . }}
 
     </body>
 

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="{{ .Lang }}">
+    <head>
+        {{ partial "head-meta.html" . }}
+        {{ block "schema-dot-org" . }}
+        {{ end }}
+
+        <link rel="canonical" href="{{ .Permalink }}">
+        <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+
+        {{ if .RSSLink }}
+            {{ "<!-- RSS 2.0 feed -->" | safeHTML }}
+            <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+        {{ end }}
+
+        {{ template "_internal/google_analytics_async.html" . }}
+            {{ if .Site.Params.cookie_consent_info_url }}
+            {{ partial "cookie-consent.html" . }}
+        {{ end }}
+
+        {{ partial "head-custom.html" . }}
+    </head>
+    <body>
+        {{ partial "nav.html" . }}
+        
+        <div class="position-relative">
+
+            <div class="container-fluid pb-3 pr-3 heading">
+                <div class="row">
+                    <div class="col-sm-12 bg-info text-light pl-4 pt-4 pb-3">
+                        <h1 class="display-4 mb-0">
+                            {{.Title}}
+                        </h1>
+                        {{ with .Params.subtitle }}
+                            <p class="lead text-light">{{.}}</p>
+                        {{ end }}
+                    </div>
+                </div>
+                <div class="row pt-3 pb-4">
+                    <div class="col-sm-9 pl-4 content">
+                        <!--iframe src="map.html" id="mapIframe"></iframe-->
+                        
+                        {{ .Content }}
+
+                        <ul class="mt-4">
+					    {{ range .Data.Pages }}
+					    	<li>
+						        <h5>
+						            <a href="{{.Permalink}}">{{.Title}}</a>
+						        </h5>
+						        <p>
+						        	{{ .Params.subtitle }}
+						        </p>
+					   		</li>
+					    {{ end }}
+						</ul>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="sticky-top pt-3 sidebar">
+                            <div class="sidebar-edge nav display-block">
+                                <h6>CONTENTS</h6>
+                                <div class="display-block">
+                                    {{ .TableOfContents }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{ partial "footer.html" }}
+        </div>
+
+        {{ partial "scripts.html" . }}
+
+    </body>
+
+</html>
+
+{{- /* vim: set ts=2 sw=2 et: */}}
+
+
+
+

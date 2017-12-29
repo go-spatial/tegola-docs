@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Tegola With OL Mapbox Style (OLMS)" />
+<meta property="og:description" content="Introduction Tegola is a vector tile server written in Go. Tegola takes geospatial data from a PostGIS Database and slices it into vector tiles that can be efficiently delivered to any client.
+OLMS is a library used to take Mapbox stylesheets and convert them into Open Layers scripted styles.
+This guide will show you how to use OLMS to convert and utilize a Mapbox style to render a map using Open Layers." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://github.com/go-spatial/tegola-ui-docs/tutorials/tegola-with-olms/" />
+
+
+
+<meta property="article:published_time" content="2017-11-29T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2017-11-29T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Tegola With OL Mapbox Style (OLMS)"/>
+<meta name="twitter:description" content="Introduction Tegola is a vector tile server written in Go. Tegola takes geospatial data from a PostGIS Database and slices it into vector tiles that can be efficiently delivered to any client.
+OLMS is a library used to take Mapbox stylesheets and convert them into Open Layers scripted styles.
+This guide will show you how to use OLMS to convert and utilize a Mapbox style to render a map using Open Layers."/>
+<meta name="twitter:site" content="@username"/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+        
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Tegola With OL Mapbox Style (OLMS)",
+  "url": "https://github.com/go-spatial/tegola-ui-docs/tutorials/tegola-with-olms/",
+  "wordCount": "398",
+  "datePublished": "2017-11-29T00:00:00&#43;00:00",
+  "dateModified": "2017-11-29T00:00:00&#43;00:00",
+  "author": {
+    "@type": "Person",
+    "name": "Jpalms"
+  }
+}
+</script>
+
+
+
+        <link rel="canonical" href="https://github.com/go-spatial/tegola-ui-docs/tutorials/tegola-with-olms/">
+        <title>Tegola With OL Mapbox Style (OLMS) | Tegola With Open Layers</title>
+
+        
+
+        
+            
+
+        <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+<link href="/css/site.css" rel="stylesheet"/>
+<link rel="stylesheet"
+href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    </head>
+    <body>
+        
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+  <a class="navbar-brand" href="/">
+    TEGOLA
+    
+    </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+        
+        
+            
+                <li class="nav-item ">
+                    <a class="nav-link" href="/go-spatial/tegola-ui-docs/download/download/">Download</a>
+                </li>
+            
+        
+            
+                <li class="nav-item ">
+                    <a class="nav-link" href="/go-spatial/tegola-ui-docs/demo/map/">Demo</a>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Documentation
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        
+                            <a class="dropdown-item " href="/go-spatial/tegola-ui-docs/documentation/">
+                                Documentation Home
+                            </a>
+                        
+                            <a class="dropdown-item " href="/go-spatial/tegola-ui-docs/documentation/getting-started/">
+                                Getting Started
+                            </a>
+                        
+                            <a class="dropdown-item " href="/go-spatial/tegola-ui-docs/documentation/configuration/">
+                                Tegola Configuration
+                            </a>
+                        
+                            <a class="dropdown-item " href="/go-spatial/tegola-ui-docs/documentation/http-endpoints/">
+                                HTTP Endpoints
+                            </a>
+                        
+                            <a class="dropdown-item " href="/go-spatial/tegola-ui-docs/documentation/debugging/">
+                                Debugging
+                            </a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Tutorials
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        
+                            <a class="dropdown-item " href="/go-spatial/tegola-ui-docs/tutorials/">
+                                Tutorials Home
+                            </a>
+                        
+                            <a class="dropdown-item " href="/go-spatial/tegola-ui-docs/tutorials/tegola-with-mapbox/">
+                                Tegola With Mapbox
+                            </a>
+                        
+                            <a class="dropdown-item active" href="/go-spatial/tegola-ui-docs/tutorials/tegola-with-olms/">
+                                Tegola With OLMS
+                            </a>
+                        
+                            <a class="dropdown-item " href="/go-spatial/tegola-ui-docs/tutorials/tegola-with-open-layers/">
+                                Tegola With Open Layers
+                            </a>
+                        
+                    </div>
+                </li>
+            
+        
+
+    </ul>
+  </div>
+</nav>
+        
+        <div class="position-relative">
+
+            <div class="container-fluid pb-3 pr-3 heading">
+                <div class="row">
+                    <div class="col-sm-12 bg-info text-light pl-4 pt-4 pb-3">
+                        <h1 class="display-4 mb-0">
+                            Tegola With OL Mapbox Style (OLMS)
+                        </h1>
+                        
+                            <p class="lead text-light">An easy way to use Mapbox styles with Open Layers</p>
+                        
+                    </div>
+                </div>
+                <div class="row pt-3 pb-4">
+                    <div class="col-sm-9 pl-4 content">
+                        
+                        
+                        
+
+<h2 id="introduction">Introduction</h2>
+
+<p><a href="https://github.com/terranodo/tegola">Tegola</a> is a vector tile server written in Go. Tegola takes geospatial data from a PostGIS Database and slices it into vector tiles that can be efficiently delivered to any client.</p>
+
+<p><a href="https://github.com/boundlessgeo/ol-mapbox-style">OLMS</a> is a library used to take Mapbox stylesheets and convert them into Open Layers scripted styles.</p>
+
+<p>This guide will show you how to use OLMS to convert and utilize a Mapbox style to render a map using Open Layers.</p>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<p>To get setup for using OLMS you&rsquo;ll need a Tegola source, a Mapbox stylesheet, and the OLMS library.</p>
+
+<h3 id="tegola-source">Tegola source</h3>
+
+<p>The first thing you&rsquo;ll need is a Tegola endpoint. You can either setup one locally by following the instructions located in the <a href="http://tegola.io/getting-started/">Tegola docs</a> or you can use an existing endpoint.</p>
+
+<p>For the following example we&rsquo;ll be pulling in data from a Tegola instance hosted at <a href="https://osm.tegola.io">https://osm.tegola.io</a>.</p>
+
+<h3 id="get-a-mapbox-stylesheet">Get a Mapbox stylesheet</h3>
+
+<p>You may either pull a Mapbox stylesheet from Mapbox directly using an API key, you can craft your own, or you may use a stylesheet provided in this repo in the style directory.</p>
+
+<p>For the following example we&rsquo;ll be using the stylesheet here <a href="https://osm.tegola.io">https://osm.tegola.io</a>.</p>
+
+<p>Note that stylesheets are specific to the layers of a source endpoint. Ensure that whatever styles you are using are compatible.</p>
+
+<h3 id="grab-the-olms-script">Grab the OLMS script</h3>
+
+<p>Either get the js file from the <a href="https://github.com/boundlessgeo/ol-mapbox-style">OLMS repo</a> or you can link to it from these docs here: <a href="https://osm.tegola.io">https://osm.tegola.io</a>.</p>
+
+<h2 id="setup-the-html">Setup the HTML</h2>
+
+<p>Next, we make an HTML page that will show the map. The following is a minimal example HTML page for rendering a map with Open Layers and OLMS. Copy and paste the following code into an empty file and name it index.html.</p>
+
+<pre><code class="language-html">&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;https://openlayers.org/en/v4.5.0/css/ol.css&quot; type=&quot;text/css&quot;&gt;
+        &lt;style&gt;
+            #map{height:600px;width:100%;}
+        &lt;/style&gt;
+        &lt;script src=&quot;https://openlayers.org/en/v4.5.0/build/ol.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+        &lt;script src=&quot;olms.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+        &lt;title&gt;OpenLayers example&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id=&quot;map&quot;&gt;&lt;/div&gt;
+        &lt;script type=&quot;text/javascript&quot;&gt;
+            olms.apply('map','hot-osm.json');
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>The piece that is doing all the heavy lifting here is <code>olms.apply('map','hot-osm.json');</code>. The first argument <code>map</code> is the id of the tag where the map will render. The next, <code>hot-osm.json</code> is the path to the style json file in Mapbox style format. Note that there is no source declaration in this HTML file. That is being defined as <code>https://osm.tegola.io</code> inside the <code>hot-osm.json</code> file.</p>
+
+<p>And here&rsquo;s what you should see when you open up a browser:</p>
+
+<p><img src="/images/screenshotOLMS.png" alt="custom styles screenshot" title="Map" /></p>
+
+<p>For more information on using OLMS, check out the official documentation: <a href="https://github.com/boundlessgeo/ol-mapbox-style">OL Mapbox Style</a>.</p>
+
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="sticky-top pt-3 sidebar">
+                            <div class="sidebar-edge nav display-block">
+                                <h6>CONTENTS</h6>
+                                <div class="display-block">
+                                    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#getting-started">Getting Started</a>
+<ul>
+<li><a href="#tegola-source">Tegola source</a></li>
+<li><a href="#get-a-mapbox-stylesheet">Get a Mapbox stylesheet</a></li>
+<li><a href="#grab-the-olms-script">Grab the OLMS script</a></li>
+</ul></li>
+<li><a href="#setup-the-html">Setup the HTML</a></li>
+</ul></li>
+</ul>
+</nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="container-fluid p-4 bg-light">
+	<p class="text-muted small mb-0">
+    	Tegola is brought to you by the <a href="http://terranodo.io/">Terranodo</a> team working (mainly) out of sunny San Diego.
+    	Code hosted on <a href="https://github.com/terranodo/tegola">Github</a> under the liberal <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE">MIT</a> license.
+    </p>
+</footer>
+        </div>
+
+        <script src="/libs/jquery-v3.2.1/jquery.js" type="text/javascript"></script>
+<script src="/libs/popper/popper.js" type="text/javascript"></script>
+<script src="/libs/bootstrap-v4.0.0/bootstrap.js" type="text/javascript"></script>
+<script src="/js/site.js" type="text/javascript"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    </body>
+
+</html>

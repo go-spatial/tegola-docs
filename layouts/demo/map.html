@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html class="h-100" lang="{{ .Lang }}">
+    <head>
+        {{ partial "head-meta.html" . }}
+        {{ block "schema-dot-org" . }}
+        {{ end }}
+
+        <link rel="canonical" href="{{ .Permalink }}">
+        <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+
+        {{ if .RSSLink }}
+            {{ "<!-- RSS 2.0 feed -->" | safeHTML }}
+            <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+        {{ end }}
+
+        {{ template "_internal/google_analytics_async.html" . }}
+            {{ if .Site.Params.cookie_consent_info_url }}
+            {{ partial "cookie-consent.html" . }}
+        {{ end }}
+
+        {{ partial "head-custom.html" . }}
+    </head>
+    <body class="h-100">
+        <div class="d-flex flex-column h-100">
+            {{ partial "nav.html" . }}
+            <iframe src="{{.Site.Params.pathroot}}map.html" class="flex-1" id="mapIframe"></iframe>
+            <!--div class="position-relative">
+                {{ partial "footer.html" }}
+            </div-->
+            {{ partial "scripts.html" . }}
+        </div>
+    </body>
+
+</html>
+
+{{- /* vim: set ts=2 sw=2 et: */}}

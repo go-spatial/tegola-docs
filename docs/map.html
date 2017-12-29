@@ -505,7 +505,10 @@
 
 					var doBind = false; // only do binding of property change on initial init of map, but after properties have been set
 
-					this.el = this.el || new ol.Map({target:'olMap'});
+					this.el = this.el || new ol.Map({
+						//interactions: ol.interaction.defaults({mouseWheelZoom:false}),
+						target:'olMap'
+					});
 
 					if (!this.view){
 						this.view = this.el.getView();

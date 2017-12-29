@@ -37,6 +37,9 @@ paginate = 5
 # Theme variables
 #
 [params]
+  
+  pathroot = "/"
+
   # Site author
   author = "Your Name"
 

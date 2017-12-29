@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Getting Started with Tegola" />
+<meta property="og:description" content="1. Download Tegola Download the latest version.
+Choose the binary that matches the operating system Tegola will run on. Quick links are available below for your convenience:
+ OSX Windows Linux  Find the Tegola file that was downloaded and move it into a fresh directory.
+2. Get a data provider Tegola needs geospatial data to run. Currently, Tegola supports PostGIS which is a geospatial extension for PostgreSQL. If you don&rsquo;t have PostGIS installed, download PostGIS." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://github.com/go-spatial/tegola-ui-docs/documentation/getting-started/" />
+
+
+
+<meta property="article:published_time" content="2017-11-29T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2017-11-29T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Getting Started with Tegola"/>
+<meta name="twitter:description" content="1. Download Tegola Download the latest version.
+Choose the binary that matches the operating system Tegola will run on. Quick links are available below for your convenience:
+ OSX Windows Linux  Find the Tegola file that was downloaded and move it into a fresh directory.
+2. Get a data provider Tegola needs geospatial data to run. Currently, Tegola supports PostGIS which is a geospatial extension for PostgreSQL. If you don&rsquo;t have PostGIS installed, download PostGIS."/>
+<meta name="twitter:site" content="@username"/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+        
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Getting Started with Tegola",
+  "url": "https://github.com/go-spatial/tegola-ui-docs/documentation/getting-started/",
+  "wordCount": "629",
+  "datePublished": "2017-11-29T00:00:00&#43;00:00",
+  "dateModified": "2017-11-29T00:00:00&#43;00:00",
+  "author": {
+    "@type": "Person",
+    "name": "Jpalms"
+  }
+}
+</script>
+
+
+
+        <link rel="canonical" href="https://github.com/go-spatial/tegola-ui-docs/documentation/getting-started/">
+        <title>Getting Started with Tegola | Tegola With Open Layers</title>
+
+        
+
+        
+            
+
+        <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+<link href="/css/site.css" rel="stylesheet"/>
+<link rel="stylesheet"
+href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    </head>
+    <body>
+        
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+  <a class="navbar-brand" href="/">
+    TEGOLA
+    
+    </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+        
+        
+            
+                <li class="nav-item ">
+                    <a class="nav-link" href="/go-spatial/tegola-ui-docs/download/download/">Download</a>
+                </li>
+            
+        
+            
+                <li class="nav-item ">
+                    <a class="nav-link" href="/go-spatial/tegola-ui-docs/demo/map/">Demo</a>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Documentation
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        
+                            <a class="dropdown-item " href="/go-spatial/tegola-ui-docs/documentation/">
+                                Documentation Home
+                            </a>
+                        
+                            <a class="dropdown-item active" href="/go-spatial/tegola-ui-docs/documentation/getting-started/">
+                                Getting Started
+                            </a>
+                        
+                            <a class="dropdown-item " href="/go-spatial/tegola-ui-docs/documentation/configuration/">
+                                Tegola Configuration
+                            </a>
+                        
+                            <a class="dropdown-item " href="/go-spatial/tegola-ui-docs/documentation/http-endpoints/">
+                                HTTP Endpoints
+                            </a>
+                        
+                            <a class="dropdown-item " href="/go-spatial/tegola-ui-docs/documentation/debugging/">
+                                Debugging
+                            </a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Tutorials
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        
+                            <a class="dropdown-item " href="/go-spatial/tegola-ui-docs/tutorials/">
+                                Tutorials Home
+                            </a>
+                        
+                            <a class="dropdown-item " href="/go-spatial/tegola-ui-docs/tutorials/tegola-with-mapbox/">
+                                Tegola With Mapbox
+                            </a>
+                        
+                            <a class="dropdown-item " href="/go-spatial/tegola-ui-docs/tutorials/tegola-with-olms/">
+                                Tegola With OLMS
+                            </a>
+                        
+                            <a class="dropdown-item " href="/go-spatial/tegola-ui-docs/tutorials/tegola-with-open-layers/">
+                                Tegola With Open Layers
+                            </a>
+                        
+                    </div>
+                </li>
+            
+        
+
+    </ul>
+  </div>
+</nav>
+        
+        <div class="position-relative">
+
+            <div class="container-fluid pb-3 pr-3 heading">
+                <div class="row">
+                    <div class="col-sm-12 bg-info text-light pl-4 pt-4 pb-3">
+                        <h1 class="display-4 mb-0">
+                            Getting Started with Tegola
+                        </h1>
+                        
+                            <p class="lead text-light">Run your own open source vector tile server</p>
+                        
+                    </div>
+                </div>
+                <div class="row pt-3 pb-4">
+                    <div class="col-sm-9 pl-4 content">
+                        
+                        
+                        
+
+<h2 id="1-download-tegola">1. Download Tegola</h2>
+
+<p>Download the <a href="https://github.com/terranodo/tegola/releases">latest version</a>.</p>
+
+<p>Choose the binary that matches the operating system Tegola will run on. Quick links are available below for your convenience:</p>
+
+<ul>
+<li><a href="https://github.com/terranodo/tegola/releases/download/v0.2.0/tegola_darwin_amd64">OSX</a></li>
+<li><a href="https://github.com/terranodo/tegola/releases/download/v0.2.0/tegola_windows_amd64.exe">Windows</a></li>
+<li><a href="https://github.com/terranodo/tegola/releases/download/v0.2.0/tegola_linux_amd64">Linux</a></li>
+</ul>
+
+<p>Find the Tegola file that was downloaded and move it into a fresh directory.</p>
+
+<h2 id="2-get-a-data-provider">2. Get a data provider</h2>
+
+<p>Tegola needs geospatial data to run. Currently, Tegola supports PostGIS which is a geospatial extension for PostgreSQL. If you don&rsquo;t have PostGIS installed, <a href="http://postgis.net/install/">download PostGIS</a>.</p>
+
+<p>Next, you&rsquo;ll need to load your data provider with data. For your convenience you can download <a href="https://s3-us-west-2.amazonaws.com/tegola/bonn_osm.sql.tgz">PostGIS data for Bonn, Germany</a>.</p>
+
+<p>You&rsquo;ll need to create a new database (named &ldquo;bonn&rdquo;) and use a restore command to import the unzipped sql file into the database. Documentation can be found <a href="https://www.postgresql.org/docs/current/static/backup.html">here</a> under the section titled &ldquo;Restoring the dump&rdquo;. The command should look something like <code>psql bonn &lt; bonn_osm.sql</code>.</p>
+
+<h2 id="3-create-a-configuration-file">3. Create a configuration file</h2>
+
+<p>Tegola utilizes a single configuration file to coordinate with data provider(s). This configuration file is written in <a href="https://github.com/toml-lang/toml">TOML format</a>.</p>
+
+<p>Create your configuration file in the same directory as the Tegola binary and name it <code>config.toml</code>. Next, copy and paste the following into this file:</p>
+
+<pre><code class="language-toml">[webserver]
+port = &quot;:8080&quot;
+
+# register data providers
+[[providers]]
+name = &quot;bonn&quot;           # provider name is referenced from map layers
+type = &quot;postgis&quot;        # the type of data provider. currently only supports postgis
+host = &quot;localhost&quot;      # postgis database host
+port = 5432             # postgis database port
+database = &quot;bonn&quot;       # postgis database name
+user = &quot;tegola&quot;         # postgis database user
+password = &quot;&quot;           # postgis database password
+srid = 3857             # The default srid for this provider. If not provided it will be WebMercator (3857)
+
+[[providers.layers]]
+  name = &quot;road&quot;
+  geometry_fieldname = &quot;wkb_geometry&quot;
+  id_fieldname = &quot;ogc_fid&quot;
+  sql = &quot;SELECT ST_AsBinary(wkb_geometry) AS wkb_geometry, name, ogc_fid FROM all_roads_3857 WHERE wkb_geometry &amp;&amp; !BBOX!&quot;
+
+  [[providers.layers]]
+  name = &quot;main_roads&quot;
+  geometry_fieldname = &quot;wkb_geometry&quot;
+  id_fieldname = &quot;ogc_fid&quot;
+  sql = &quot;SELECT ST_AsBinary(wkb_geometry) AS wkb_geometry, name, ogc_fid FROM main_roads_3857 WHERE wkb_geometry &amp;&amp; !BBOX!&quot;
+
+  [[providers.layers]]
+  name = &quot;lakes&quot;
+  geometry_fieldname = &quot;wkb_geometry&quot;
+  id_fieldname = &quot;ogc_fid&quot;
+  sql = &quot;SELECT ST_AsBinary(wkb_geometry) AS wkb_geometry, name, ogc_fid FROM lakes_3857 WHERE wkb_geometry &amp;&amp; !BBOX!&quot;
+
+[[maps]]
+name = &quot;zoning&quot;
+
+  [[maps.layers]]
+  provider_layer = &quot;bonn.road&quot;
+  min_zoom = 10
+  max_zoom = 20
+
+  [[maps.layers]]
+  provider_layer = &quot;bonn.main_roads&quot;
+  min_zoom = 5
+  max_zoom = 20
+
+  [[maps.layers]]
+  provider_layer = &quot;bonn.lakes&quot;
+  min_zoom = 5
+  max_zoom = 20
+</code></pre>
+
+<p>Note: This configuration file is specific to the Bonn data provided in step 2. If you&rsquo;re using another dataset reference the <a href="/configuration">Configuration Documentation</a>.</p>
+
+<h2 id="4-start-tegola">4. Start Tegola</h2>
+
+<p>Navigate to the Tegola directory in your computer&rsquo;s terminal and run this command:</p>
+
+<pre><code class="language-sh">./tegola --config=config.toml
+</code></pre>
+
+<p>You should see a message confirming the config file load and Tegola being started on port 8080. If your computer&rsquo;s port 8080 is being used by another process, change the port in the config file to an open port.</p>
+
+<h2 id="5-create-an-html-page">5. Create an HTML page</h2>
+
+<p>Tegola delivers geospatial vector tile data to any requesting client. For simplicity, we&rsquo;ll be setting up a basic HTML page as our client that will display the rendered map. We&rsquo;ll be using the <a href="http://openlayers.org/">Open Layers</a> client side library to display and style the vector tile content.</p>
+
+<p>Create a new HTML file, copy in the contents below, and open in a browser:</p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Tegola Sample&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;http://openlayers.org/en/v3.16.0/css/ol.css&quot; type=&quot;text/css&quot;&gt;
+    &lt;script src=&quot;http://openlayers.org/en/v3.16.0/build/ol.js&quot;&gt;&lt;/script&gt;
+    &lt;style&gt;
+      #map {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: #f8f4f0;
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id=&quot;map&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+      var map = new ol.Map({
+        layers: [
+          new ol.layer.VectorTile({
+            source: new ol.source.VectorTile({
+              attributions: '© &lt;a href=&quot;https://www.mapbox.com/map-feedback/&quot;&gt;Mapbox&lt;/a&gt; ' +
+              '© &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;' +
+              'OpenStreetMap contributors&lt;/a&gt;',
+              format: new ol.format.MVT(),
+              tileGrid: ol.tilegrid.createXYZ({maxZoom: 22}),
+              tilePixelRatio: 16,
+              url:'/maps/zoning/{z}/{x}/{y}.vector.pbf?debug=true'
+            })
+          })
+        ],
+        target: 'map',
+        view: new ol.View({
+          center: [790793.4954921771, 6574927.869849075], //coordinates the map will center on initially
+          zoom: 14
+        })
+      });
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>If everything was successful, you should see a map of Bonn in your browser.</p>
+
+<p><img src="/images/bonn.png" alt="Bonn, Germany" /></p>
+
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="sticky-top pt-3 sidebar">
+                            <div class="sidebar-edge nav display-block">
+                                <h6>CONTENTS</h6>
+                                <div class="display-block">
+                                    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#1-download-tegola">1. Download Tegola</a></li>
+<li><a href="#2-get-a-data-provider">2. Get a data provider</a></li>
+<li><a href="#3-create-a-configuration-file">3. Create a configuration file</a></li>
+<li><a href="#4-start-tegola">4. Start Tegola</a></li>
+<li><a href="#5-create-an-html-page">5. Create an HTML page</a></li>
+</ul></li>
+</ul>
+</nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="container-fluid p-4 bg-light">
+	<p class="text-muted small mb-0">
+    	Tegola is brought to you by the <a href="http://terranodo.io/">Terranodo</a> team working (mainly) out of sunny San Diego.
+    	Code hosted on <a href="https://github.com/terranodo/tegola">Github</a> under the liberal <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE">MIT</a> license.
+    </p>
+</footer>
+        </div>
+
+        <script src="/libs/jquery-v3.2.1/jquery.js" type="text/javascript"></script>
+<script src="/libs/popper/popper.js" type="text/javascript"></script>
+<script src="/libs/bootstrap-v4.0.0/bootstrap.js" type="text/javascript"></script>
+<script src="/js/site.js" type="text/javascript"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    </body>
+
+</html>

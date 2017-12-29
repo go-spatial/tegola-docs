@@ -1,15 +1,48 @@
-#mapIframe{width:100%;height:500px;border:none;line-height:1;border-bottom:1px solid #eee;display:block;}
-#TableOfContents ul{list-style-type:none;padding-left:0;}
+
+body{position:relative;}
+pre code{padding:1rem 2rem;font-size:90%;background-color:#f8f9fa;
+	border-radius:.25rem;display:block;}
+p img{max-width:100%;}
+h2{padding-top:1em;margin-top:1.2em;margin-bottom:0.5em;border-bottom:1px solid #eaeaea;}
+h2:first-child{margin-top:0;}
+h3{font-size:1.4em;padding-top:1em;}
+table.table{margin:1.4em 0;}
+code.hljs{padding:1.4em;}
+
+.welcome{position:absolute;top:0;left:0;bottom:0;width:50%;padding:4em;min-width:500px;
+	background: -moz-linear-gradient(left, rgba(30,132,136,0.95) 0%, rgba(30,132,136,0) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, rgba(30,132,136,0.95) 0%,rgba(30,132,136,0) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, rgba(30,132,136,0.95) 0%,rgba(30,132,136,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+}
+
+.welcome .content{max-width:300px;min-width:240px;}
 
 .heading{border-bottom:1px solid #eee;background-color:#fdfdfd;}
 .heading img{}
+
+.sidebar a{color:#666;}
+.sidebar ul{font-size:1em;padding-left:0;}
+.sidebar ul li{margin-bottom:0.25em;}
+.sidebar ul ul{font-size:1em;padding-left:0;}
+.sidebar ul ul ul{font-size:0.9em;padding-left:0.6em;}
+.sidebar-edge{border-left:1px solid #eaeaea;padding-left:1.2em;}
+.sidebar .nav-link{padding:0;}
+.sidebar .nav-link.active{color:#17a2b8;font-weight:bold;}
+
+.dropdown-item.active,.dropdown-item:active{background-color:#17a2b8;}
+a{color:#17a2b8;}
+a:hover{color:#19a4ba;}
+
+.display-block{display:block;}
+.overflow-hidden{overflow:hidden;}
+
+.flex-1{flex:1;}
 
 .l0{left:0;}
 .r0{right:0;}
 .t0{top:0;}
 .b0{bottom:0;}
 
-pre code{padding:1rem 2rem;font-size:90%;background-color:#f8f9fa;
-	border-radius:.25rem;display:block;}
-p img{max-width:100%;}
-h2{margin-top:36px;}
+#mapIframe{width:100%;height:600px;border:none;line-height:1;border-bottom:1px solid #eee;display:block;}
+#TableOfContents ul{list-style-type:none;}

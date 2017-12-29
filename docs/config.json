@@ -63,6 +63,10 @@
     	"key":"ol",
     	"label":"Open Layers",
     	"library":"ol"
+    },{
+        "key":"mapbox",
+        "label":"Mapbox",
+        "library":"mapbox"
     }],
     "locs":[{
     	"key":"sd",
