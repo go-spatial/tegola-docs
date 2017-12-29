@@ -42,10 +42,10 @@ paginate = 5
   pathroot = "/"
 
   # Site author
-  author = "Your Name"
+  author = "Terranodo"
 
   # Description/subtitle for homepage (can be Markdown)
-  description = "Tegola With Open Layers"
+  description = "Tegola Docs"
 
   # Format dates with Go's time formatting
   date_format = "Mon Jan 02, 2006"
