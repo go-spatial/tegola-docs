@@ -10,7 +10,9 @@ menu:
     parent: Documentation
 ---
 
-## 1. Download Tegola
+## 1. Get Tegola
+
+### Executable
 Download the [latest version](https://github.com/terranodo/tegola/releases).
 
 Choose the binary that matches the operating system Tegola will run on. Quick links are available below for your convenience:
@@ -20,6 +22,12 @@ Choose the binary that matches the operating system Tegola will run on. Quick li
 - [Linux](https://github.com/terranodo/tegola/releases/download/v0.2.0/tegola_linux_amd64)
 
 Find the Tegola file that was downloaded and move it into a fresh directory.
+
+### Docker Image
+As of v0.6.0, Tegola also provides an official Docker release with support for both PostGIS and GeoPackage data
+providers.  Use `docker pull gospatial/tegola` to get the latest image.
+
+[Check out the docs on Docker Hub](https://hub.docker.com/r/gospatial/tegola/) for details and examples of using the image.
 
 ## 2. Get a data provider
 
@@ -91,6 +99,8 @@ Note: This configuration file is specific to the Bonn data provided in step 2. I
 
 ## 4. Start Tegola
 
+### Executable
+
 Navigate to the Tegola directory in your computer's terminal and run this command:
 
 ```sh
@@ -98,6 +108,13 @@ Navigate to the Tegola directory in your computer's terminal and run this comman
 ```
 
 You should see a message confirming the config file load and Tegola being started on port 8080. If your computer's port 8080 is being used by another process, change the port in the config file to an open port.
+
+### Docker Image
+If you're using the docker image, starting Tegola will be slightly different in order to pass your config
+and possibly your data into the container.
+
+[Check out the docs on Docker Hub](https://hub.docker.com/r/gospatial/tegola/) for details and examples of using the image.
+
 
 ## 5. Create an HTML page
 
