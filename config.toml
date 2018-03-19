@@ -12,7 +12,7 @@ theme = "hugo-theme-bootstrap4-blog"
 paginate = 5
 # optionally override the site's footer with custom copyright text
 # copyright = "Except where otherwise noted, content on this site is licensed under a [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/)."
-#googleAnalytics = "UA-123-45"
+googleAnalytics = "UA-83708580-1"
 #disqusShortname = "XYW"
 
 #[permalinks]
@@ -35,16 +35,7 @@ paginate = 5
   weight = 3
 
 
-# custom navbar menu entry.   See the custom_navbar parameter below for
-# details.
-
-#[[menu.navbar]]
-#  name = "Link 1"
-#  url = "https://example.org"
-
-
 # Theme variables
-#
 [params]
 
   pathroot = "/"

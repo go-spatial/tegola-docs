@@ -21,8 +21,7 @@
         {{ partial "head-custom.html" . }}
     </head>
     <body>
-        {{ partial "nav.html" . }}
-        
+        {{ partial "nav.html" . }}        
         <div class="position-relative overflow-hidden">
             <iframe src="{{.Site.Params.pathroot}}homeMap.html" id="mapIframe"></iframe>
             <div class="welcome">
@@ -63,7 +62,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">Documentation</h4>
                                 <p class="card-text">Configure Tegola to serve your geospatila data.</p>
-                                <a href="/documentation" class="btn btn-info">Read Docs</a>
+                                <a href="/documentation" class="btn btn-info">Docs</a>
                             </div>
                         </div>
                     </div>
@@ -72,7 +71,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">Tutorials</h4>
                                 <p class="card-text">Quickly get up and running with Tegola.</p>
-                                <a href="/tutorials" class="btn btn-info">Do Tutorials</a>
+                                <a href="/tutorials" class="btn btn-info">utorials</a>
                             </div>
                         </div>
                     </div>
@@ -80,11 +79,8 @@
             </div>
             {{ partial "footer.html" }}
         </div>
-
         {{ partial "scripts.html" . }}
-
     </body>
-
 </html>
 
 {{- /* vim: set ts=2 sw=2 et: */}}
