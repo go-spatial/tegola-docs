@@ -11,23 +11,26 @@ menu:
 ---
 
 ## 1. Download Tegola
-Download the [latest version](https://github.com/terranodo/tegola/releases).
+[Choose the binary](https://github.com/go-spatial/tegola/releases) that matches the operating system Tegola will run on. Find the Tegola file that was downloaded, unzip it, and move it into a fresh directory. Rename this file `tegola`.
 
-Choose the binary that matches the operating system Tegola will run on. Quick links are available below for your convenience:
+## 2. Setup a data provider
 
-- [OSX](https://github.com/terranodo/tegola/releases/download/v0.2.0/tegola_darwin_amd64)
-- [Windows](https://github.com/terranodo/tegola/releases/download/v0.2.0/tegola_windows_amd64.exe)
-- [Linux](https://github.com/terranodo/tegola/releases/download/v0.2.0/tegola_linux_amd64)
+Tegola needs geospatial data to run. Currently, Tegola supports PostGIS which is a geospatial extension for PostgreSQL, and GeoPackage. If you don't have PostGIS installed, [download PostGIS](http://postgis.net/install/).
 
-Find the Tegola file that was downloaded and move it into a fresh directory.
+Next, you'll need to load PostGIS with data. For your convenience you can download [PostGIS data for Bonn, Germany](https://s3-us-west-2.amazonaws.com/tegola/bonn_osm.sql.tgz).
 
-## 2. Get a data provider
+Create a new database named `bonn`, and use a restore command to import the unzipped sql file into the database. Documentation can be found [here](https://www.postgresql.org/docs/current/static/backup.html) under the section titled "Restoring the dump". The command should look something like this:
 
-Tegola needs geospatial data to run. Currently, Tegola supports PostGIS which is a geospatial extension for PostgreSQL. If you don't have PostGIS installed, [download PostGIS](http://postgis.net/install/).
+```sh
+psql bonn < bonn_osm.sql
+```
 
-Next, you'll need to load your data provider with data. For your convenience you can download [PostGIS data for Bonn, Germany](https://s3-us-west-2.amazonaws.com/tegola/bonn_osm.sql.tgz).
+To enable Tegola to connect to the database, create a database user named `tegola` and grant the privileges required to read the tables in the `public` schema of the `bonn` database, using these commands:
 
-You'll need to create a new database (named "bonn") and use a restore command to import the unzipped sql file into the database. Documentation can be found [here](https://www.postgresql.org/docs/current/static/backup.html) under the section titled "Restoring the dump". The command should look something like `psql bonn < bonn_osm.sql`.
+```sh
+psql -c "CREATE USER tegola;"
+psql -d bonn -c "GRANT SELECT ON ALL TABLES IN SCHEMA public TO tegola;"
+```
 
 ## 3. Create a configuration file
 

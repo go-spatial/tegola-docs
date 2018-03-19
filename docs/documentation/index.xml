@@ -17,10 +17,9 @@
       <pubDate>Wed, 29 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>/documentation/getting-started/</guid>
-      <description>1. Download Tegola Download the latest version.
-Choose the binary that matches the operating system Tegola will run on. Quick links are available below for your convenience:
- OSX Windows Linux  Find the Tegola file that was downloaded and move it into a fresh directory.
-2. Get a data provider Tegola needs geospatial data to run. Currently, Tegola supports PostGIS which is a geospatial extension for PostgreSQL. If you don&amp;rsquo;t have PostGIS installed, download PostGIS.</description>
+      <description>1. Download Tegola Choose the binary that matches the operating system Tegola will run on. Find the Tegola file that was downloaded, unzip it, and move it into a fresh directory. Rename this file tegola.
+2. Setup a data provider Tegola needs geospatial data to run. Currently, Tegola supports PostGIS which is a geospatial extension for PostgreSQL, and GeoPackage. If you don&amp;rsquo;t have PostGIS installed, download PostGIS.
+Next, you&amp;rsquo;ll need to load PostGIS with data.</description>
     </item>
     
     <item>
@@ -30,8 +29,8 @@ Choose the binary that matches the operating system Tegola will run on. Quick li
       
       <guid>/documentation/configuration/</guid>
       <description>Overview The Tegola config file use TOML syntax and is comprised of three primary sections:
- Webserver: webserver configuration. Providers: data provider configuration (i.e. PostGIS). Maps: map configuration including map names, layers and zoom levels.  Webserver The webserver part of the config has the following parameters:
-   Param Required Default Description     port No :8080 A string with the value for port.   log_file No  Location of a log file to write webserver logs to.</description>
+ Webserver: webserver configuration. Providers: data provider configuration (i.e. PostGIS). Maps: map configuration including map names, layers and zoom levels. Cache: cache configurations.  Webserver The webserver part of the config has the following parameters:
+   Param Required Default Description     port No :8080 A string with the value for port.</description>
     </item>
     
     <item>

@@ -3,7 +3,7 @@ author: "Jpalms"
 date: 2017-11-29
 linktitle: Tegola With Open Layers
 title: Tegola With Open Layers
-weight: 10
+weight: 3
 subtitle: An open source mapping solution for web and mobile
 menu:
   main:
@@ -12,7 +12,7 @@ menu:
 
 ## Introduction
 
-[Tegola](https://github.com/terranodo/tegola) is a vector tile server written in Go. Tegola takes geospatial data from a PostGIS Database and slices it into vector tiles that can be efficiently delivered to any client.
+[Tegola](https://github.com/go-spatial/tegola) is a vector tile server written in Go. Tegola takes geospatial data from a PostGIS Database and slices it into vector tiles that can be efficiently delivered to any client.
 
 [Open Layers](https://openlayers.org/) is a client library for rendering MVT and raster maps. Combined with Tegola, developers may now render maps in the web or on mobile utilizing all open source technology.
 

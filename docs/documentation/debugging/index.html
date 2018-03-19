@@ -27,12 +27,12 @@ SQL_DEBUG: specify the type of SQL debug information to output. Supports the fol
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Debugging Tegola"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Debugging Tegola"/>
 <meta name="twitter:description" content="Environment Variables The following environment variables can be used for debugging the tegola server:
 SQL_DEBUG: specify the type of SQL debug information to output. Supports the following values:
  LAYER_SQL: print layer SQL as they&rsquo;re parsed from the config file. EXECUTE_SQL: print SQL that is executed for each tile request and the number of items it returns or an error. LAYER_SQL:EXECUTE_SQL: print LAYER_SQL and EXECUTE_SQL.  Example $ SQL_DEBUG=LAYER_SQL tegola --config=/path/to/conf."/>
-<meta name="twitter:site" content="@username"/>
-<meta name="generator" content="Hugo 0.31.1" />
+<meta name="generator" content="Hugo 0.37.1" />
 
         
 <script type="application/ld+json">
@@ -68,92 +68,81 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     </head>
     <body>
-        
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
-  <a class="navbar-brand" href="../../">
-    TEGOLA
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <a class="navbar-brand" href="../../">
+        TEGOLA
     
     </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-        
-        
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
             
-                <li class="nav-item ">
-                    <a class="nav-link" href="../../download/download/">Download</a>
-                </li>
             
-        
+                
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documentation</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            
+                                <a class="dropdown-item " href="../../documentation/">
+                                    Documentation Home
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../documentation/getting-started/">
+                                    Getting Started
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../documentation/configuration/">
+                                    Tegola Configuration
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../documentation/http-endpoints/">
+                                    HTTP Endpoints
+                                </a>
+                            
+                                <a class="dropdown-item active" href="../../documentation/debugging/">
+                                    Debugging
+                                </a>
+                            
+                        </div>
+                    </li>
+                
             
-                <li class="nav-item ">
-                    <a class="nav-link" href="../../demo/map/">Demo</a>
-                </li>
+                
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tutorials</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            
+                                <a class="dropdown-item " href="../../tutorials/">
+                                    Tutorials Home
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../tutorials/tegola-with-mapbox/">
+                                    Tegola With Mapbox
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../tutorials/tegola-with-open-layers/">
+                                    Tegola With Open Layers
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../tutorials/tegola-with-olms/">
+                                    Tegola With OLMS
+                                </a>
+                            
+                        </div>
+                    </li>
+                
             
-        
+                
+                    <li class="nav-item ">
+                        <a class="nav-link" href="../../demo">Demo</a>
+                    </li>
+                
             
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Documentation
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        
-                            <a class="dropdown-item " href="../../documentation/">
-                                Documentation Home
-                            </a>
-                        
-                            <a class="dropdown-item " href="../../documentation/getting-started/">
-                                Getting Started
-                            </a>
-                        
-                            <a class="dropdown-item " href="../../documentation/configuration/">
-                                Tegola Configuration
-                            </a>
-                        
-                            <a class="dropdown-item " href="../../documentation/http-endpoints/">
-                                HTTP Endpoints
-                            </a>
-                        
-                            <a class="dropdown-item active" href="../../documentation/debugging/">
-                                Debugging
-                            </a>
-                        
-                    </div>
-                </li>
-            
-        
-            
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Tutorials
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        
-                            <a class="dropdown-item " href="../../tutorials/">
-                                Tutorials Home
-                            </a>
-                        
-                            <a class="dropdown-item " href="../../tutorials/tegola-with-mapbox/">
-                                Tegola With Mapbox
-                            </a>
-                        
-                            <a class="dropdown-item " href="../../tutorials/tegola-with-olms/">
-                                Tegola With OLMS
-                            </a>
-                        
-                            <a class="dropdown-item " href="../../tutorials/tegola-with-open-layers/">
-                                Tegola With Open Layers
-                            </a>
-                        
-                    </div>
-                </li>
-            
-        
-
-    </ul>
-  </div>
+        </ul>
+        <a href="https://github.com/go-spatial/tegola/releases" class="btn btn-info">Download</a>
+    </div>
 </nav>
         
         <div class="position-relative">
@@ -233,8 +222,8 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
             </div>
             <footer class="container-fluid p-4 bg-light">
 	<p class="text-muted small mb-0">
-    	Tegola is brought to you by the <a href="http://terranodo.io/">Terranodo</a> team working (mainly) out of sunny San Diego.
-    	Code hosted on <a href="https://github.com/terranodo/tegola">Github</a> under the liberal <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE">MIT</a> license.
+    	Tegola is brought to you by the <a href="https://github.com/go-spatial">Go Spatial</a> team working (mainly) out of sunny San Diego.
+    	Code hosted on <a href="https://github.com/go-spatial/tegola">Github</a> under the liberal <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE">MIT</a> license.
     </p>
 </footer>
         </div>

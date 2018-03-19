@@ -3,7 +3,7 @@ author: "Jpalms"
 date: 2017-11-29
 linktitle: Debugging
 title: Debugging Tegola
-weight: 20
+weight: 5
 subtitle: Fixing problems in Tegola
 menu:
   main:

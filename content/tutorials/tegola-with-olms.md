@@ -3,7 +3,7 @@ author: "Jpalms"
 date: 2017-11-29
 linktitle: Tegola With OLMS
 title: Tegola With OL Mapbox Style (OLMS)
-weight: 10
+weight: 4
 subtitle: An easy way to use Mapbox styles with Open Layers
 menu:
   main:
@@ -12,7 +12,7 @@ menu:
 
 ## Introduction
 
-[Tegola](https://github.com/terranodo/tegola) is a vector tile server written in Go. Tegola takes geospatial data from a PostGIS Database and slices it into vector tiles that can be efficiently delivered to any client.
+[Tegola](https://github.com/go-spatial/tegola) is a vector tile server written in Go. Tegola takes geospatial data from a PostGIS Database and slices it into vector tiles that can be efficiently delivered to any client.
 
 [OLMS](https://github.com/boundlessgeo/ol-mapbox-style) is a library used to take Mapbox stylesheets and convert them into Open Layers scripted styles.
 

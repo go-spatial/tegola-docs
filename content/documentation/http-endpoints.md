@@ -3,7 +3,7 @@ author: "Jpalms"
 date: 2017-11-29
 linktitle: HTTP Endpoints
 title: HTTP Endpoints
-weight: 10
+weight: 4
 subtitle: Tegola API endpoints
 menu:
   main:
@@ -46,22 +46,22 @@ The `/capabilities` endpoint returns JSON with details about the running Tegola 
 
 ```json
 {
-	"version": "v0.3.0",
-	"maps": [{
-		"name": "bonn_osm",
-		"uri": "/maps/bonn_osm",
-		"layers": [{
-			"name": "building",
-			"uri": "/maps/bonn_osm/building",
-			"minZoom": 14,
-			"maxZoom": 20
-		}, {
-			"name": "road",
-			"uri": "/maps/bonn_osm/road",
-			"minZoom": 10,
-			"maxZoom": 20
-		}]
-	}]
+  "version": "v0.6.1",
+  "maps": [{
+    "name": "bonn_osm",
+    "uri": "/maps/bonn_osm",
+    "layers": [{
+        "name": "building",
+        "uri": "/maps/bonn_osm/building",
+        "minZoom": 14,
+        "maxZoom": 20
+      },{
+        "name": "road",
+        "uri": "/maps/bonn_osm/road",
+        "minZoom": 10,
+        "maxZoom": 20
+      }]
+  }]
 }
 ```
 

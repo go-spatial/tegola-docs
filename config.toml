@@ -15,17 +15,25 @@ paginate = 5
 #googleAnalytics = "UA-123-45"
 #disqusShortname = "XYW"
 
-[permalinks]
-  post = "/:year/:month/:title/"
-  page = "/:slug/"
+#[permalinks]
+#  post = "/:year/:month/:title/"
+#  page = "/:slug/"
 
-[[menu.sidebar]]
-  name = "Link 1"
-  url = "https://example.com"
+[[menu.main]]
+  name = "Documentation"
+  url = "/documentation"
+  weight = 1
 
-[[menu.sidebar]]
-  name = "Link 2"
-  url = "https://example.org"
+[[menu.main]]
+  name = "Tutorials"
+  url = "/tutorials"
+  weight = 2
+
+[[menu.main]]
+  name = "Demo"
+  url = "/demo"
+  weight = 3
+
 
 # custom navbar menu entry.   See the custom_navbar parameter below for
 # details.
@@ -38,11 +46,11 @@ paginate = 5
 # Theme variables
 #
 [params]
-  
+
   pathroot = "/"
 
   # Site author
-  author = "Terranodo"
+  author = "Go Spatial"
 
   # Description/subtitle for homepage (can be Markdown)
   description = "Tegola Docs"
@@ -96,7 +104,7 @@ paginate = 5
     # Optional, used for attribution in Twitter cards (ideally not a person
     # for example: nytimes, flickr, NatGeo, etc).
     # See: https://dev.twitter.com/cards/types/summary-large-image
-    twitter = "username"
+    twitter = "TegolaGis"
 
 # Default content language for Hugo 0.17's multilingual support (default is "en")
 # See: https://github.com/spf13/hugo/blob/master/docs/content/content/multilingual.md

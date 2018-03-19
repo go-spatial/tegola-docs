@@ -3,7 +3,7 @@ author: "Jpalms"
 date: 2017-11-29
 linktitle: Tegola With Mapbox
 title: Tegola With Mapbox GL JS
-weight: 10
+weight: 2
 subtitle: A mapping solution utilizing Mapbox
 menu:
   main:
@@ -12,7 +12,7 @@ menu:
 
 ## Introduction
 
-[Tegola](https://github.com/terranodo/tegola) is a vector tile server written in Go. Tegola takes geospatial data from a PostGIS Database and slices it into vector tiles that can be efficiently delivered to any client.
+[Tegola](https://github.com/go-spatial/tegola) is a vector tile server written in Go. Tegola takes geospatial data from a PostGIS Database and slices it into vector tiles that can be efficiently delivered to any client.
 
 [Mapbox GL JS](https://www.mapbox.com/mapbox-gl-js/api/) is a client library for rendering MVT and raster maps. Combined with Tegola, beautiful maps may be rendered with complete control.
 

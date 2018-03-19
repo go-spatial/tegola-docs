@@ -12,57 +12,14 @@
     
     
     <item>
-      <title>Download Tegola</title>
-      <link>/download/download/</link>
-      <pubDate>Wed, 29 Nov 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/download/download/</guid>
-      <description>Latest Version Download the latest release for you operating system:
- Linux OSX Windows  Additional binaries for other operating systems and versions are here.
-Next Steps Once you&amp;rsquo;ve downloaded Tegola, read the Getting Started Guide.</description>
-    </item>
-    
-    <item>
       <title>Getting Started with Tegola</title>
       <link>/documentation/getting-started/</link>
       <pubDate>Wed, 29 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>/documentation/getting-started/</guid>
-      <description>1. Download Tegola Download the latest version.
-Choose the binary that matches the operating system Tegola will run on. Quick links are available below for your convenience:
- OSX Windows Linux  Find the Tegola file that was downloaded and move it into a fresh directory.
-2. Get a data provider Tegola needs geospatial data to run. Currently, Tegola supports PostGIS which is a geospatial extension for PostgreSQL. If you don&amp;rsquo;t have PostGIS installed, download PostGIS.</description>
-    </item>
-    
-    <item>
-      <title>Tegola Configuration</title>
-      <link>/documentation/configuration/</link>
-      <pubDate>Wed, 29 Nov 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/documentation/configuration/</guid>
-      <description>Overview The Tegola config file use TOML syntax and is comprised of three primary sections:
- Webserver: webserver configuration. Providers: data provider configuration (i.e. PostGIS). Maps: map configuration including map names, layers and zoom levels.  Webserver The webserver part of the config has the following parameters:
-   Param Required Default Description     port No :8080 A string with the value for port.   log_file No  Location of a log file to write webserver logs to.</description>
-    </item>
-    
-    <item>
-      <title>Tegola Demo</title>
-      <link>/demo/map/</link>
-      <pubDate>Wed, 29 Nov 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/demo/map/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>HTTP Endpoints</title>
-      <link>/documentation/http-endpoints/</link>
-      <pubDate>Wed, 29 Nov 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/documentation/http-endpoints/</guid>
-      <description>Introduction The following endpoints are used for communicating with Tegola over HTTP. All the endpoints expect a HTTP GET request.
-/maps/:map/:z/:x/:y Will return a vector tile from the provided :map at the provided :z, :x: and :y values.
-URL parameters  :map: The name of the map as defined in the Tegola config file. :z: The tile zoom. :x: The tile row. :y: The tile column.  /maps/:map/:layer/:z/:x/:y Will return a vector tile with a single :layer from the provided :map at the provided :z, :x: and :y values.</description>
+      <description>1. Download Tegola Choose the binary that matches the operating system Tegola will run on. Find the Tegola file that was downloaded, unzip it, and move it into a fresh directory. Rename this file tegola.
+2. Setup a data provider Tegola needs geospatial data to run. Currently, Tegola supports PostGIS which is a geospatial extension for PostgreSQL, and GeoPackage. If you don&amp;rsquo;t have PostGIS installed, download PostGIS.
+Next, you&amp;rsquo;ll need to load PostGIS with data.</description>
     </item>
     
     <item>
@@ -77,14 +34,14 @@ This guide will take you through the steps to get Tegola rendering a map using M
     </item>
     
     <item>
-      <title>Tegola With OL Mapbox Style (OLMS)</title>
-      <link>/tutorials/tegola-with-olms/</link>
+      <title>Tegola Configuration</title>
+      <link>/documentation/configuration/</link>
       <pubDate>Wed, 29 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>/tutorials/tegola-with-olms/</guid>
-      <description>Introduction Tegola is a vector tile server written in Go. Tegola takes geospatial data from a PostGIS Database and slices it into vector tiles that can be efficiently delivered to any client.
-OLMS is a library used to take Mapbox stylesheets and convert them into Open Layers scripted styles.
-This guide will show you how to use OLMS to convert and utilize a Mapbox style to render a map using Open Layers.</description>
+      <guid>/documentation/configuration/</guid>
+      <description>Overview The Tegola config file use TOML syntax and is comprised of three primary sections:
+ Webserver: webserver configuration. Providers: data provider configuration (i.e. PostGIS). Maps: map configuration including map names, layers and zoom levels. Cache: cache configurations.  Webserver The webserver part of the config has the following parameters:
+   Param Required Default Description     port No :8080 A string with the value for port.</description>
     </item>
     
     <item>
@@ -96,6 +53,28 @@ This guide will show you how to use OLMS to convert and utilize a Mapbox style t
       <description>Introduction Tegola is a vector tile server written in Go. Tegola takes geospatial data from a PostGIS Database and slices it into vector tiles that can be efficiently delivered to any client.
 Open Layers is a client library for rendering MVT and raster maps. Combined with Tegola, developers may now render maps in the web or on mobile utilizing all open source technology.
 This guide will take you through the steps to get Tegola rendering a map using Open Layers and visualized in a web browser.</description>
+    </item>
+    
+    <item>
+      <title>HTTP Endpoints</title>
+      <link>/documentation/http-endpoints/</link>
+      <pubDate>Wed, 29 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/documentation/http-endpoints/</guid>
+      <description>Introduction The following endpoints are used for communicating with Tegola over HTTP. All the endpoints expect a HTTP GET request.
+/maps/:map/:z/:x/:y Will return a vector tile from the provided :map at the provided :z, :x: and :y values.
+URL parameters  :map: The name of the map as defined in the Tegola config file. :z: The tile zoom. :x: The tile row. :y: The tile column.  /maps/:map/:layer/:z/:x/:y Will return a vector tile with a single :layer from the provided :map at the provided :z, :x: and :y values.</description>
+    </item>
+    
+    <item>
+      <title>Tegola With OL Mapbox Style (OLMS)</title>
+      <link>/tutorials/tegola-with-olms/</link>
+      <pubDate>Wed, 29 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tutorials/tegola-with-olms/</guid>
+      <description>Introduction Tegola is a vector tile server written in Go. Tegola takes geospatial data from a PostGIS Database and slices it into vector tiles that can be efficiently delivered to any client.
+OLMS is a library used to take Mapbox stylesheets and convert them into Open Layers scripted styles.
+This guide will show you how to use OLMS to convert and utilize a Mapbox style to render a map using Open Layers.</description>
     </item>
     
     <item>

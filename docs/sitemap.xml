@@ -8,11 +8,6 @@
   </url>
   
   <url>
-    <loc>/download/download/</loc>
-    <lastmod>2017-11-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tutorials/</loc>
     <lastmod>2017-11-29T00:00:00+00:00</lastmod>
   </url>
@@ -23,32 +18,12 @@
   </url>
   
   <url>
-    <loc>/documentation/configuration/</loc>
-    <lastmod>2017-11-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/demo/map/</loc>
-    <lastmod>2017-11-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/documentation/http-endpoints/</loc>
-    <lastmod>2017-11-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2017-11-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tutorials/tegola-with-mapbox/</loc>
     <lastmod>2017-11-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tutorials/tegola-with-olms/</loc>
+    <loc>/documentation/configuration/</loc>
     <lastmod>2017-11-29T00:00:00+00:00</lastmod>
   </url>
   
@@ -58,24 +33,37 @@
   </url>
   
   <url>
+    <loc>/documentation/http-endpoints/</loc>
+    <lastmod>2017-11-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tutorials/tegola-with-olms/</loc>
+    <lastmod>2017-11-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/documentation/debugging/</loc>
     <lastmod>2017-11-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/demo/</loc>
     <lastmod>2017-11-29T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/download/</loc>
     <lastmod>2017-11-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2017-11-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
     <priority>0</priority>
   </url>
   
