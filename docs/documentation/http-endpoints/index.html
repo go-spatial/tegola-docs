@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <meta property="og:title" content="HTTP Endpoints" />
-<meta property="og:description" content="Introduction The following endpoints are used for communicating with Tegola over HTTP. All the endpoints expect a HTTP GET request.
-/maps/:map/:z/:x/:y Will return a vector tile from the provided :map at the provided :z, :x: and :y values.
-URL parameters  :map: The name of the map as defined in the Tegola config file. :z: The tile zoom. :x: The tile row. :y: The tile column.  /maps/:map/:layer/:z/:x/:y Will return a vector tile with a single :layer from the provided :map at the provided :z, :x: and :y values." />
+<meta property="og:description" content="GET /maps/:map/:z/:x/:y Will return a vector tile from the provided :map at the provided :z, :x: and :y values.
+URL parameters
+ :map: The name of the map as defined in the Tegola config file. :z: The tile zoom. :x: The tile row. :y: The tile column.  GET /maps/:map/:layer/:z/:x/:y Will return a vector tile with a single :layer from the provided :map at the provided :z, :x: and :y values." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/documentation/http-endpoints/" />
 
@@ -29,9 +29,9 @@ URL parameters  :map: The name of the map as defined in the Tegola config file. 
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="HTTP Endpoints"/>
-<meta name="twitter:description" content="Introduction The following endpoints are used for communicating with Tegola over HTTP. All the endpoints expect a HTTP GET request.
-/maps/:map/:z/:x/:y Will return a vector tile from the provided :map at the provided :z, :x: and :y values.
-URL parameters  :map: The name of the map as defined in the Tegola config file. :z: The tile zoom. :x: The tile row. :y: The tile column.  /maps/:map/:layer/:z/:x/:y Will return a vector tile with a single :layer from the provided :map at the provided :z, :x: and :y values."/>
+<meta name="twitter:description" content="GET /maps/:map/:z/:x/:y Will return a vector tile from the provided :map at the provided :z, :x: and :y values.
+URL parameters
+ :map: The name of the map as defined in the Tegola config file. :z: The tile zoom. :x: The tile row. :y: The tile column.  GET /maps/:map/:layer/:z/:x/:y Will return a vector tile with a single :layer from the provided :map at the provided :z, :x: and :y values."/>
 <meta name="generator" content="Hugo 0.37.1" />
 
         
@@ -41,7 +41,7 @@ URL parameters  :map: The name of the map as defined in the Tegola config file. 
   "@type": "BlogPosting",
   "headline": "HTTP Endpoints",
   "url": "/documentation/http-endpoints/",
-  "wordCount": "210",
+  "wordCount": "264",
   "datePublished": "2017-11-29T00:00:00&#43;00:00",
   "dateModified": "2017-11-29T00:00:00&#43;00:00",
   "author": {
@@ -171,42 +171,38 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
                         
                         
 
-<h2 id="introduction">Introduction</h2>
-
-<p>The following endpoints are used for communicating with Tegola over HTTP. All the endpoints expect a HTTP <code>GET</code> request.</p>
-
-<h2 id="maps-map-z-x-y">/maps/:map/:z/:x/:y</h2>
+<h2 id="get-maps-map-z-x-y"><code>GET</code> /maps/:map/:z/:x/:y</h2>
 
 <p>Will return a vector tile from the provided <code>:map</code> at the provided <code>:z</code>, <code>:x</code>: and <code>:y</code> values.</p>
 
-<h3 id="url-parameters">URL parameters</h3>
+<p><strong>URL parameters</strong></p>
 
 <ul>
-<li><code>:map</code>: The name of the map as defined in the Tegola <a href="../../configuration/#maps">config</a> file.</li>
+<li><code>:map</code>: The name of the map as defined in the Tegola <a href="../../documentation/configuration/#maps">config</a> file.</li>
 <li><code>:z</code>: The tile zoom.</li>
 <li><code>:x</code>: The tile row.</li>
 <li><code>:y</code>: The tile column.</li>
 </ul>
 
-<h2 id="maps-map-layer-z-x-y">/maps/:map/:layer/:z/:x/:y</h2>
+<h2 id="get-maps-map-layer-z-x-y"><code>GET</code> /maps/:map/:layer/:z/:x/:y</h2>
 
 <p>Will return a vector tile with a single <code>:layer</code> from the provided <code>:map</code> at the provided <code>:z</code>, <code>:x</code>: and <code>:y</code> values.</p>
 
-<h3 id="url-parameters-1">URL parameters</h3>
+<p><strong>URL parameters</strong></p>
 
 <ul>
-<li><code>:map</code>: The name of the map as defined in the Tegola <a href="../../configuration/#maps">config</a> file.</li>
-<li><code>:layer</code>: The name of the maps layer, as defined in the Tegola <a href="../../configuration/#map-layers">config</a> file.</li>
+<li><code>:map</code>: The name of the map as defined in the Tegola <a href="../../documentation/configuration/#maps">config</a> file.</li>
+<li><code>:layer</code>: The name of the maps layer, as defined in the Tegola <a href="../../documentation/configuration/#map-layers">config</a> file.</li>
 <li><code>:z</code>: The tile zoom.</li>
 <li><code>:x</code>: The tile row.</li>
 <li><code>:y</code>: The tile column.</li>
 </ul>
 
-<h2 id="capabilities">/capabilities</h2>
+<h2 id="get-capabilities"><code>GET</code> /capabilities</h2>
 
 <p>The <code>/capabilities</code> endpoint returns JSON with details about the running Tegola instance.</p>
 
-<h3 id="example-response">Example response</h3>
+<p><strong>Example response</strong></p>
 
 <pre><code class="language-json">{
   &quot;version&quot;: &quot;v0.6.1&quot;,
@@ -228,9 +224,56 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
 }
 </code></pre>
 
-<h2 id="static">/static</h2>
+<h2 id="get-capabilities-map-json"><code>GET</code> /capabilities/:map.json</h2>
 
-<p>The <code>/static</code> endpoint provides a HTTP fileserver that will serve files from the <code>static/</code> directory relative to the running Tegola instance. This is helpful during local development when testing Tegola with a client side library.</p>
+<p>Returns information about a map matching the <a href="https://github.com/mapbox/tilejson-spec/tree/master/2.1.0">TileJSON 2.1 specification</a>.</p>
+
+<p><strong>URL parameters</strong></p>
+
+<ul>
+<li><code>:map</code>: The name of the map as defined in the Tegola <a href="../../documentation/configuration/#maps">config</a> file.</li>
+</ul>
+
+<p><strong>Example response</strong></p>
+
+<pre><code class="language-json">{
+  &quot;attribution&quot;: &quot;Open Street Map&quot;,
+  &quot;bounds&quot;: [-180, -85.0511, 180, 85.0511],
+  &quot;center&quot;: [-76.275329586789, 39.153492567373, 8],
+  &quot;format&quot;: &quot;pbf&quot;,
+  &quot;minzoom&quot;: 0,
+  &quot;maxzoom&quot;: 20,
+  &quot;name&quot;: &quot;osm&quot;,
+  &quot;description&quot;: null,
+  &quot;scheme&quot;: &quot;xyz&quot;,
+  &quot;tilejson&quot;: &quot;2.1.0&quot;,
+  &quot;tiles&quot;: [&quot;https://osm.tegola.io/maps/osm/{z}/{x}/{y}.pbf&quot;],
+  &quot;grids&quot;: [],
+  &quot;data&quot;: [],
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;template&quot;: null,
+  &quot;legend&quot;: null,
+  &quot;vector_layers&quot;: [{
+    &quot;version&quot;: 2,
+    &quot;extent&quot;: 4096,
+    &quot;id&quot;: &quot;populated_places&quot;,
+    &quot;name&quot;: &quot;populated_places&quot;,
+    &quot;geometry_type&quot;: &quot;point&quot;,
+    &quot;minzoom&quot;: 0,
+    &quot;maxzoom&quot;: 20,
+    &quot;tiles&quot;: [&quot;https://osm.tegola.io/maps/osm/populated_places/{z}/{x}/{y}.pbf&quot;]
+  }, {
+    &quot;version&quot;: 2,
+    &quot;extent&quot;: 4096,
+    &quot;id&quot;: &quot;country_lines&quot;,
+    &quot;name&quot;: &quot;country_lines&quot;,
+    &quot;geometry_type&quot;: &quot;line&quot;,
+    &quot;minzoom&quot;: 0,
+    &quot;maxzoom&quot;: 10,
+    &quot;tiles&quot;: [&quot;https://osm.tegola.io/maps/osm/country_lines/{z}/{x}/{y}.pbf&quot;]
+  }]
+}
+</code></pre>
 
                     </div>
                     <div class="col-sm-3">
@@ -242,20 +285,10 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
 <ul>
 <li>
 <ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#maps-map-z-x-y">/maps/:map/:z/:x/:y</a>
-<ul>
-<li><a href="#url-parameters">URL parameters</a></li>
-</ul></li>
-<li><a href="#maps-map-layer-z-x-y">/maps/:map/:layer/:z/:x/:y</a>
-<ul>
-<li><a href="#url-parameters-1">URL parameters</a></li>
-</ul></li>
-<li><a href="#capabilities">/capabilities</a>
-<ul>
-<li><a href="#example-response">Example response</a></li>
-</ul></li>
-<li><a href="#static">/static</a></li>
+<li><a href="#get-maps-map-z-x-y"><code>GET</code> /maps/:map/:z/:x/:y</a></li>
+<li><a href="#get-maps-map-layer-z-x-y"><code>GET</code> /maps/:map/:layer/:z/:x/:y</a></li>
+<li><a href="#get-capabilities"><code>GET</code> /capabilities</a></li>
+<li><a href="#get-capabilities-map-json"><code>GET</code> /capabilities/:map.json</a></li>
 </ul></li>
 </ul>
 </nav>

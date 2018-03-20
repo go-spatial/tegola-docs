@@ -39,9 +39,9 @@ Next, you&amp;rsquo;ll need to load PostGIS with data.</description>
       <pubDate>Wed, 29 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>/documentation/http-endpoints/</guid>
-      <description>Introduction The following endpoints are used for communicating with Tegola over HTTP. All the endpoints expect a HTTP GET request.
-/maps/:map/:z/:x/:y Will return a vector tile from the provided :map at the provided :z, :x: and :y values.
-URL parameters  :map: The name of the map as defined in the Tegola config file. :z: The tile zoom. :x: The tile row. :y: The tile column.  /maps/:map/:layer/:z/:x/:y Will return a vector tile with a single :layer from the provided :map at the provided :z, :x: and :y values.</description>
+      <description>GET /maps/:map/:z/:x/:y Will return a vector tile from the provided :map at the provided :z, :x: and :y values.
+URL parameters
+ :map: The name of the map as defined in the Tegola config file. :z: The tile zoom. :x: The tile row. :y: The tile column.  GET /maps/:map/:layer/:z/:x/:y Will return a vector tile with a single :layer from the provided :map at the provided :z, :x: and :y values.</description>
     </item>
     
     <item>
@@ -52,7 +52,8 @@ URL parameters  :map: The name of the map as defined in the Tegola config file. 
       <guid>/documentation/debugging/</guid>
       <description>Environment Variables The following environment variables can be used for debugging the tegola server:
 SQL_DEBUG: specify the type of SQL debug information to output. Supports the following values:
- LAYER_SQL: print layer SQL as they&amp;rsquo;re parsed from the config file. EXECUTE_SQL: print SQL that is executed for each tile request and the number of items it returns or an error. LAYER_SQL:EXECUTE_SQL: print LAYER_SQL and EXECUTE_SQL.  Example $ SQL_DEBUG=LAYER_SQL tegola --config=/path/to/conf.</description>
+ LAYER_SQL: print layer SQL as they&amp;rsquo;re parsed from the config file. EXECUTE_SQL: print SQL that is executed for each tile request and the number of items it returns or an error. LAYER_SQL:EXECUTE_SQL: print LAYER_SQL and EXECUTE_SQL.  Example
+$ SQL_DEBUG=LAYER_SQL tegola --config=/path/to/conf.</description>
     </item>
     
   </channel>

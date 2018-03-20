@@ -10,39 +10,34 @@ menu:
     parent: Documentation
 ---
 
-## Introduction
-
-The following endpoints are used for communicating with Tegola over HTTP. All the endpoints expect a HTTP `GET` request.
-
-## /maps/:map/:z/:x/:y
+## `GET` /maps/:map/:z/:x/:y
 
 Will return a vector tile from the provided `:map` at the provided `:z`, `:x`: and `:y` values.
 
-### URL parameters
+**URL parameters**
 
-- `:map`: The name of the map as defined in the Tegola [config](/configuration/#maps) file. 
+- `:map`: The name of the map as defined in the Tegola [config](/documentation/configuration/#maps) file. 
 - `:z`: The tile zoom.
 - `:x`: The tile row.
 - `:y`: The tile column.
 
-## /maps/:map/:layer/:z/:x/:y
+## `GET` /maps/:map/:layer/:z/:x/:y
 
 Will return a vector tile with a single `:layer` from the provided `:map` at the provided `:z`, `:x`: and `:y` values. 
 
-### URL parameters
+**URL parameters**
 
-- `:map`: The name of the map as defined in the Tegola [config](/configuration/#maps) file. 
-- `:layer`: The name of the maps layer, as defined in the Tegola [config](/configuration/#map-layers) file. 
+- `:map`: The name of the map as defined in the Tegola [config](/documentation/configuration/#maps) file. 
+- `:layer`: The name of the maps layer, as defined in the Tegola [config](/documentation/configuration/#map-layers) file. 
 - `:z`: The tile zoom.
 - `:x`: The tile row.
 - `:y`: The tile column.
 
-
-## /capabilities
+## `GET` /capabilities
 
 The `/capabilities` endpoint returns JSON with details about the running Tegola instance. 
 
-### Example response
+**Example response**
 
 ```json
 {
@@ -65,7 +60,52 @@ The `/capabilities` endpoint returns JSON with details about the running Tegola 
 }
 ```
 
-## /static
+## `GET` /capabilities/:map.json
 
-The `/static` endpoint provides a HTTP fileserver that will serve files from the `static/` directory relative to the running Tegola instance. This is helpful during local development when testing Tegola with a client side library.
+Returns information about a map matching the [TileJSON 2.1 specification](https://github.com/mapbox/tilejson-spec/tree/master/2.1.0).
 
+**URL parameters**
+
+- `:map`: The name of the map as defined in the Tegola [config](/documentation/configuration/#maps) file.
+
+**Example response**
+
+```json
+{
+  "attribution": "Open Street Map",
+  "bounds": [-180, -85.0511, 180, 85.0511],
+  "center": [-76.275329586789, 39.153492567373, 8],
+  "format": "pbf",
+  "minzoom": 0,
+  "maxzoom": 20,
+  "name": "osm",
+  "description": null,
+  "scheme": "xyz",
+  "tilejson": "2.1.0",
+  "tiles": ["https://osm.tegola.io/maps/osm/{z}/{x}/{y}.pbf"],
+  "grids": [],
+  "data": [],
+  "version": "1.0.0",
+  "template": null,
+  "legend": null,
+  "vector_layers": [{
+    "version": 2,
+    "extent": 4096,
+    "id": "populated_places",
+    "name": "populated_places",
+    "geometry_type": "point",
+    "minzoom": 0,
+    "maxzoom": 20,
+    "tiles": ["https://osm.tegola.io/maps/osm/populated_places/{z}/{x}/{y}.pbf"]
+  }, {
+    "version": 2,
+    "extent": 4096,
+    "id": "country_lines",
+    "name": "country_lines",
+    "geometry_type": "line",
+    "minzoom": 0,
+    "maxzoom": 10,
+    "tiles": ["https://osm.tegola.io/maps/osm/country_lines/{z}/{x}/{y}.pbf"]
+  }]
+}
+```
