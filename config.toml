@@ -6,7 +6,7 @@ publishDir = "docs"
 relativeURLs = true
 
 languageCode = "en-us"
-title = "Tegola With Open Layers"
+title = "Tegola: An open source vector tile server"
 theme = "hugo-theme-bootstrap4-blog"
 # number of posts to show on home/category/tag pages (Default: 10)
 paginate = 5
