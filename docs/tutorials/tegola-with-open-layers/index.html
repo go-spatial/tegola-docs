@@ -34,7 +34,7 @@ Open Layers is a client library for rendering MVT and raster maps. Combined with
 This guide will take you through the steps to get Tegola rendering a map using Open Layers and visualized in a web browser."/>
 <meta name="generator" content="Hugo 0.37.1" />
 
-        
+
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
@@ -56,9 +56,9 @@ This guide will take you through the steps to get Tegola rendering a map using O
         <link rel="canonical" href="../../tutorials/tegola-with-open-layers/">
         <title>Tegola With Open Layers | Tegola With Open Layers</title>
 
-        
 
-        
+
+
 <script>
 window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 ga('create', 'UA-83708580-1', 'auto');
@@ -66,7 +66,7 @@ ga('send', 'pageview');
 </script>
 <script async src='//www.google-analytics.com/analytics.js'></script>
 
-            
+
 
         <link rel="stylesheet" href="../../css/bootstrap.min.css"/>
 <link href="../../css/site.css" rel="stylesheet"/>
@@ -78,80 +78,80 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <a class="navbar-brand" href="../../">
         TEGOLA
-    
+
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
-            
-            
-                
+
+
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documentation</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            
+
                                 <a class="dropdown-item " href="../../documentation/">
                                     Documentation Home
                                 </a>
-                            
+
                                 <a class="dropdown-item " href="../../documentation/getting-started/">
                                     Getting Started
                                 </a>
-                            
+
                                 <a class="dropdown-item " href="../../documentation/configuration/">
                                     Tegola Configuration
                                 </a>
-                            
+
                                 <a class="dropdown-item " href="../../documentation/http-endpoints/">
                                     HTTP Endpoints
                                 </a>
-                            
+
                                 <a class="dropdown-item " href="../../documentation/debugging/">
                                     Debugging
                                 </a>
-                            
+
                         </div>
                     </li>
-                
-            
-                
+
+
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tutorials</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            
+
                                 <a class="dropdown-item " href="../../tutorials/">
                                     Tutorials Home
                                 </a>
-                            
+
                                 <a class="dropdown-item " href="../../tutorials/tegola-with-mapbox/">
                                     Tegola With Mapbox
                                 </a>
-                            
+
                                 <a class="dropdown-item active" href="../../tutorials/tegola-with-open-layers/">
                                     Tegola With Open Layers
                                 </a>
-                            
+
                                 <a class="dropdown-item " href="../../tutorials/tegola-with-olms/">
                                     Tegola With OLMS
                                 </a>
-                            
+
                         </div>
                     </li>
-                
-            
-                
+
+
+
                     <li class="nav-item ">
                         <a class="nav-link" href="../../demo">Demo</a>
                     </li>
-                
-            
+
+
         </ul>
         <a href="https://github.com/go-spatial/tegola/releases" class="btn btn-info">Download</a>
     </div>
 </nav>
-        
+
         <div class="position-relative">
 
             <div class="container-fluid pb-3 pr-3 heading">
@@ -160,16 +160,16 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
                         <h1 class="display-4 mb-0">
                             Tegola With Open Layers
                         </h1>
-                        
+
                             <p class="lead text-light">An open source mapping solution for web and mobile</p>
-                        
+
                     </div>
                 </div>
                 <div class="row pt-3 pb-4">
                     <div class="col-sm-9 pl-4 content">
-                        
-                        
-                        
+
+
+
 
 <h2 id="introduction">Introduction</h2>
 
@@ -243,7 +243,7 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
 });
 </code></pre>
 
-<p>Important details to note in this snippet are the <code>target:'map'</code> piece which tells Open Layers to instantiate the map into the div with an id of map. The layers array are where the sources for geospatial data are defined. For Tegola, we&rsquo;ll be using the <code>VectorTile</code> source which is of type <code>MVT</code>. The URL inside the source is the endpoint which will be queried to get the data. In this case we are using a Tegola endpoint which serves up Open Street Maps (OSM) data.</p>
+<p>Important details to note in this snippet are the <code>target:'map'</code> piece which tells Open Layers to instantiate the map into the div with an id of map. The layers array are where the sources for geospatial data are defined. For Tegola, we&rsquo;ll be using the <code>VectorTile</code> source which is of type <code>MVT</code>. The URL inside the source is the endpoint which will be queried to get the data. In this case we are using a Tegola endpoint which serves up OpenStreetMap (OSM) data.</p>
 
 <p>Open the HTML file in a browser and you should see the following:</p>
 
@@ -288,7 +288,7 @@ var map = new ol.Map({
         center: ol.proj.fromLonLat([-117.15,32.72]), //coordinates the map will center on initially
         zoom: 14
     })
-}); 
+});
 </code></pre>
 
 <p>Copy and paste the above code into the script tag of the HTML document defined above.</p>

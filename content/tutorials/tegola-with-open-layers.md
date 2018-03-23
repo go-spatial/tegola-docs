@@ -84,7 +84,7 @@ var map = new ol.Map({
 });
 ```
 
-Important details to note in this snippet are the `target:'map'` piece which tells OpenLayers to instantiate the map into the div with an id of map. The layers array are where the sources for geospatial data are defined. For Tegola, we'll be using the `VectorTile` source which is of type `MVT`. The URL inside the source is the endpoint which will be queried to get the data. In this case we are using a Tegola endpoint which serves up Open Street Maps (OSM) data.
+Important details to note in this snippet are the `target:'map'` piece which tells OpenLayers to instantiate the map into the div with an id of map. The layers array are where the sources for geospatial data are defined. For Tegola, we'll be using the `VectorTile` source which is of type `MVT`. The URL inside the source is the endpoint which will be queried to get the data. In this case we are using a Tegola endpoint which serves up OpenStreetMap (OSM) data.
 
 Open the HTML file in a browser and you should see the following:
 
