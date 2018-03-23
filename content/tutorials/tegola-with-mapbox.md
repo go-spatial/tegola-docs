@@ -20,13 +20,13 @@ This guide will take you through the steps to get Tegola rendering a map using M
 
 ## Getting Started 
 
-The first thing you'll need is a Tegola endpoint. You can either setup one locally by following the instructions located in the [Tegola docs](http://tegola.io/getting-started/) or you can use an existing endpoint.
+The first thing you'll need is a Tegola endpoint. You can either set one up locally by following the instructions located in the [Tegola docs](http://tegola.io/getting-started/) or you can use an existing endpoint.
 
 For the following example we'll be pulling in data from a Tegola instance hosted at https://osm.tegola.io.
 
 ## Setup the HTML
 
-Next, we make an HTML page that will show the map. The following is a minimal example HTML page for rendering a map with Open Layers. Copy and paste the following code into an empty file and name it index.html.
+Next, we make an HTML page that will show the map. The following is a minimal example HTML page for rendering a map with Mapbox GL JS. Copy and paste the following code into an empty file and name it index.html.
 
 ``` html
 <!doctype html>
@@ -66,7 +66,7 @@ var map = new mapboxgl.Map({
 });
 ```
 
-Important details to note in this snippet are the `container:'map'` piece which tells Mapbox to instantiate the map into the div with an id of map. The `style` property which is the path to the style json file. Inside the styule file is a source property which defines the map data that will be imported. In this case we are using a Tegola endpoint which serves up Open Street Maps (OSM) data.
+Important details to note in this snippet are the `container:'map'` piece which tells Mapbox to instantiate the map into the div with an id of map. The `style` property which is the path to the style json file. Inside the style file is a source property which defines the map data that will be imported. In this case we are using a Tegola endpoint which serves up OpenStreetMap (OSM) data.
 
 Open the HTML file in a browser and you should see the following:
 

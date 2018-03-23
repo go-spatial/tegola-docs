@@ -12,7 +12,7 @@ menu:
 
 ## Overview
 
-The Tegola config file use [TOML](https://github.com/toml-lang/toml) syntax and is comprised of three primary sections:
+The Tegola config file uses [TOML](https://github.com/toml-lang/toml) syntax and is comprised of three primary sections:
 
 - [Webserver](#webserver): webserver configuration.
 - [Providers](#providers): data provider configuration (i.e. PostGIS).
@@ -205,7 +205,7 @@ Map Layers define which [Provider Layers](#provider-layers) to render at what zo
 | Param              | Required | Description                                                                              |
 |:-------------------|:---------|:-----------------------------------------------------------------------------------------|
 | provider_layer     | Yes      | The name of the provider and provider layer using dot syntax. (i.e. my_postgis.rivers).  |
-| min_zoom           | No       | The minium zoom to render this layer at.                                                 |
+| min_zoom           | No       | The minimum zoom to render this layer at.                                                 |
 | max_zoom           | No       | The maximum zoom to render this layer at.                                                |
 | default_tags       | No       | Default tags to be added to features on this layer.                                      |
 | dont_simplify      | No       | Boolean to prevent feature simplification from being applied.                            |
@@ -222,7 +222,7 @@ max_zoom = 16                       	# maximum zoom level to include this layer
 
 #### Default Tags
 
-Map Layer Default Tags provide a convenient way to encode additional tags that are not supplied by a data provider. If a Defalt Tag is defined and the same tag is returned by the Provider, the Provider defined tage will take precedence. 
+Map Layer Default Tags provide a convenient way to encode additional tags that are not supplied by a data provider. If a Default Tag is defined and the same tag is returned by the Provider, the Provider defined tage will take precedence. 
 
 Default Tags are `key = value` pairs.
 
