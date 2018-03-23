@@ -88,7 +88,7 @@ Important details to note in this snippet are the `target:'map'` piece which tel
 
 Open the HTML file in a browser and you should see the following:
 
-![basic map screenshot](images/screenshotMap.png "Map")
+![basic map screenshot](/images/screenshotMap.png "Map")
 
 A map of San Diego, CA rendered with the default styles provided by the Open Layer's library. Next, let's add some custom styles to your new map.
 
