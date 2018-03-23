@@ -1,8 +1,8 @@
 ---
 author: "Jpalms"
 date: 2017-11-29
-linktitle: Tegola With Open Layers
-title: Tegola With Open Layers
+linktitle: Tegola With OpenLayers
+title: Tegola With OpenLayers
 weight: 3
 subtitle: An open source mapping solution for web and mobile
 menu:
@@ -14,9 +14,9 @@ menu:
 
 [Tegola](https://github.com/go-spatial/tegola) is a vector tile server written in Go. Tegola takes geospatial data from a PostGIS Database and slices it into vector tiles that can be efficiently delivered to any client.
 
-[Open Layers](https://openlayers.org/) is a client library for rendering MVT and raster maps. Combined with Tegola, developers may now render maps in the web or on mobile utilizing all open source technology.
+[OpenLayers](https://openlayers.org/) is a client library for rendering MVT and raster maps. Combined with Tegola, developers may now render maps in the web or on mobile utilizing all open source technology.
 
-This guide will take you through the steps to get Tegola rendering a map using Open Layers and visualized in a web browser.
+This guide will take you through the steps to get Tegola rendering a map using OpenLayers and visualized in a web browser.
 
 ## Getting Started 
 
@@ -26,7 +26,7 @@ For the following example we'll be pulling in data from a Tegola instance hosted
 
 ## Setup the HTML
 
-Next, we make an HTML page that will show the map. The following is a minimal example HTML page for rendering a map with Open Layers. Copy and paste the following code into an empty file and name it index.html.
+Next, we make an HTML page that will show the map. The following is a minimal example HTML page for rendering a map with OpenLayers. Copy and paste the following code into an empty file and name it index.html.
 
 ``` html
 <!doctype html>
@@ -62,7 +62,7 @@ Next, we make an HTML page that will show the map. The following is a minimal ex
 </html>
 ```
 
-We are including the Open Layers library from https://openlayers.org/en/v4.5.0/build/ol.js in the head of the document. In the body, we define `<div id="map"></div>` which is the container that will hold the rendered map.
+We are including the OpenLayers library from https://openlayers.org/en/v4.5.0/build/ol.js in the head of the document. In the body, we define `<div id="map"></div>` which is the container that will hold the rendered map.
 
 To render the map we will use a javascript snippet that creates a new instance of `ol.Map`.
 
@@ -84,7 +84,7 @@ var map = new ol.Map({
 });
 ```
 
-Important details to note in this snippet are the `target:'map'` piece which tells Open Layers to instantiate the map into the div with an id of map. The layers array are where the sources for geospatial data are defined. For Tegola, we'll be using the `VectorTile` source which is of type `MVT`. The URL inside the source is the endpoint which will be queried to get the data. In this case we are using a Tegola endpoint which serves up Open Street Maps (OSM) data.
+Important details to note in this snippet are the `target:'map'` piece which tells OpenLayers to instantiate the map into the div with an id of map. The layers array are where the sources for geospatial data are defined. For Tegola, we'll be using the `VectorTile` source which is of type `MVT`. The URL inside the source is the endpoint which will be queried to get the data. In this case we are using a Tegola endpoint which serves up Open Street Maps (OSM) data.
 
 Open the HTML file in a browser and you should see the following:
 
@@ -96,7 +96,7 @@ A map of San Diego, CA rendered with the default styles provided by the Open Lay
 
 To style the map we'll need to define a javascript function to apply fills and borders to the various features of our map. Let's start by applying a default style to every feature on the map.
 
-Open Layers applies map styling by utilizing a style function. Every feature in a given map layer will call the style function. The style function then returns an array of styles to apply to the given feature.
+OpenLayers applies map styling by utilizing a style function. Every feature in a given map layer will call the style function. The style function then returns an array of styles to apply to the given feature.
 
 ``` javascript
 var defaultStyle = new ol.style.Style({
@@ -141,7 +141,7 @@ Here we're defining `styleFunction` which will take over responsibility for styl
 
 Now we can start to pick out the features we'd like to apply custom styles to. Inside the `styleFunction` we can determine different features based on their attributes. The attributes we'll be using in the following example are `type` and `layer`.
 
-Open Layers allows you to reference attributes using the `feature.get()` function. The following snippet shows an console log example of this usage.
+OpenLayers allows you to reference attributes using the `feature.get()` function. The following snippet shows an console log example of this usage.
 
 ``` javascript
 function styleFunction(feature, resolution){
@@ -285,6 +285,6 @@ And here's what you should see when you open up a browser:
 
 ![custom styles screenshot](/images/customStylesScreenshot.png "Map")
 
-For more information on styling Open Layers maps check out the official documentation: [styling vector layers](https://openlayersbook.github.io/ch06-styling-vector-layers/intro.html).
+For more information on styling OpenLayers maps check out the official documentation: [styling vector layers](https://openlayersbook.github.io/ch06-styling-vector-layers/intro.html).
 
 

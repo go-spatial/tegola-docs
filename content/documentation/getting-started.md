@@ -104,7 +104,7 @@ You should see a message confirming the config file load and Tegola being starte
 
 ## 5. Create an HTML page
 
-Tegola delivers geospatial vector tile data to any requesting client. For simplicity, we'll be setting up a basic HTML page as our client that will display the rendered map. We'll be using the [Open Layers](http://openlayers.org/) client side library to display and style the vector tile content.
+Tegola delivers geospatial vector tile data to any requesting client. For simplicity, we'll be setting up a basic HTML page as our client that will display the rendered map. We'll be using the [OpenLayers](http://openlayers.org/) client side library to display and style the vector tile content.
 
 Create a new HTML file, copy in the contents below, and open in a browser:
 

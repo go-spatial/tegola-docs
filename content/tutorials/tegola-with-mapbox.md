@@ -26,7 +26,7 @@ For the following example we'll be pulling in data from a Tegola instance hosted
 
 ## Setup the HTML
 
-Next, we make an HTML page that will show the map. The following is a minimal example HTML page for rendering a map with Open Layers. Copy and paste the following code into an empty file and name it index.html.
+Next, we make an HTML page that will show the map. The following is a minimal example HTML page for rendering a map with OpenLayers. Copy and paste the following code into an empty file and name it index.html.
 
 ``` html
 <!doctype html>
