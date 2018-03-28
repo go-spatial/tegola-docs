@@ -29,7 +29,7 @@ menu:
   - [Simple tile list](#tile-list1)
   - [Non-default format tile list](#tile-list2)
 
-**Note:** The `bounds` and `tile-list` methods of reading files will cause inef
+**Note:** The `tile-list` methods of fetching tiles is inefficient and will regenerate lower zoom tiles repeatedly.
 
 ## Seeding
 
