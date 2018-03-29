@@ -9,25 +9,18 @@ menu:
   main:
     parent: Documentation
 ---
+# Overview
+The cache command manually manipulates Tegola's cache
 
-## Overview
-* [Seeding](#seeding): Seeding the cache with specified tiles
-* [Purging](#purging): Purging specified tiles from the cache
-* [Flags](#flags): Specifying tiles is done through flags
-  - [Bounds](#bounds): Tiles within a longitude and latitude
-  - [Slippy](#slippy): Single tile with a [slippy tile](https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames) name
-  - [File](#file): Specify a file list of tiles
-  - [Tile Name Format](#tile-name-format): Specify a name format for reading slippy tiles
-  - [Other](#other): Flags not for specifying tiles
+**Examples**
 
-* Examples
-  - [Simple seed](#seed1)
-  - [Simple purge](#purge1)
-  - [Bounds](#bounds1)
-  - [Tile name format](#tile-name-format1)
-  - [Tile name format](#tile-name-format2)
-  - [Simple tile list](#tile-list1)
-  - [Non-default format tile list](#tile-list2)
+- [Simple seed](#seed1)
+- [Simple purge](#purge1)
+- [Bounds](#bounds1)
+- [Tile name format](#tile-name-format1)
+- [Tile name format](#tile-name-format2)
+- [Simple tile list](#tile-list1)
+- [Non-default format tile list](#tile-list2)
 
 **Note:** The `tile-list` methods of fetching tiles is inefficient and will regenerate lower zoom tiles repeatedly.
 
