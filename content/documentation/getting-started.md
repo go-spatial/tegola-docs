@@ -97,7 +97,7 @@ Note: This configuration file is specific to the Bonn data provided in step 2. I
 Navigate to the Tegola directory in your computer's terminal and run this command:
 
 ```sh
-./tegola --config=config.toml
+./tegola serve --config=config.toml
 ```
 
 You should see a message confirming the config file load and Tegola being started on port 8080. If your computer's port 8080 is being used by another process, change the port in the config file to an open port.
