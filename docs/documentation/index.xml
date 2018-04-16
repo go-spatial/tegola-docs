@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Documentation on Tegola With Open Layers</title>
+    <title>Documentation on Tegola: An open source vector tile server</title>
     <link>/documentation/</link>
-    <description>Recent content in Documentation on Tegola With Open Layers</description>
+    <description>Recent content in Documentation on Tegola: An open source vector tile server</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 29 Nov 2017 00:00:00 +0000</lastBuildDate>
@@ -28,7 +28,7 @@ Next, you&amp;rsquo;ll need to load PostGIS with data.</description>
       <pubDate>Wed, 29 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>/documentation/configuration/</guid>
-      <description>Overview The Tegola config file use TOML syntax and is comprised of three primary sections:
+      <description>Overview The Tegola config file uses TOML syntax and is comprised of three primary sections:
  Webserver: webserver configuration. Providers: data provider configuration (i.e. PostGIS). Maps: map configuration including map names, layers and zoom levels. Cache: cache configurations.  Webserver The webserver part of the config has the following parameters:
    Param Required Default Description     port No :8080 A string with the value for port.</description>
     </item>

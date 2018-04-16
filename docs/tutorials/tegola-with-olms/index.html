@@ -6,8 +6,8 @@
 
 <meta property="og:title" content="Tegola With OL Mapbox Style (OLMS)" />
 <meta property="og:description" content="Introduction Tegola is a vector tile server written in Go. Tegola takes geospatial data from a PostGIS Database and slices it into vector tiles that can be efficiently delivered to any client.
-OLMS is a library used to take Mapbox stylesheets and convert them into Open Layers scripted styles.
-This guide will show you how to use OLMS to convert and utilize a Mapbox style to render a map using Open Layers." />
+OLMS is a library used to take Mapbox stylesheets and convert them into OpenLayers scripted styles.
+This guide will show you how to use OLMS to convert and utilize a Mapbox style to render a map using OpenLayers." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/tegola-with-olms/" />
 
@@ -30,8 +30,8 @@ This guide will show you how to use OLMS to convert and utilize a Mapbox style t
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Tegola With OL Mapbox Style (OLMS)"/>
 <meta name="twitter:description" content="Introduction Tegola is a vector tile server written in Go. Tegola takes geospatial data from a PostGIS Database and slices it into vector tiles that can be efficiently delivered to any client.
-OLMS is a library used to take Mapbox stylesheets and convert them into Open Layers scripted styles.
-This guide will show you how to use OLMS to convert and utilize a Mapbox style to render a map using Open Layers."/>
+OLMS is a library used to take Mapbox stylesheets and convert them into OpenLayers scripted styles.
+This guide will show you how to use OLMS to convert and utilize a Mapbox style to render a map using OpenLayers."/>
 <meta name="generator" content="Hugo 0.37.1" />
 
         
@@ -41,7 +41,7 @@ This guide will show you how to use OLMS to convert and utilize a Mapbox style t
   "@type": "BlogPosting",
   "headline": "Tegola With OL Mapbox Style (OLMS)",
   "url": "/tutorials/tegola-with-olms/",
-  "wordCount": "398",
+  "wordCount": "395",
   "datePublished": "2017-11-29T00:00:00&#43;00:00",
   "dateModified": "2017-11-29T00:00:00&#43;00:00",
   "author": {
@@ -54,7 +54,7 @@ This guide will show you how to use OLMS to convert and utilize a Mapbox style t
 
 
         <link rel="canonical" href="../../tutorials/tegola-with-olms/">
-        <title>Tegola With OL Mapbox Style (OLMS) | Tegola With Open Layers</title>
+        <title>Tegola With OL Mapbox Style (OLMS) | Tegola: An open source vector tile server</title>
 
         
 
@@ -130,7 +130,7 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
                                 </a>
                             
                                 <a class="dropdown-item " href="../../tutorials/tegola-with-open-layers/">
-                                    Tegola With Open Layers
+                                    Tegola With OpenLayers
                                 </a>
                             
                                 <a class="dropdown-item active" href="../../tutorials/tegola-with-olms/">
@@ -148,7 +148,7 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
                 
             
         </ul>
-        <a href="https://github.com/go-spatial/tegola/releases" class="btn btn-info">Download</a>
+        <a href="https://github.com/go-spatial/tegola/releases" class="btn btn-outline-info">Download</a>
     </div>
 </nav>
         
@@ -161,7 +161,7 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
                             Tegola With OL Mapbox Style (OLMS)
                         </h1>
                         
-                            <p class="lead text-light">An easy way to use Mapbox styles with Open Layers</p>
+                            <p class="lead text-light">An easy way to use Mapbox styles with OpenLayers</p>
                         
                     </div>
                 </div>
@@ -175,9 +175,9 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
 
 <p><a href="https://github.com/go-spatial/tegola">Tegola</a> is a vector tile server written in Go. Tegola takes geospatial data from a PostGIS Database and slices it into vector tiles that can be efficiently delivered to any client.</p>
 
-<p><a href="https://github.com/boundlessgeo/ol-mapbox-style">OLMS</a> is a library used to take Mapbox stylesheets and convert them into Open Layers scripted styles.</p>
+<p><a href="https://github.com/boundlessgeo/ol-mapbox-style">OLMS</a> is a library used to take Mapbox stylesheets and convert them into OpenLayers scripted styles.</p>
 
-<p>This guide will show you how to use OLMS to convert and utilize a Mapbox style to render a map using Open Layers.</p>
+<p>This guide will show you how to use OLMS to convert and utilize a Mapbox style to render a map using OpenLayers.</p>
 
 <h2 id="getting-started">Getting Started</h2>
 
@@ -203,7 +203,7 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
 
 <h2 id="setup-the-html">Setup the HTML</h2>
 
-<p>Next, we make an HTML page that will show the map. The following is a minimal example HTML page for rendering a map with Open Layers and OLMS. Copy and paste the following code into an empty file and name it index.html.</p>
+<p>Next, we make an HTML page that will show the map. The following is a minimal example HTML page for rendering a map with OpenLayers and OLMS. Copy and paste the following code into an empty file and name it index.html.</p>
 
 <pre><code class="language-html">&lt;!doctype html&gt;
 &lt;html lang=&quot;en&quot;&gt;

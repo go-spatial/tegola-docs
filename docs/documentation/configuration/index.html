@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <meta property="og:title" content="Tegola Configuration" />
-<meta property="og:description" content="Overview The Tegola config file use TOML syntax and is comprised of three primary sections:
+<meta property="og:description" content="Overview The Tegola config file uses TOML syntax and is comprised of three primary sections:
  Webserver: webserver configuration. Providers: data provider configuration (i.e. PostGIS). Maps: map configuration including map names, layers and zoom levels. Cache: cache configurations.  Webserver The webserver part of the config has the following parameters:
    Param Required Default Description     port No :8080 A string with the value for port." />
 <meta property="og:type" content="article" />
@@ -29,7 +29,7 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Tegola Configuration"/>
-<meta name="twitter:description" content="Overview The Tegola config file use TOML syntax and is comprised of three primary sections:
+<meta name="twitter:description" content="Overview The Tegola config file uses TOML syntax and is comprised of three primary sections:
  Webserver: webserver configuration. Providers: data provider configuration (i.e. PostGIS). Maps: map configuration including map names, layers and zoom levels. Cache: cache configurations.  Webserver The webserver part of the config has the following parameters:
    Param Required Default Description     port No :8080 A string with the value for port."/>
 <meta name="generator" content="Hugo 0.37.1" />
@@ -54,7 +54,7 @@
 
 
         <link rel="canonical" href="../../documentation/configuration/">
-        <title>Tegola Configuration | Tegola With Open Layers</title>
+        <title>Tegola Configuration | Tegola: An open source vector tile server</title>
 
         
 
@@ -130,7 +130,7 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
                                 </a>
                             
                                 <a class="dropdown-item " href="../../tutorials/tegola-with-open-layers/">
-                                    Tegola With Open Layers
+                                    Tegola With OpenLayers
                                 </a>
                             
                                 <a class="dropdown-item " href="../../tutorials/tegola-with-olms/">
@@ -148,7 +148,7 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
                 
             
         </ul>
-        <a href="https://github.com/go-spatial/tegola/releases" class="btn btn-info">Download</a>
+        <a href="https://github.com/go-spatial/tegola/releases" class="btn btn-outline-info">Download</a>
     </div>
 </nav>
         
@@ -173,7 +173,7 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
 
 <h2 id="overview">Overview</h2>
 
-<p>The Tegola config file use <a href="https://github.com/toml-lang/toml">TOML</a> syntax and is comprised of three primary sections:</p>
+<p>The Tegola config file uses <a href="https://github.com/toml-lang/toml">TOML</a> syntax and is comprised of three primary sections:</p>
 
 <ul>
 <li><a href="#webserver">Webserver</a>: webserver configuration.</li>
@@ -603,7 +603,7 @@ center = [-76.275329586789, 39.153492567373, 5.0]
 <tr>
 <td align="left">min_zoom</td>
 <td align="left">No</td>
-<td align="left">The minium zoom to render this layer at.</td>
+<td align="left">The minimum zoom to render this layer at.</td>
 </tr>
 
 <tr>
@@ -636,7 +636,7 @@ max_zoom = 16                       	# maximum zoom level to include this layer
 
 <h4 id="default-tags">Default Tags</h4>
 
-<p>Map Layer Default Tags provide a convenient way to encode additional tags that are not supplied by a data provider. If a Defalt Tag is defined and the same tag is returned by the Provider, the Provider defined tage will take precedence.</p>
+<p>Map Layer Default Tags provide a convenient way to encode additional tags that are not supplied by a data provider. If a Default Tag is defined and the same tag is returned by the Provider, the Provider defined tage will take precedence.</p>
 
 <p>Default Tags are <code>key = value</code> pairs.</p>
 

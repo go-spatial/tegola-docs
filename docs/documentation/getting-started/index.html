@@ -54,7 +54,7 @@ Next, you&rsquo;ll need to load PostGIS with data."/>
 
 
         <link rel="canonical" href="../../documentation/getting-started/">
-        <title>Getting Started with Tegola | Tegola With Open Layers</title>
+        <title>Getting Started with Tegola | Tegola: An open source vector tile server</title>
 
         
 
@@ -130,7 +130,7 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
                                 </a>
                             
                                 <a class="dropdown-item " href="../../tutorials/tegola-with-open-layers/">
-                                    Tegola With Open Layers
+                                    Tegola With OpenLayers
                                 </a>
                             
                                 <a class="dropdown-item " href="../../tutorials/tegola-with-olms/">
@@ -148,7 +148,7 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
                 
             
         </ul>
-        <a href="https://github.com/go-spatial/tegola/releases" class="btn btn-info">Download</a>
+        <a href="https://github.com/go-spatial/tegola/releases" class="btn btn-outline-info">Download</a>
     </div>
 </nav>
         
@@ -255,14 +255,14 @@ name = &quot;zoning&quot;
 
 <p>Navigate to the Tegola directory in your computer&rsquo;s terminal and run this command:</p>
 
-<pre><code class="language-sh">./tegola --config=config.toml
+<pre><code class="language-sh">./tegola serve --config=config.toml
 </code></pre>
 
 <p>You should see a message confirming the config file load and Tegola being started on port 8080. If your computer&rsquo;s port 8080 is being used by another process, change the port in the config file to an open port.</p>
 
 <h2 id="5-create-an-html-page">5. Create an HTML page</h2>
 
-<p>Tegola delivers geospatial vector tile data to any requesting client. For simplicity, we&rsquo;ll be setting up a basic HTML page as our client that will display the rendered map. We&rsquo;ll be using the <a href="http://openlayers.org/">Open Layers</a> client side library to display and style the vector tile content.</p>
+<p>Tegola delivers geospatial vector tile data to any requesting client. For simplicity, we&rsquo;ll be setting up a basic HTML page as our client that will display the rendered map. We&rsquo;ll be using the <a href="http://openlayers.org/">OpenLayers</a> client side library to display and style the vector tile content.</p>
 
 <p>Create a new HTML file, copy in the contents below, and open in a browser:</p>
 
