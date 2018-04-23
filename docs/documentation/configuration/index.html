@@ -27,12 +27,12 @@
 
 
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Tegola Configuration"/>
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Tegola Configuration"/>
 <meta name="twitter:description" content="Overview The Tegola config file uses TOML syntax and is comprised of three primary sections:
  Webserver: webserver configuration. Providers: data provider configuration (i.e. PostGIS). Maps: map configuration including map names, layers and zoom levels. Cache: cache configurations.  Webserver The webserver part of the config has the following parameters:
    Param Required Default Description     port No :8080 A string with the value for port."/>
-<meta name="generator" content="Hugo 0.37.1" />
+<meta name="twitter:site" content="@TegolaGis"/>
+<meta name="generator" content="Hugo 0.30.2" />
 
         
 <script type="application/ld+json">
@@ -384,7 +384,7 @@ filepath = &quot;/path/to/my/sample_gpkg.gpkg&quot;
 
 <h3 id="postgis-1">PostGIS</h3>
 
-<p>PostGIS Provider Layers define how Tegola will fetch data for a layer form a <a href="#postgis">PostGIS</a> Provider. The configuration requires either <code>tablename</code> or <code>sql</code> to be defined, but not both. The PostGIS Provider Layer has the following configuration prarameters:</p>
+<p>PostGIS Provider Layers define how Tegola will fetch data for a layer form a <a href="#postgis">PostGIS</a> Provider. The configuration requires either <code>tablename</code> or <code>sql</code> to be defined, but not both. The PostGIS Provider Layer has the following configuration parameters:</p>
 
 <table>
 <thead>
@@ -455,7 +455,7 @@ tablename = &quot;gis.zoning_base_3857&quot;
 
 <pre><code class="language-toml">[[providers.layers]]
 name = &quot;landuse&quot;
-# note that the geometery field is wraped in ST_AsBinary() and the use of the required !BBOX! token
+# note that the geometry field is wrapped in ST_AsBinary() and the use of the required !BBOX! token
 sql = &quot;SELECT gid, ST_AsBinary(geom) AS geom FROM gis.rivers WHERE geom &amp;&amp; !BBOX!&quot;
 </code></pre>
 
@@ -575,7 +575,7 @@ sql = &quot;&quot;&quot;
 </table>
 
 <pre><code class="language-toml">[[maps]]
-name = &quot;zoning&quot;		# used in the URL to reference this map (/maps/:map_name)
+name = &quot;zoning&quot;     # used in the URL to reference this map (/maps/:map_name)
 attribution = &quot;Natural Earth v4&quot;
 center = [-76.275329586789, 39.153492567373, 5.0]
 </code></pre>
@@ -630,8 +630,8 @@ center = [-76.275329586789, 39.153492567373, 5.0]
 
 <pre><code class="language-toml">[[maps.layers]]
 provider_layer = &quot;test_postgis.landuse&quot; # must match a data provider layer
-min_zoom = 12                       	# minimum zoom level to include this layer
-max_zoom = 16                       	# maximum zoom level to include this layer
+min_zoom = 12                           # minimum zoom level to include this layer
+max_zoom = 16                           # maximum zoom level to include this layer
 </code></pre>
 
 <h4 id="default-tags">Default Tags</h4>
@@ -643,7 +643,7 @@ max_zoom = 16                       	# maximum zoom level to include this layer
 <p><strong>Example Map Layer Default Tags</strong></p>
 
 <pre><code class="language-toml">[maps.layers.default_tags]      
-class = &quot;park&quot;			# a default tag to encode into the feature
+class = &quot;park&quot;          # a default tag to encode into the feature
 </code></pre>
 
 <h2 id="cache">Cache</h2>
@@ -838,7 +838,7 @@ srid = 3857             # The default srid for this provider. If not provided it
 
     [[providers.layers]]
     name = &quot;roads&quot;                         # will be encoded as the layer name in the tile
-    tablename = &quot;gis.zoning_base_3857&quot;	   # sql or table_name are required
+    tablename = &quot;gis.zoning_base_3857&quot;     # sql or table_name are required
     geometry_fieldname = &quot;geom&quot;            # geom field. default is geom
     id_fieldname = &quot;gid&quot;                   # geom id field. default is gid
     fields = [ &quot;class&quot;, &quot;name&quot; ]           # Additional fields to include in the select statement.
@@ -846,7 +846,7 @@ srid = 3857             # The default srid for this provider. If not provided it
     [[providers.layers]]
     name = &quot;rivers&quot;                        # will be encoded as the layer name in the tile
     # Custom sql to be used for this layer. 
-    # Note that the geometery field is wraped in a ST_AsBinary()
+    # Note that the geometry field is wrapped in a ST_AsBinary()
     sql = &quot;SELECT gid, ST_AsBinary(geom) AS geom FROM gis.rivers WHERE geom &amp;&amp; !BBOX!&quot;
 
 # maps are made up of layers
