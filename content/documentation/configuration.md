@@ -109,7 +109,7 @@ Provider Layers are referenced by [Map Layers](#map-layers) using the dot syntax
 
 ### PostGIS
 
-PostGIS Provider Layers define how Tegola will fetch data for a layer form a [PostGIS](#postgis) Provider. The configuration requires either `tablename` or `sql` to be defined, but not both. The PostGIS Provider Layer has the following configuration prarameters:
+PostGIS Provider Layers define how Tegola will fetch data for a layer form a [PostGIS](#postgis) Provider. The configuration requires either `tablename` or `sql` to be defined, but not both. The PostGIS Provider Layer has the following configuration parameters:
 
 | Param              | Required |  Default | Description                                                      |
 |:-------------------|:---------|:---------|:-----------------------------------------------------------------|
@@ -138,7 +138,7 @@ tablename = "gis.zoning_base_3857"
 ```toml
 [[providers.layers]]
 name = "landuse"
-# note that the geometery field is wraped in ST_AsBinary() and the use of the required !BBOX! token
+# note that the geometry field is wrapped in ST_AsBinary() and the use of the required !BBOX! token
 sql = "SELECT gid, ST_AsBinary(geom) AS geom FROM gis.rivers WHERE geom && !BBOX!"
 ```
 
@@ -330,7 +330,7 @@ srid = 3857             # The default srid for this provider. If not provided it
     [[providers.layers]]
     name = "rivers"                        # will be encoded as the layer name in the tile
     # Custom sql to be used for this layer. 
-    # Note that the geometery field is wraped in a ST_AsBinary()
+    # Note that the geometry field is wrapped in a ST_AsBinary()
     sql = "SELECT gid, ST_AsBinary(geom) AS geom FROM gis.rivers WHERE geom && !BBOX!"
 
 # maps are made up of layers
