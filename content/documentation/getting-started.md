@@ -90,7 +90,7 @@ name = "zoning"
   max_zoom = 20
 ```
 
-Note: This configuration file is specific to the Bonn data provided in step 2. If you're using another dataset reference the [Configuration Documentation](/configuration).
+Note: This configuration file is specific to the Bonn data provided in step 2. If you're using another dataset reference the [Configuration Documentation](/documentation/configuration/).
 
 ## 4. Start Tegola
 
