@@ -212,7 +212,7 @@ user = &quot;tegola&quot;         # postgis database user
 password = &quot;&quot;           # postgis database password
 srid = 3857             # The default srid for this provider. If not provided it will be WebMercator (3857)
 
-[[providers.layers]]
+  [[providers.layers]]
   name = &quot;road&quot;
   geometry_fieldname = &quot;wkb_geometry&quot;
   id_fieldname = &quot;ogc_fid&quot;
@@ -231,7 +231,7 @@ srid = 3857             # The default srid for this provider. If not provided it
   sql = &quot;SELECT ST_AsBinary(wkb_geometry) AS wkb_geometry, name, ogc_fid FROM lakes_3857 WHERE wkb_geometry &amp;&amp; !BBOX!&quot;
 
 [[maps]]
-name = &quot;zoning&quot;
+name = &quot;bonn&quot;
 
   [[maps.layers]]
   provider_layer = &quot;bonn.road&quot;
@@ -294,7 +294,7 @@ name = &quot;zoning&quot;
               format: new ol.format.MVT(),
               tileGrid: ol.tilegrid.createXYZ({maxZoom: 22}),
               tilePixelRatio: 16,
-              url:'/maps/zoning/{z}/{x}/{y}.vector.pbf?debug=true'
+              url:'/maps/bonn/{z}/{x}/{y}.vector.pbf?debug=true'
             })
           })
         ],

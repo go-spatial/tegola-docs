@@ -53,7 +53,7 @@ user = "tegola"         # postgis database user
 password = ""           # postgis database password
 srid = 3857             # The default srid for this provider. If not provided it will be WebMercator (3857)
 
-[[providers.layers]]
+  [[providers.layers]]
   name = "road"
   geometry_fieldname = "wkb_geometry"
   id_fieldname = "ogc_fid"
@@ -72,7 +72,7 @@ srid = 3857             # The default srid for this provider. If not provided it
   sql = "SELECT ST_AsBinary(wkb_geometry) AS wkb_geometry, name, ogc_fid FROM lakes_3857 WHERE wkb_geometry && !BBOX!"
 
 [[maps]]
-name = "zoning"
+name = "bonn"
 
   [[maps.layers]]
   provider_layer = "bonn.road"
@@ -137,7 +137,7 @@ Create a new HTML file, copy in the contents below, and open in a browser:
               format: new ol.format.MVT(),
               tileGrid: ol.tilegrid.createXYZ({maxZoom: 22}),
               tilePixelRatio: 16,
-              url:'/maps/zoning/{z}/{x}/{y}.vector.pbf?debug=true'
+              url:'/maps/bonn/{z}/{x}/{y}.vector.pbf?debug=true'
             })
           })
         ],
