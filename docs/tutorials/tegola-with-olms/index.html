@@ -6,8 +6,8 @@
 
 <meta property="og:title" content="Tegola With OL Mapbox Style (OLMS)" />
 <meta property="og:description" content="Introduction Tegola is a vector tile server written in Go. Tegola takes geospatial data from a PostGIS Database and slices it into vector tiles that can be efficiently delivered to any client.
-OLMS is a library used to take Mapbox stylesheets and convert them into Open Layers scripted styles.
-This guide will show you how to use OLMS to convert and utilize a Mapbox style to render a map using Open Layers." />
+OLMS is a library used to take Mapbox stylesheets and convert them into OpenLayers scripted styles.
+This guide will show you how to use OLMS to convert and utilize a Mapbox style to render a map using OpenLayers." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/tegola-with-olms/" />
 
@@ -27,12 +27,12 @@ This guide will show you how to use OLMS to convert and utilize a Mapbox style t
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Tegola With OL Mapbox Style (OLMS)"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Tegola With OL Mapbox Style (OLMS)"/>
 <meta name="twitter:description" content="Introduction Tegola is a vector tile server written in Go. Tegola takes geospatial data from a PostGIS Database and slices it into vector tiles that can be efficiently delivered to any client.
-OLMS is a library used to take Mapbox stylesheets and convert them into Open Layers scripted styles.
-This guide will show you how to use OLMS to convert and utilize a Mapbox style to render a map using Open Layers."/>
-<meta name="twitter:site" content="@username"/>
-<meta name="generator" content="Hugo 0.31.1" />
+OLMS is a library used to take Mapbox stylesheets and convert them into OpenLayers scripted styles.
+This guide will show you how to use OLMS to convert and utilize a Mapbox style to render a map using OpenLayers."/>
+<meta name="generator" content="Hugo 0.37.1" />
 
         
 <script type="application/ld+json">
@@ -41,7 +41,7 @@ This guide will show you how to use OLMS to convert and utilize a Mapbox style t
   "@type": "BlogPosting",
   "headline": "Tegola With OL Mapbox Style (OLMS)",
   "url": "/tutorials/tegola-with-olms/",
-  "wordCount": "398",
+  "wordCount": "395",
   "datePublished": "2017-11-29T00:00:00&#43;00:00",
   "dateModified": "2017-11-29T00:00:00&#43;00:00",
   "author": {
@@ -54,11 +54,18 @@ This guide will show you how to use OLMS to convert and utilize a Mapbox style t
 
 
         <link rel="canonical" href="../../tutorials/tegola-with-olms/">
-        <title>Tegola With OL Mapbox Style (OLMS) | Tegola With Open Layers</title>
+        <title>Tegola With OL Mapbox Style (OLMS) | Tegola: An open source vector tile server</title>
 
         
 
         
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-83708580-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
             
 
         <link rel="stylesheet" href="../../css/bootstrap.min.css"/>
@@ -68,92 +75,81 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     </head>
     <body>
-        
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
-  <a class="navbar-brand" href="../../">
-    TEGOLA
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <a class="navbar-brand" href="../../">
+        TEGOLA
     
     </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-        
-        
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
             
-                <li class="nav-item ">
-                    <a class="nav-link" href="../../download/download/">Download</a>
-                </li>
             
-        
+                
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documentation</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            
+                                <a class="dropdown-item " href="../../documentation/">
+                                    Documentation Home
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../documentation/getting-started/">
+                                    Getting Started
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../documentation/configuration/">
+                                    Tegola Configuration
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../documentation/http-endpoints/">
+                                    HTTP Endpoints
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../documentation/debugging/">
+                                    Debugging
+                                </a>
+                            
+                        </div>
+                    </li>
+                
             
-                <li class="nav-item ">
-                    <a class="nav-link" href="../../demo/map/">Demo</a>
-                </li>
+                
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tutorials</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            
+                                <a class="dropdown-item " href="../../tutorials/">
+                                    Tutorials Home
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../tutorials/tegola-with-mapbox/">
+                                    Tegola With Mapbox
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../tutorials/tegola-with-open-layers/">
+                                    Tegola With OpenLayers
+                                </a>
+                            
+                                <a class="dropdown-item active" href="../../tutorials/tegola-with-olms/">
+                                    Tegola With OLMS
+                                </a>
+                            
+                        </div>
+                    </li>
+                
             
-        
+                
+                    <li class="nav-item ">
+                        <a class="nav-link" href="../../demo">Demo</a>
+                    </li>
+                
             
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Documentation
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        
-                            <a class="dropdown-item " href="../../documentation/">
-                                Documentation Home
-                            </a>
-                        
-                            <a class="dropdown-item " href="../../documentation/getting-started/">
-                                Getting Started
-                            </a>
-                        
-                            <a class="dropdown-item " href="../../documentation/configuration/">
-                                Tegola Configuration
-                            </a>
-                        
-                            <a class="dropdown-item " href="../../documentation/http-endpoints/">
-                                HTTP Endpoints
-                            </a>
-                        
-                            <a class="dropdown-item " href="../../documentation/debugging/">
-                                Debugging
-                            </a>
-                        
-                    </div>
-                </li>
-            
-        
-            
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Tutorials
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        
-                            <a class="dropdown-item " href="../../tutorials/">
-                                Tutorials Home
-                            </a>
-                        
-                            <a class="dropdown-item " href="../../tutorials/tegola-with-mapbox/">
-                                Tegola With Mapbox
-                            </a>
-                        
-                            <a class="dropdown-item active" href="../../tutorials/tegola-with-olms/">
-                                Tegola With OLMS
-                            </a>
-                        
-                            <a class="dropdown-item " href="../../tutorials/tegola-with-open-layers/">
-                                Tegola With Open Layers
-                            </a>
-                        
-                    </div>
-                </li>
-            
-        
-
-    </ul>
-  </div>
+        </ul>
+        <a href="https://github.com/go-spatial/tegola/releases" class="btn btn-outline-info">Download</a>
+    </div>
 </nav>
         
         <div class="position-relative">
@@ -165,7 +161,7 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
                             Tegola With OL Mapbox Style (OLMS)
                         </h1>
                         
-                            <p class="lead text-light">An easy way to use Mapbox styles with Open Layers</p>
+                            <p class="lead text-light">An easy way to use Mapbox styles with OpenLayers</p>
                         
                     </div>
                 </div>
@@ -177,11 +173,11 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
 
 <h2 id="introduction">Introduction</h2>
 
-<p><a href="https://github.com/terranodo/tegola">Tegola</a> is a vector tile server written in Go. Tegola takes geospatial data from a PostGIS Database and slices it into vector tiles that can be efficiently delivered to any client.</p>
+<p><a href="https://github.com/go-spatial/tegola">Tegola</a> is a vector tile server written in Go. Tegola takes geospatial data from a PostGIS Database and slices it into vector tiles that can be efficiently delivered to any client.</p>
 
-<p><a href="https://github.com/boundlessgeo/ol-mapbox-style">OLMS</a> is a library used to take Mapbox stylesheets and convert them into Open Layers scripted styles.</p>
+<p><a href="https://github.com/boundlessgeo/ol-mapbox-style">OLMS</a> is a library used to take Mapbox stylesheets and convert them into OpenLayers scripted styles.</p>
 
-<p>This guide will show you how to use OLMS to convert and utilize a Mapbox style to render a map using Open Layers.</p>
+<p>This guide will show you how to use OLMS to convert and utilize a Mapbox style to render a map using OpenLayers.</p>
 
 <h2 id="getting-started">Getting Started</h2>
 
@@ -207,7 +203,7 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
 
 <h2 id="setup-the-html">Setup the HTML</h2>
 
-<p>Next, we make an HTML page that will show the map. The following is a minimal example HTML page for rendering a map with Open Layers and OLMS. Copy and paste the following code into an empty file and name it index.html.</p>
+<p>Next, we make an HTML page that will show the map. The following is a minimal example HTML page for rendering a map with OpenLayers and OLMS. Copy and paste the following code into an empty file and name it index.html.</p>
 
 <pre><code class="language-html">&lt;!doctype html&gt;
 &lt;html lang=&quot;en&quot;&gt;
@@ -266,8 +262,8 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
             </div>
             <footer class="container-fluid p-4 bg-light">
 	<p class="text-muted small mb-0">
-    	Tegola is brought to you by the <a href="http://terranodo.io/">Terranodo</a> team working (mainly) out of sunny San Diego.
-    	Code hosted on <a href="https://github.com/terranodo/tegola">Github</a> under the liberal <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE">MIT</a> license.
+    	Tegola is brought to you by the <a href="https://github.com/go-spatial">Go Spatial</a> team working (mainly) out of sunny San Diego.
+    	Code hosted on <a href="https://github.com/go-spatial/tegola">Github</a> under the liberal <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE">MIT</a> license.
     </p>
 </footer>
         </div>

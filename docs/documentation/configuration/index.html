@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <meta property="og:title" content="Tegola Configuration" />
-<meta property="og:description" content="Overview The Tegola config file use TOML syntax and is comprised of three primary sections:
- Webserver: webserver configuration. Providers: data provider configuration (i.e. PostGIS). Maps: map configuration including map names, layers and zoom levels.  Webserver The webserver part of the config has the following parameters:
-   Param Required Default Description     port No :8080 A string with the value for port.   log_file No  Location of a log file to write webserver logs to." />
+<meta property="og:description" content="Overview The Tegola config file uses TOML syntax and is comprised of three primary sections:
+ Webserver: webserver configuration. Providers: data provider configuration (i.e. PostGIS). Maps: map configuration including map names, layers and zoom levels. Cache: cache configurations.  Webserver The webserver part of the config has the following parameters:
+   Param Required Default Description     port No :8080 A string with the value for port." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/documentation/configuration/" />
 
@@ -27,12 +27,12 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Tegola Configuration"/>
-<meta name="twitter:description" content="Overview The Tegola config file use TOML syntax and is comprised of three primary sections:
- Webserver: webserver configuration. Providers: data provider configuration (i.e. PostGIS). Maps: map configuration including map names, layers and zoom levels.  Webserver The webserver part of the config has the following parameters:
-   Param Required Default Description     port No :8080 A string with the value for port.   log_file No  Location of a log file to write webserver logs to."/>
-<meta name="twitter:site" content="@username"/>
-<meta name="generator" content="Hugo 0.31.1" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Tegola Configuration"/>
+<meta name="twitter:description" content="Overview The Tegola config file uses TOML syntax and is comprised of three primary sections:
+ Webserver: webserver configuration. Providers: data provider configuration (i.e. PostGIS). Maps: map configuration including map names, layers and zoom levels. Cache: cache configurations.  Webserver The webserver part of the config has the following parameters:
+   Param Required Default Description     port No :8080 A string with the value for port."/>
+<meta name="generator" content="Hugo 0.37.1" />
 
         
 <script type="application/ld+json">
@@ -41,7 +41,7 @@
   "@type": "BlogPosting",
   "headline": "Tegola Configuration",
   "url": "/documentation/configuration/",
-  "wordCount": "1179",
+  "wordCount": "1726",
   "datePublished": "2017-11-29T00:00:00&#43;00:00",
   "dateModified": "2017-11-29T00:00:00&#43;00:00",
   "author": {
@@ -54,11 +54,18 @@
 
 
         <link rel="canonical" href="../../documentation/configuration/">
-        <title>Tegola Configuration | Tegola With Open Layers</title>
+        <title>Tegola Configuration | Tegola: An open source vector tile server</title>
 
         
 
         
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-83708580-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
             
 
         <link rel="stylesheet" href="../../css/bootstrap.min.css"/>
@@ -68,92 +75,81 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     </head>
     <body>
-        
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
-  <a class="navbar-brand" href="../../">
-    TEGOLA
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <a class="navbar-brand" href="../../">
+        TEGOLA
     
     </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-        
-        
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
             
-                <li class="nav-item ">
-                    <a class="nav-link" href="../../download/download/">Download</a>
-                </li>
             
-        
+                
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documentation</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            
+                                <a class="dropdown-item " href="../../documentation/">
+                                    Documentation Home
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../documentation/getting-started/">
+                                    Getting Started
+                                </a>
+                            
+                                <a class="dropdown-item active" href="../../documentation/configuration/">
+                                    Tegola Configuration
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../documentation/http-endpoints/">
+                                    HTTP Endpoints
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../documentation/debugging/">
+                                    Debugging
+                                </a>
+                            
+                        </div>
+                    </li>
+                
             
-                <li class="nav-item ">
-                    <a class="nav-link" href="../../demo/map/">Demo</a>
-                </li>
+                
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tutorials</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            
+                                <a class="dropdown-item " href="../../tutorials/">
+                                    Tutorials Home
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../tutorials/tegola-with-mapbox/">
+                                    Tegola With Mapbox
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../tutorials/tegola-with-open-layers/">
+                                    Tegola With OpenLayers
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../tutorials/tegola-with-olms/">
+                                    Tegola With OLMS
+                                </a>
+                            
+                        </div>
+                    </li>
+                
             
-        
+                
+                    <li class="nav-item ">
+                        <a class="nav-link" href="../../demo">Demo</a>
+                    </li>
+                
             
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Documentation
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        
-                            <a class="dropdown-item " href="../../documentation/">
-                                Documentation Home
-                            </a>
-                        
-                            <a class="dropdown-item " href="../../documentation/getting-started/">
-                                Getting Started
-                            </a>
-                        
-                            <a class="dropdown-item active" href="../../documentation/configuration/">
-                                Tegola Configuration
-                            </a>
-                        
-                            <a class="dropdown-item " href="../../documentation/http-endpoints/">
-                                HTTP Endpoints
-                            </a>
-                        
-                            <a class="dropdown-item " href="../../documentation/debugging/">
-                                Debugging
-                            </a>
-                        
-                    </div>
-                </li>
-            
-        
-            
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Tutorials
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        
-                            <a class="dropdown-item " href="../../tutorials/">
-                                Tutorials Home
-                            </a>
-                        
-                            <a class="dropdown-item " href="../../tutorials/tegola-with-mapbox/">
-                                Tegola With Mapbox
-                            </a>
-                        
-                            <a class="dropdown-item " href="../../tutorials/tegola-with-olms/">
-                                Tegola With OLMS
-                            </a>
-                        
-                            <a class="dropdown-item " href="../../tutorials/tegola-with-open-layers/">
-                                Tegola With Open Layers
-                            </a>
-                        
-                    </div>
-                </li>
-            
-        
-
-    </ul>
-  </div>
+        </ul>
+        <a href="https://github.com/go-spatial/tegola/releases" class="btn btn-outline-info">Download</a>
+    </div>
 </nav>
         
         <div class="position-relative">
@@ -177,12 +173,13 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
 
 <h2 id="overview">Overview</h2>
 
-<p>The Tegola config file use <a href="https://github.com/toml-lang/toml">TOML</a> syntax and is comprised of three primary sections:</p>
+<p>The Tegola config file uses <a href="https://github.com/toml-lang/toml">TOML</a> syntax and is comprised of three primary sections:</p>
 
 <ul>
 <li><a href="#webserver">Webserver</a>: webserver configuration.</li>
 <li><a href="#providers">Providers</a>: data provider configuration (i.e. PostGIS).</li>
 <li><a href="#maps">Maps</a>: map configuration including map names, layers and zoom levels.</li>
+<li><a href="#cache">Cache</a>: cache configurations.</li>
 </ul>
 
 <h2 id="webserver">Webserver</h2>
@@ -192,7 +189,7 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
 <table>
 <thead>
 <tr>
-<th align="left">Param</th>
+<th>Param</th>
 <th align="left">Required</th>
 <th align="left">Default</th>
 <th align="left">Description</th>
@@ -201,24 +198,24 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
 
 <tbody>
 <tr>
-<td align="left">port</td>
+<td>port</td>
 <td align="left">No</td>
 <td align="left">:8080</td>
 <td align="left">A string with the value for port.</td>
 </tr>
 
 <tr>
-<td align="left">log_file</td>
+<td>hostname</td>
 <td align="left">No</td>
-<td align="left"></td>
-<td align="left">Location of a log file to write webserver logs to.</td>
+<td align="left">HTTP Hostname in request</td>
+<td align="left">Set the hostname used to generate URLs for JSON based responses</td>
 </tr>
 
 <tr>
-<td align="left">log_format</td>
+<td>cors_allowed_origin</td>
 <td align="left">No</td>
-<td align="left">{{.Time}}:{{.RequestIP}} —— Tile:{{.Z}}/{{.X}}/{{.Y}}</td>
-<td align="left">Log output format. The Default format can be rearranged as desired.</td>
+<td align="left">*</td>
+<td align="left">Allowed <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">CORS</a> origin.</td>
 </tr>
 </tbody>
 </table>
@@ -227,13 +224,13 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
 
 <pre><code class="language-toml">[webserver]
 port = &quot;:8080&quot;
-log_file = &quot;/var/log/tegola/tegola.log&quot;
-log_format = &quot;{{.Time}}:{{.RequestIP}} —— Tile:{{.Z}}/{{.X}}/{{.Y}}&quot;
+hostname = &quot;tiles.example.com&quot;
+cors_allowed_origin = &quot;map.example.com&quot;
 </code></pre>
 
 <h2 id="providers">Providers</h2>
 
-<p>The providers configuration tells Tegola where your data lives. Currently Tegola supports PostGIS as a data provider, but it&rsquo;s positioned to support additional data providers. Data providers each have their own specific configuration, but all are required to have the following two config params:</p>
+<p>The providers configuration tells Tegola where your data lives. Data providers each have their own specific configuration, but all are required to have the following two config params:</p>
 
 <table>
 <thead>
@@ -258,7 +255,7 @@ log_format = &quot;{{.Time}}:{{.RequestIP}} —— Tile:{{.Z}}/{{.X}}/{{.Y}}&quo
 
 <h3 id="postgis">PostGIS</h3>
 
-<p>In addition to the required <code>name</code> and <code>type</code> parameters, a PostGIS data provider has the following additional params:</p>
+<p>Load data from a Postgres/PostGIS database. In addition to the required <code>name</code> and <code>type</code> parameters, a PostGIS data provider supports the following parameters:</p>
 
 <table>
 <thead>
@@ -328,6 +325,41 @@ password = &quot;&quot;           # postgis database password
 srid = 3857             # The default srid for this provider. If not provided it will be WebMercator (3857)
 </code></pre>
 
+<h3 id="geopackage">GeoPackage</h3>
+
+<p>Load data from a <a href="http://www.geopackage.org">GeoPackage</a> database. The GeoPackage provider requires that Tegola is built with CGO. Prebuilt CGO binaries can be found <a href="https://github.com/go-spatial/tegola/releases">here</a> and are indicated with the suffix <code>_cgo</code>.</p>
+
+<p>In addition to the required <code>name</code> and <code>type</code> parameters, a GeoPackage data provider has the following
+additional params:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Param</th>
+<th align="left">Required</th>
+<th align="left">Default</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">filepath</td>
+<td align="left">Yes</td>
+<td align="left"></td>
+<td align="left">The system file path to the GeoPackage you wish to connect to.</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Example GeoPackage Provider config</strong></p>
+
+<pre><code class="language-toml">[[providers]]
+name = &quot;sample_gpkg&quot;
+type = &quot;gpkg&quot;
+filepath = &quot;/path/to/my/sample_gpkg.gpkg&quot;
+</code></pre>
+
 <h2 id="provider-layers">Provider Layers</h2>
 
 <p>Provider Layers are referenced by <a href="#map-layers">Map Layers</a> using the dot syntax <code>provder_name.provider_layer_name</code> (i.e. <code>my_postgis.rivers</code>). Provider Layers are required to have a <code>name</code> and will typically have additional parameters which are specific to that Provider. A Provider Layer has the following top level configuration parameters:</p>
@@ -350,9 +382,9 @@ srid = 3857             # The default srid for this provider. If not provided it
 </tbody>
 </table>
 
-<h3 id="postgis-provider-layer">PostGIS Provider Layer</h3>
+<h3 id="postgis-1">PostGIS</h3>
 
-<p>PostGIS Provider Layers define how Tegola will fetch data for a layer form a <a href="#postgis">PostGIS</a> Provider. The configuration requires either <code>tablename</code> or <code>sql</code> to be defined, but not both. The PostGIS Provider Layer has the following configuration prarameters:</p>
+<p>PostGIS Provider Layers define how Tegola will fetch data for a layer form a <a href="#postgis">PostGIS</a> Provider. The configuration requires either <code>tablename</code> or <code>sql</code> to be defined, but not both. The PostGIS Provider Layer has the following configuration parameters:</p>
 
 <table>
 <thead>
@@ -369,14 +401,14 @@ srid = 3857             # The default srid for this provider. If not provided it
 <td align="left"><strong>tablename</strong></td>
 <td align="left">Yes*</td>
 <td align="left"></td>
-<td align="left">The name of the database table to query.</td>
+<td align="left">The name of the database table to query</td>
 </tr>
 
 <tr>
 <td align="left"><strong>sql</strong></td>
 <td align="left">Yes*</td>
 <td align="left"></td>
-<td align="left">Custom SQL. Requires a !BBOX! token</td>
+<td align="left">Custom SQL. Requires a <code>!BBOX!</code> token</td>
 </tr>
 
 <tr>
@@ -423,8 +455,77 @@ tablename = &quot;gis.zoning_base_3857&quot;
 
 <pre><code class="language-toml">[[providers.layers]]
 name = &quot;landuse&quot;
-# note that the geometery field is wraped in ST_AsBinary() and the use of the required !BBOX! token
+# note that the geometry field is wrapped in ST_AsBinary() and the use of the required !BBOX! token
 sql = &quot;SELECT gid, ST_AsBinary(geom) AS geom FROM gis.rivers WHERE geom &amp;&amp; !BBOX!&quot;
+</code></pre>
+
+<h3 id="geopackage-1">GeoPackage</h3>
+
+<table>
+<thead>
+<tr>
+<th align="left">Param</th>
+<th align="left">Required</th>
+<th align="left">Default</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><strong>tablename</strong></td>
+<td align="left">Yes*</td>
+<td align="left"></td>
+<td align="left">The name of the database table to query against.</td>
+</tr>
+
+<tr>
+<td align="left"><strong>sql</strong></td>
+<td align="left">Yes*</td>
+<td align="left"></td>
+<td align="left">Custom SQL to use. Requires a <code>!BBOX!</code> token.</td>
+</tr>
+
+<tr>
+<td align="left">id_fieldname</td>
+<td align="left">No</td>
+<td align="left"><code>fid</code></td>
+<td align="left">The name of the feature id field.</td>
+</tr>
+
+<tr>
+<td align="left">fields</td>
+<td align="left">No</td>
+<td align="left"></td>
+<td align="left">A list of fields (column names) to include as feature tags when using <strong>tablename</strong>.</td>
+</tr>
+</tbody>
+</table>
+
+<p>&#42; Either <code>tablename</code> or <code>sql</code> is required, but not both.</p>
+
+<p>When using the <strong>sql</strong> param with GeoPackage:</p>
+
+<ul>
+<li>You must join your feature table to the spatial index table: i.e. <code>JOIN feature_table ft rtree_feature_table_geom si ON ft.fid = rt.si</code></li>
+<li>Include the following fields in your SELECT clause: <code>si.minx, si.miny, si.maxx, si.maxy</code></li>
+<li>Note that the id field for your feature table may be something other than <code>fid</code></li>
+</ul>
+
+<p><strong>Example GeoPackage Provider Layer with <code>sql</code></strong></p>
+
+<pre><code class="language-toml">[[providers.layers]]
+name = &quot;a_points&quot;
+sql = &quot;&quot;&quot;
+    SELECT 
+        fid, geom, amenity, religion, tourism, shop, si.minx, si.miny, si.maxx, si.maxy
+    FROM 
+        land_polygons lp
+    JOIN 
+        rtree_land_polygons_geom si ON lp.fid = si.id
+    WHERE 
+        !BBOX!
+&quot;&quot;&quot;
 </code></pre>
 
 <h2 id="maps">Maps</h2>
@@ -446,14 +547,40 @@ sql = &quot;SELECT gid, ST_AsBinary(geom) AS geom FROM gis.rivers WHERE geom &am
 <td align="left">Yes</td>
 <td align="left">The map that will be referenced in the URL (i.e. /maps/:map_name.</td>
 </tr>
+
+<tr>
+<td align="left">attribution</td>
+<td align="left">No</td>
+<td align="left">Attribution string to be included in the TileJSON.</td>
+</tr>
+
+<tr>
+<td align="left">name</td>
+<td align="left">No</td>
+<td align="left">Defaults to the provider layer name unless specified. Map layers with the same name are grouped and can&rsquo;t have overlapping zooms.</td>
+</tr>
+
+<tr>
+<td align="left">bounds</td>
+<td align="left">No</td>
+<td align="left">A list of map bounds.</td>
+</tr>
+
+<tr>
+<td align="left">center</td>
+<td align="left">No</td>
+<td align="left">The center of the map to be displayed in the preview. (<code>[lon, lat, zoom]</code>).</td>
+</tr>
 </tbody>
 </table>
 
 <pre><code class="language-toml">[[maps]]
 name = &quot;zoning&quot;		# used in the URL to reference this map (/maps/:map_name)
+attribution = &quot;Natural Earth v4&quot;
+center = [-76.275329586789, 39.153492567373, 5.0]
 </code></pre>
 
-<h2 id="map-layers">Map Layers</h2>
+<h3 id="map-layers">Map Layers</h3>
 
 <p>Map Layers define which <a href="#provider-layers">Provider Layers</a> to render at what zoom levels. Map Layers have the following configuration parameters:</p>
 
@@ -476,13 +603,25 @@ name = &quot;zoning&quot;		# used in the URL to reference this map (/maps/:map_n
 <tr>
 <td align="left">min_zoom</td>
 <td align="left">No</td>
-<td align="left">The minium zoom to render this layer at.</td>
+<td align="left">The minimum zoom to render this layer at.</td>
 </tr>
 
 <tr>
 <td align="left">max_zoom</td>
 <td align="left">No</td>
 <td align="left">The maximum zoom to render this layer at.</td>
+</tr>
+
+<tr>
+<td align="left">default_tags</td>
+<td align="left">No</td>
+<td align="left">Default tags to be added to features on this layer.</td>
+</tr>
+
+<tr>
+<td align="left">dont_simplify</td>
+<td align="left">No</td>
+<td align="left">Boolean to prevent feature simplification from being applied.</td>
 </tr>
 </tbody>
 </table>
@@ -495,9 +634,9 @@ min_zoom = 12                       	# minimum zoom level to include this layer
 max_zoom = 16                       	# maximum zoom level to include this layer
 </code></pre>
 
-<h2 id="map-layer-default-tags">Map Layer Default Tags</h2>
+<h4 id="default-tags">Default Tags</h4>
 
-<p>Map Layer Default Tags provide a convenient way to encode additional tags that are not supplied by a data provider. If a Defalt Tag is defined and the same tag is returned by the Provider, the Provider defined tage will take precedence.</p>
+<p>Map Layer Default Tags provide a convenient way to encode additional tags that are not supplied by a data provider. If a Default Tag is defined and the same tag is returned by the Provider, the Provider defined tage will take precedence.</p>
 
 <p>Default Tags are <code>key = value</code> pairs.</p>
 
@@ -507,12 +646,176 @@ max_zoom = 16                       	# maximum zoom level to include this layer
 class = &quot;park&quot;			# a default tag to encode into the feature
 </code></pre>
 
+<h2 id="cache">Cache</h2>
+
+<p>This section configures caches for generated tiles. All cache configs have the following parameters:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Param</th>
+<th align="left">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">type</td>
+<td align="left">Yes</td>
+<td align="left">The type of cache to use (<code>file</code>, <code>redis</code>, or <code>s3</code>)</td>
+</tr>
+
+<tr>
+<td align="left">max_zoom</td>
+<td align="left">No</td>
+<td align="left">The max zoom which should be cached.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="file">File</h3>
+
+<p>Cache tiles in a directory on the local filesystem.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Param</th>
+<th align="left">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">basepath</td>
+<td align="left">Yes</td>
+<td align="left">A directory on the file system to write the cached tiles to.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="redis">Redis</h3>
+
+<p>Cache tiles in <a href="https://redis.io/">Redis</a>.</p>
+
+<p>When no parameters are supplied, this cache will try and connect to a local Redis
+instance with default configuration.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Param</th>
+<th align="left">Required</th>
+<th align="left">Default</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">network</td>
+<td align="left">No</td>
+<td align="left"><code>tcp</code></td>
+<td align="left">The type of connection (<code>tcp</code> or <code>unix</code>)</td>
+</tr>
+
+<tr>
+<td align="left">address</td>
+<td align="left">No</td>
+<td align="left">127.0.0.1:6379</td>
+<td align="left">The address of Redis in the form <code>ip:port</code>.</td>
+</tr>
+
+<tr>
+<td align="left">password</td>
+<td align="left">No</td>
+<td align="left"></td>
+<td align="left">Password to use when connecting.</td>
+</tr>
+
+<tr>
+<td align="left">db</td>
+<td align="left">No</td>
+<td align="left"></td>
+<td align="left">Database to use (int).</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="s3">S3</h3>
+
+<p>Cache tiles in Amazon S3.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Param</th>
+<th align="left">Required</th>
+<th align="left">Default</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">bucket</td>
+<td align="left">Yes</td>
+<td align="left"></td>
+<td align="left">The name of the S3 bucket to use.</td>
+</tr>
+
+<tr>
+<td align="left">basepath</td>
+<td align="left">No</td>
+<td align="left"></td>
+<td align="left">A path prefix added to all cache operations inside of the S3 bucket</td>
+</tr>
+
+<tr>
+<td align="left">region</td>
+<td align="left">No</td>
+<td align="left">us-east-1</td>
+<td align="left">The region the bucket is in.</td>
+</tr>
+
+<tr>
+<td align="left">aws_access_key_id</td>
+<td align="left">No</td>
+<td align="left"></td>
+<td align="left">The AWS access key id to use.</td>
+</tr>
+
+<tr>
+<td align="left">aws_secret_access_key</td>
+<td align="left">No</td>
+<td align="left"></td>
+<td align="left">The AWS secret access key to use.</td>
+</tr>
+</tbody>
+</table>
+
+<p>If the <code>aws_access_key_id</code> and <code>aws_secret_access_key</code> are not set, then the
+<a href="https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/configuring-sdk.html">credential provider chain</a>
+will be used. The provider chain supports multiple methods for passing credentials, one of which is
+through environment variables. For example:</p>
+
+<pre><code class="language-bash">$ export AWS_REGION=us-west-2
+$ export AWS_ACCESS_KEY_ID=YOUR_AKID
+$ export AWS_SECRET_ACCESS_KEY=YOUR_SECRET_KEY
+</code></pre>
+
 <h2 id="full-config-example">Full Config Example</h2>
 
 <p>The following config demonstrates the various concepts discussed above:</p>
 
 <pre><code class="language-toml">[webserver]
 port = &quot;:9090&quot;
+
+[cache]
+type=&quot;file&quot;             # cache type
+basepath=&quot;/tmp/tegola&quot;  # cache specific config
 
 # register data providers
 [[providers]]
@@ -525,43 +828,43 @@ user = &quot;tegola&quot;         # postgis database user
 password = &quot;&quot;           # postgis database password
 srid = 3857             # The default srid for this provider. If not provided it will be WebMercator (3857)
 
-	# Example data
+    # Example data
     [[providers.layers]]
-    name = &quot;landuse&quot;					# will be encoded as the layer name in the tile
-    tablename = &quot;gis.zoning_base_3857&quot;	# sql or table_name are required
-    geometry_fieldname = &quot;geom&quot;			# geom field. default is geom
-    id_fieldname = &quot;gid&quot;				# geom id field. default is gid
-    srid = 4326							# the SRID of the geometry field if different than 
+    name = &quot;landuse&quot;                      # will be encoded as the layer name in the tile
+    tablename = &quot;gis.zoning_base_3857&quot;    # sql or table_name are required
+    geometry_fieldname = &quot;geom&quot;           # geom field. default is geom
+    id_fieldname = &quot;gid&quot;                  # geom id field. default is gid
+    srid = 4326                           # the SRID of the geometry field if different than 
 
     [[providers.layers]]
-    name = &quot;roads&quot;						# will be encoded as the layer name in the tile
-    tablename = &quot;gis.zoning_base_3857&quot;	# sql or table_name are required
-    geometry_fieldname = &quot;geom&quot;			# geom field. default is geom
-    id_fieldname = &quot;gid&quot;				# geom id field. default is gid
-    fields = [ &quot;class&quot;, &quot;name&quot; ]		# Additional fields to include in the select statement.
+    name = &quot;roads&quot;                         # will be encoded as the layer name in the tile
+    tablename = &quot;gis.zoning_base_3857&quot;	   # sql or table_name are required
+    geometry_fieldname = &quot;geom&quot;            # geom field. default is geom
+    id_fieldname = &quot;gid&quot;                   # geom id field. default is gid
+    fields = [ &quot;class&quot;, &quot;name&quot; ]           # Additional fields to include in the select statement.
 
     [[providers.layers]]
-    name = &quot;rivers&quot;                     # will be encoded as the layer name in the tile
+    name = &quot;rivers&quot;                        # will be encoded as the layer name in the tile
     # Custom sql to be used for this layer. 
-    # Note that the geometery field is wraped in a ST_AsBinary()
+    # Note that the geometry field is wrapped in a ST_AsBinary()
     sql = &quot;SELECT gid, ST_AsBinary(geom) AS geom FROM gis.rivers WHERE geom &amp;&amp; !BBOX!&quot;
 
 # maps are made up of layers
 [[maps]]
-name = &quot;zoning&quot;                         	# used in the URL to reference this map (/maps/:map_name)
+name = &quot;zoning&quot;                             # used in the URL to reference this map (/maps/:map_name)
 
     [[maps.layers]]
     provider_layer = &quot;test_postgis.landuse&quot; # must match a data provider layer
-    min_zoom = 12                       	# minimum zoom level to include this layer
-    max_zoom = 16                       	# maximum zoom level to include this layer
+    min_zoom = 12                           # minimum zoom level to include this layer
+    max_zoom = 16                           # maximum zoom level to include this layer
 
-        [maps.layers.default_tags]      	# table of default tags to encode in the tile. SQL statements will override
+        [maps.layers.default_tags]          # table of default tags to encode in the tile. SQL statements will override
         class = &quot;park&quot;
 
     [[maps.layers]]
     provider_layer = &quot;test_postgis.rivers&quot;  # must match a data provider layer
-    min_zoom = 10                       	# minimum zoom level to include this layer
-    max_zoom = 18                       	# maximum zoom level to include this layer
+    min_zoom = 10                           # minimum zoom level to include this layer
+    max_zoom = 18                           # maximum zoom level to include this layer
 </code></pre>
 
                     </div>
@@ -579,14 +882,26 @@ name = &quot;zoning&quot;                         	# used in the URL to referenc
 <li><a href="#providers">Providers</a>
 <ul>
 <li><a href="#postgis">PostGIS</a></li>
+<li><a href="#geopackage">GeoPackage</a></li>
 </ul></li>
 <li><a href="#provider-layers">Provider Layers</a>
 <ul>
-<li><a href="#postgis-provider-layer">PostGIS Provider Layer</a></li>
+<li><a href="#postgis-1">PostGIS</a></li>
+<li><a href="#geopackage-1">GeoPackage</a></li>
 </ul></li>
-<li><a href="#maps">Maps</a></li>
-<li><a href="#map-layers">Map Layers</a></li>
-<li><a href="#map-layer-default-tags">Map Layer Default Tags</a></li>
+<li><a href="#maps">Maps</a>
+<ul>
+<li><a href="#map-layers">Map Layers</a>
+<ul>
+<li><a href="#default-tags">Default Tags</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#cache">Cache</a>
+<ul>
+<li><a href="#file">File</a></li>
+<li><a href="#redis">Redis</a></li>
+<li><a href="#s3">S3</a></li>
+</ul></li>
 <li><a href="#full-config-example">Full Config Example</a></li>
 </ul></li>
 </ul>
@@ -599,8 +914,8 @@ name = &quot;zoning&quot;                         	# used in the URL to referenc
             </div>
             <footer class="container-fluid p-4 bg-light">
 	<p class="text-muted small mb-0">
-    	Tegola is brought to you by the <a href="http://terranodo.io/">Terranodo</a> team working (mainly) out of sunny San Diego.
-    	Code hosted on <a href="https://github.com/terranodo/tegola">Github</a> under the liberal <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE">MIT</a> license.
+    	Tegola is brought to you by the <a href="https://github.com/go-spatial">Go Spatial</a> team working (mainly) out of sunny San Diego.
+    	Code hosted on <a href="https://github.com/go-spatial/tegola">Github</a> under the liberal <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE">MIT</a> license.
     </p>
 </footer>
         </div>

@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Demos on Tegola With Open Layers</title>
+    <title>Tegola Demo on Tegola: An open source vector tile server</title>
     <link>/demo/</link>
-    <description>Recent content in Demos on Tegola With Open Layers</description>
+    <description>Recent content in Tegola Demo on Tegola: An open source vector tile server</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 29 Nov 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/demo/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Tegola Demo</title>
-      <link>/demo/map/</link>
-      <pubDate>Wed, 29 Nov 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/demo/map/</guid>
-      <description></description>
-    </item>
     
   </channel>
 </rss>

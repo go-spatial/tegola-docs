@@ -3,7 +3,7 @@ author: "Jpalms"
 date: 2017-11-29
 linktitle: Debugging
 title: Debugging Tegola
-weight: 20
+weight: 5
 subtitle: Fixing problems in Tegola
 menu:
   main:
@@ -20,7 +20,7 @@ The following environment variables can be used for debugging the tegola server:
 - `EXECUTE_SQL`: print SQL that is executed for each tile request and the number of items it returns or an error.
 - `LAYER_SQL:EXECUTE_SQL`: print `LAYER_SQL` and `EXECUTE_SQL`.
 
-### Example
+**Example**
 
 ```bash
 $ SQL_DEBUG=LAYER_SQL tegola --config=/path/to/conf.toml
@@ -39,5 +39,3 @@ The requested tile will be encoded with an additional layer with the name value 
 - `debug_outline`: a line feature that traces the border of the tile
 - `debug_text`: a point feature in the middle of the tile with the following tags:
 - `zxy`: a string with the Z, X and Y values formatted as: Z:0, X:0, Y:0
-
-

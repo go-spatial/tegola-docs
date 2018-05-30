@@ -13,11 +13,9 @@ This guide will take you through the steps to get Tegola rendering a map using M
 
 
 
-<meta property="article:published_time" content="2017-11-29T00:00:00&#43;00:00"/>
+<meta property="article:published_time" content="2018-05-28T00:00:00&#43;00:00"/>
 
-<meta property="article:modified_time" content="2017-11-29T00:00:00&#43;00:00"/>
-
-
+<meta property="article:modified_time" content="2018-05-28T00:00:00&#43;00:00"/>
 
 
 
@@ -27,12 +25,14 @@ This guide will take you through the steps to get Tegola rendering a map using M
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Tegola With Mapbox GL JS"/>
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Tegola With Mapbox GL JS"/>
 <meta name="twitter:description" content="Introduction Tegola is a vector tile server written in Go. Tegola takes geospatial data from a PostGIS Database and slices it into vector tiles that can be efficiently delivered to any client.
 Mapbox GL JS is a client library for rendering MVT and raster maps. Combined with Tegola, beautiful maps may be rendered with complete control.
 This guide will take you through the steps to get Tegola rendering a map using Mapbox GL JS and visualized in a web browser."/>
-<meta name="twitter:site" content="@username"/>
-<meta name="generator" content="Hugo 0.31.1" />
+<meta name="generator" content="Hugo 0.37.1" />
 
         
 <script type="application/ld+json">
@@ -41,12 +41,12 @@ This guide will take you through the steps to get Tegola rendering a map using M
   "@type": "BlogPosting",
   "headline": "Tegola With Mapbox GL JS",
   "url": "/tutorials/tegola-with-mapbox/",
-  "wordCount": "417",
-  "datePublished": "2017-11-29T00:00:00&#43;00:00",
-  "dateModified": "2017-11-29T00:00:00&#43;00:00",
+  "wordCount": "879",
+  "datePublished": "2018-05-28T00:00:00&#43;00:00",
+  "dateModified": "2018-05-28T00:00:00&#43;00:00",
   "author": {
     "@type": "Person",
-    "name": "Jpalms"
+    "name": "Jpalms and Brian Bancroft"
   }
 }
 </script>
@@ -54,11 +54,18 @@ This guide will take you through the steps to get Tegola rendering a map using M
 
 
         <link rel="canonical" href="../../tutorials/tegola-with-mapbox/">
-        <title>Tegola With Mapbox GL JS | Tegola With Open Layers</title>
+        <title>Tegola With Mapbox GL JS | Tegola: An open source vector tile server</title>
 
         
 
         
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-83708580-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
             
 
         <link rel="stylesheet" href="../../css/bootstrap.min.css"/>
@@ -68,92 +75,81 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     </head>
     <body>
-        
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
-  <a class="navbar-brand" href="../../">
-    TEGOLA
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <a class="navbar-brand" href="../../">
+        TEGOLA
     
     </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-        
-        
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
             
-                <li class="nav-item ">
-                    <a class="nav-link" href="../../download/download/">Download</a>
-                </li>
             
-        
+                
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documentation</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            
+                                <a class="dropdown-item " href="../../documentation/">
+                                    Documentation Home
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../documentation/getting-started/">
+                                    Getting Started
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../documentation/configuration/">
+                                    Tegola Configuration
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../documentation/http-endpoints/">
+                                    HTTP Endpoints
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../documentation/debugging/">
+                                    Debugging
+                                </a>
+                            
+                        </div>
+                    </li>
+                
             
-                <li class="nav-item ">
-                    <a class="nav-link" href="../../demo/map/">Demo</a>
-                </li>
+                
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tutorials</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            
+                                <a class="dropdown-item " href="../../tutorials/">
+                                    Tutorials Home
+                                </a>
+                            
+                                <a class="dropdown-item active" href="../../tutorials/tegola-with-mapbox/">
+                                    Tegola With Mapbox
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../tutorials/tegola-with-open-layers/">
+                                    Tegola With OpenLayers
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../tutorials/tegola-with-olms/">
+                                    Tegola With OLMS
+                                </a>
+                            
+                        </div>
+                    </li>
+                
             
-        
+                
+                    <li class="nav-item ">
+                        <a class="nav-link" href="../../demo">Demo</a>
+                    </li>
+                
             
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Documentation
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        
-                            <a class="dropdown-item " href="../../documentation/">
-                                Documentation Home
-                            </a>
-                        
-                            <a class="dropdown-item " href="../../documentation/getting-started/">
-                                Getting Started
-                            </a>
-                        
-                            <a class="dropdown-item " href="../../documentation/configuration/">
-                                Tegola Configuration
-                            </a>
-                        
-                            <a class="dropdown-item " href="../../documentation/http-endpoints/">
-                                HTTP Endpoints
-                            </a>
-                        
-                            <a class="dropdown-item " href="../../documentation/debugging/">
-                                Debugging
-                            </a>
-                        
-                    </div>
-                </li>
-            
-        
-            
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Tutorials
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        
-                            <a class="dropdown-item " href="../../tutorials/">
-                                Tutorials Home
-                            </a>
-                        
-                            <a class="dropdown-item active" href="../../tutorials/tegola-with-mapbox/">
-                                Tegola With Mapbox
-                            </a>
-                        
-                            <a class="dropdown-item " href="../../tutorials/tegola-with-olms/">
-                                Tegola With OLMS
-                            </a>
-                        
-                            <a class="dropdown-item " href="../../tutorials/tegola-with-open-layers/">
-                                Tegola With Open Layers
-                            </a>
-                        
-                    </div>
-                </li>
-            
-        
-
-    </ul>
-  </div>
+        </ul>
+        <a href="https://github.com/go-spatial/tegola/releases" class="btn btn-outline-info">Download</a>
+    </div>
 </nav>
         
         <div class="position-relative">
@@ -165,7 +161,7 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
                             Tegola With Mapbox GL JS
                         </h1>
                         
-                            <p class="lead text-light">A mapping solution utilizing Mapbox</p>
+                            <p class="lead text-light">Load Tegola-served content on a Mapbox GL Map!</p>
                         
                     </div>
                 </div>
@@ -177,7 +173,7 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
 
 <h2 id="introduction">Introduction</h2>
 
-<p><a href="https://github.com/terranodo/tegola">Tegola</a> is a vector tile server written in Go. Tegola takes geospatial data from a PostGIS Database and slices it into vector tiles that can be efficiently delivered to any client.</p>
+<p><a href="https://github.com/go-spatial/tegola">Tegola</a> is a vector tile server written in Go. Tegola takes geospatial data from a PostGIS Database and slices it into vector tiles that can be efficiently delivered to any client.</p>
 
 <p><a href="https://www.mapbox.com/mapbox-gl-js/api/">Mapbox GL JS</a> is a client library for rendering MVT and raster maps. Combined with Tegola, beautiful maps may be rendered with complete control.</p>
 
@@ -185,35 +181,51 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
 
 <h2 id="getting-started">Getting Started</h2>
 
-<p>The first thing you&rsquo;ll need is a Tegola endpoint. You can either setup one locally by following the instructions located in the <a href="http://tegola.io/getting-started/">Tegola docs</a> or you can use an existing endpoint.</p>
+<h3 id="build-the-tegola-server">Build the Tegola Server</h3>
 
-<p>For the following example we&rsquo;ll be pulling in data from a Tegola instance hosted at <a href="https://osm.tegola.io">https://osm.tegola.io</a>.</p>
+<p>The first thing you&rsquo;ll need is a Tegola endpoint. You can either set one up locally by following the instructions located in the <a href="http://tegola.io/getting-started/">getting started guide</a> or you can use an existing endpoint.</p>
+
+<h3 id="get-a-mapbox-access-token">Get a Mapbox Access Token</h3>
+
+<p>The second thing you&rsquo;ll need is a <a href="https://www.mapbox.com">Mapbox</a> GL access token. You should have a look at <a href="https://www.mapbox.com/help/how-access-tokens-work/">their docs</a> if you need more assistance in obtaining a new token.</p>
 
 <h2 id="setup-the-html">Setup the HTML</h2>
 
-<p>Next, we make an HTML page that will show the map. The following is a minimal example HTML page for rendering a map with Open Layers. Copy and paste the following code into an empty file and name it index.html.</p>
+<p>Next, we make an HTML page that will show the map. The following is a minimal example HTML page for rendering a map with Mapbox GL JS. Copy and paste the following code into an empty file and name it index.html.</p>
 
 <pre><code class="language-html">&lt;!doctype html&gt;
 &lt;html lang=&quot;en&quot;&gt;
-    &lt;head&gt;
-        &lt;style&gt;
-            #map{height:600px;width:100%;}
-        &lt;/style&gt;
-        &lt;script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.js'&gt;&lt;/script&gt;
-        &lt;link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.css' rel='stylesheet' /&gt;
-        &lt;title&gt;Mapbox example&lt;/title&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;div id=&quot;map&quot;&gt;&lt;/div&gt;
-        &lt;script type=&quot;text/javascript&quot;&gt;
-            var map = new mapboxgl.Map({
-                container: 'map', // map tag id
-                style: '', // style json location
-                center: [-117.15,32.72], // starting position [lng, lat]
-                zoom: 9 // starting zoom
-            });
-        &lt;/script&gt;
-    &lt;/body&gt;
+  &lt;head&gt;
+    &lt;style&gt;
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+    &lt;/style&gt;
+    &lt;script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.js'&gt;&lt;/script&gt;
+    &lt;link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.css' rel='stylesheet' /&gt;
+    &lt;title&gt;Mapbox example&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id=&quot;map&quot;&gt;&lt;/div&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+      // TODO: Enter your mapbox gl access token on the line below
+      mapboxgl.accessToken = ''
+      var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/light-v9',
+        center: [7.0982, 50.7374],
+        zoom: 11
+      });
+    &lt;/script&gt;
+  &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
 
@@ -221,23 +233,154 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
 
 <p>To render the map we will use a javascript snippet.</p>
 
-<pre><code class="language-javascript">var map = new mapboxgl.Map({
-    container: 'map', // map tag id
-    style: '', // style json location
-    center: [-117.15,32.72], // starting position [lng, lat]
-    zoom: 9 // starting zoom
-});
+<pre><code class="language-js">  mapboxgl.accessToken = ''
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/light-v9',
+    center: [7.0982, 50.7374],
+    zoom: 11
+  });
 </code></pre>
 
-<p>Important details to note in this snippet are the <code>container:'map'</code> piece which tells Mapbox to instantiate the map into the div with an id of map. The <code>style</code> property which is the path to the style json file. Inside the styule file is a source property which defines the map data that will be imported. In this case we are using a Tegola endpoint which serves up Open Street Maps (OSM) data.</p>
+<p>Important details to note in this snippet are the <code>container:'map'</code> piece which tells Mapbox to instantiate the map into the div with an id of map. The <code>style</code> property which is the path to the style json file. Inside the style file is a source property which defines the map data that will be imported. In this case we are using a Tegola endpoint which serves up OpenStreetMap (OSM) data.</p>
 
 <p>Open the HTML file in a browser and you should see the following:</p>
 
-<p><img src="../../images/screenshotMapbox.png" alt="basic map screenshot" title="Map" /></p>
+<p><img src="../../images/mapbox-working.png" alt="basic map screenshot" title="Map" /></p>
 
-<p>A map of San Diego, CA rendered with the stylesheet we defined.</p>
+<p>A map of Bonn, Germany is rendered with the stylesheet we defined.</p>
 
 <p>For more information on Mapbox GL JS check out the official documentation: <a href="https://www.mapbox.com/mapbox-gl-js/api/">Mapbox GL JS</a>.</p>
+
+<h2 id="add-the-layers-served-by-tegola">Add the Layers served by Tegola</h2>
+
+<p>Now that we have the basemap and the server, we will finish this tutorial by adding the two. The following assumes that you&rsquo;ve used the first tutorial for Tegola using Bonn.</p>
+
+<h3 id="choosing-your-layers">Choosing your layers</h3>
+
+<p>Lets have a look at your toml file first:</p>
+
+<pre><code class="language-toml">[[maps]]
+name = &quot;bonn&quot;
+
+  [[maps.layers]]
+  provider_layer = &quot;bonn.road&quot;
+  min_zoom = 10
+  max_zoom = 20
+
+  [[maps.layers]]
+  provider_layer = &quot;bonn.main_roads&quot;
+  min_zoom = 5
+  max_zoom = 20
+
+  [[maps.layers]]
+  provider_layer = &quot;bonn.lakes&quot;
+  min_zoom = 5
+  max_zoom = 20
+</code></pre>
+
+<p>The name of this source is <code>bonn</code>. This will be part of the API call you make to retrieve the layers. Next, you have the names of the layers. In this source, you see <code>road</code>, <code>lakes</code>, <code>main_roads</code>. Each layer shows the content of the source, which can style from within the browser when we call the indivdual layers. Lets add the roads:</p>
+
+<p>First, we need to choose the trigger when the map content gets loaded. We will use the <code>'load'</code> trigger (You can read more about the triggers available <a href="https://www.mapbox.com/mapbox-gl-js/api/#map#on">here</a>):</p>
+
+<pre><code class="language-js">  map.on('load', function () { ... });
+</code></pre>
+
+<p>Now, we add the source:</p>
+
+<pre><code class="language-js">  map.on('load', function () {
+    map.addSource('bonn', {
+      'type': 'vector',
+      &quot;tiles&quot;: [&quot;http://localhost:8080/maps/bonn/{z}/{x}/{y}.vector.pbf?&quot;],
+      &quot;tolerance&quot;: 0
+    });
+  }
+</code></pre>
+
+<p>You&rsquo;ll notice here that we&rsquo;re selecting content from the <code>bonn</code> map which we configured in the .toml file earlier. Now, we add a layer:</p>
+
+<pre><code class="language-js">  map.addLayer({
+    &quot;id&quot;: &quot;road&quot;,
+    &quot;source&quot;: &quot;bonn&quot;,
+    &quot;source-layer&quot;: &quot;road&quot;,
+    &quot;type&quot;: &quot;line&quot;,
+    &quot;paint&quot;: {
+      &quot;line-color&quot;: &quot;#000000&quot;,
+      &quot;line-width&quot;: 1
+    }
+  });
+</code></pre>
+
+<p>This gives provides the browser with the instruction on how we want to style the layer. Together, it all looks like the following:</p>
+
+<pre><code class="language-html">  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+
+  &lt;head&gt;
+    &lt;meta charset='utf-8' /&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' /&gt;
+    &lt;script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.js'&gt;&lt;/script&gt;
+    &lt;link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.css' rel='stylesheet' /&gt;
+    &lt;style&gt;
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+
+    &lt;div id='map'&gt;&lt;/div&gt;
+    &lt;script&gt;
+      // TODO: Add your mapbox token right below!
+      mapboxgl.accessToken = '';
+      var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/light-v9',
+        center: [7.0982, 50.7374],
+        zoom: 11
+      });
+
+      var nav = new mapboxgl.NavigationControl();
+      map.addControl(nav, 'top-right');
+
+      map.on('load', function () {
+        map.addSource('bonn', {
+          'type': 'vector',
+          &quot;tiles&quot;: [&quot;http://localhost:8080/maps/bonn/{z}/{x}/{y}.vector.pbf?&quot;],
+          &quot;tolerance&quot;: 0
+        });
+
+        map.addLayer({
+          &quot;id&quot;: &quot;road&quot;,
+          &quot;source&quot;: &quot;bonn&quot;,
+          &quot;source-layer&quot;: &quot;road&quot;,
+          &quot;type&quot;: &quot;line&quot;,
+          &quot;paint&quot;: {
+            &quot;line-color&quot;: &quot;#FF0000&quot;,
+            &quot;line-width&quot;: 1
+          }
+        });
+      });
+    &lt;/script&gt;
+
+  &lt;/body&gt;
+</code></pre>
+
+<p>From here, you should see the road layers populate in red on top of the basemap:</p>
+
+<p><img src="../../images/mapbox-tegola-roads.png" alt="Map with roads loaded" title="Roads" /></p>
+
+<p>From here, you can load other layers from the same source. Keep in mind that you aren&rsquo;t limited to lines, fills (polygon fills) and points. Be sure to consult the <a href="https://www.mapbox.com/mapbox-gl-js/style-spec/#layers">Mapbox GL API Spec</a> to learn more about other ways you can symbolize layers using Mapbox GL!</p>
 
                     </div>
                     <div class="col-sm-3">
@@ -250,8 +393,16 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
 <li>
 <ul>
 <li><a href="#introduction">Introduction</a></li>
-<li><a href="#getting-started">Getting Started</a></li>
+<li><a href="#getting-started">Getting Started</a>
+<ul>
+<li><a href="#build-the-tegola-server">Build the Tegola Server</a></li>
+<li><a href="#get-a-mapbox-access-token">Get a Mapbox Access Token</a></li>
+</ul></li>
 <li><a href="#setup-the-html">Setup the HTML</a></li>
+<li><a href="#add-the-layers-served-by-tegola">Add the Layers served by Tegola</a>
+<ul>
+<li><a href="#choosing-your-layers">Choosing your layers</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -263,8 +414,8 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
             </div>
             <footer class="container-fluid p-4 bg-light">
 	<p class="text-muted small mb-0">
-    	Tegola is brought to you by the <a href="http://terranodo.io/">Terranodo</a> team working (mainly) out of sunny San Diego.
-    	Code hosted on <a href="https://github.com/terranodo/tegola">Github</a> under the liberal <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE">MIT</a> license.
+    	Tegola is brought to you by the <a href="https://github.com/go-spatial">Go Spatial</a> team working (mainly) out of sunny San Diego.
+    	Code hosted on <a href="https://github.com/go-spatial/tegola">Github</a> under the liberal <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE">MIT</a> license.
     </p>
 </footer>
         </div>
