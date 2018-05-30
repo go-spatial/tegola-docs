@@ -22,9 +22,7 @@ This guide will take you through the steps to get Tegola rendering a map using M
 
 ### Build the Tegola Server
 
-The first thing you'll need is a Tegola endpoint. You can either set one up locally by following the instructions located in the [Tegola docs](http://tegola.io/getting-started/) or you can use an existing endpoint.
-
-For the following example we'll be pulling in data from a Tegola instance hosted at https://osm.tegola.io.
+The first thing you'll need is a Tegola endpoint. You can either set one up locally by following the instructions located in the [getting started guide](http://tegola.io/getting-started/) or you can use an existing endpoint.
 
 ### Get a Mapbox Access Token
 
@@ -106,7 +104,7 @@ Lets have a look at your toml file first:
 
 ```toml
 [[maps]]
-name = "zoning"
+name = "bonn"
 
   [[maps.layers]]
   provider_layer = "bonn.road"
@@ -124,7 +122,7 @@ name = "zoning"
   max_zoom = 20
 ```
 
-The name of this source is `zoning`. This will be part of the API call you make to retrieve the layers. Next, you have the names of the layers. In this source, you see `road`, `lakes`, `main_roads`. Each layer shows the content of the source, which can style from within the browser when we call the indivdual layers. Lets add the roads:
+The name of this source is `bonn`. This will be part of the API call you make to retrieve the layers. Next, you have the names of the layers. In this source, you see `road`, `lakes`, `main_roads`. Each layer shows the content of the source, which can style from within the browser when we call the indivdual layers. Lets add the roads:
 
 First, we need to choose the trigger when the map content gets loaded. We will use the `'load'` trigger (You can read more about the triggers available [here](https://www.mapbox.com/mapbox-gl-js/api/#map#on)):
 
@@ -136,20 +134,20 @@ Now, we add the source:
 
 ```js
   map.on('load', function () {
-    map.addSource('zones', {
+    map.addSource('bonn', {
       'type': 'vector',
-      "tiles": ["http://localhost:8080/maps/zoning/{z}/{x}/{y}.vector.pbf?"],
+      "tiles": ["http://localhost:8080/maps/bonn/{z}/{x}/{y}.vector.pbf?"],
       "tolerance": 0
     });
   }
 ```
 
-You'll notice here that we're selecting content from the `zoning` map which we configured in the .toml file earlier. Now, we add a layer:
+You'll notice here that we're selecting content from the `bonn` map which we configured in the .toml file earlier. Now, we add a layer:
 
 ```js
   map.addLayer({
     "id": "road",
-    "source": "zones",
+    "source": "bonn",
     "source-layer": "road",
     "type": "line",
     "paint": {
@@ -170,7 +168,6 @@ This gives provides the browser with the instruction on how we want to style the
     <title></title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.js'></script>
-    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.css' rel='stylesheet' />
     <style>
       body {
@@ -204,15 +201,15 @@ This gives provides the browser with the instruction on how we want to style the
       map.addControl(nav, 'top-right');
 
       map.on('load', function () {
-        map.addSource('zones', {
+        map.addSource('bonn', {
           'type': 'vector',
-          "tiles": ["http://localhost:8080/maps/zoning/{z}/{x}/{y}.vector.pbf?"],
+          "tiles": ["http://localhost:8080/maps/bonn/{z}/{x}/{y}.vector.pbf?"],
           "tolerance": 0
         });
 
         map.addLayer({
           "id": "road",
-          "source": "zones",
+          "source": "bonn",
           "source-layer": "road",
           "type": "line",
           "paint": {

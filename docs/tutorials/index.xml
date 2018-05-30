@@ -14,7 +14,7 @@
     <item>
       <title>Tegola With Mapbox GL JS</title>
       <link>/tutorials/tegola-with-mapbox/</link>
-      <pubDate>Wed, 29 Nov 2017 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 28 May 2018 00:00:00 +0000</pubDate>
       
       <guid>/tutorials/tegola-with-mapbox/</guid>
       <description>Introduction Tegola is a vector tile server written in Go. Tegola takes geospatial data from a PostGIS Database and slices it into vector tiles that can be efficiently delivered to any client.
