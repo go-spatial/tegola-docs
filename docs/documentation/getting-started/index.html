@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <meta property="og:title" content="Getting Started with Tegola" />
-<meta property="og:description" content="1. Download Tegola Choose the binary that matches the operating system Tegola will run on. Find the Tegola file that was downloaded, unzip it, and move it into a fresh directory. Rename this file tegola.
-2. Setup a data provider Tegola needs geospatial data to run. Currently, Tegola supports PostGIS which is a geospatial extension for PostgreSQL, and GeoPackage. If you don&rsquo;t have PostGIS installed, download PostGIS.
-Next, you&rsquo;ll need to load PostGIS with data." />
+<meta property="og:description" content="1. Download Tegola Executable Choose the binary that matches the operating system Tegola will run on. Find the Tegola file that was downloaded, unzip it, and move it into a fresh directory. Rename this file tegola.
+Docker Image As of v0.6.0, Tegola also provides an official Docker release with support for both PostGIS and GeoPackage data providers. Use docker pull gospatial/tegola to get the latest image.
+Check out the docs on Docker Hub for details and examples of using the image." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/documentation/getting-started/" />
 
@@ -29,9 +29,9 @@ Next, you&rsquo;ll need to load PostGIS with data." />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Getting Started with Tegola"/>
-<meta name="twitter:description" content="1. Download Tegola Choose the binary that matches the operating system Tegola will run on. Find the Tegola file that was downloaded, unzip it, and move it into a fresh directory. Rename this file tegola.
-2. Setup a data provider Tegola needs geospatial data to run. Currently, Tegola supports PostGIS which is a geospatial extension for PostgreSQL, and GeoPackage. If you don&rsquo;t have PostGIS installed, download PostGIS.
-Next, you&rsquo;ll need to load PostGIS with data."/>
+<meta name="twitter:description" content="1. Download Tegola Executable Choose the binary that matches the operating system Tegola will run on. Find the Tegola file that was downloaded, unzip it, and move it into a fresh directory. Rename this file tegola.
+Docker Image As of v0.6.0, Tegola also provides an official Docker release with support for both PostGIS and GeoPackage data providers. Use docker pull gospatial/tegola to get the latest image.
+Check out the docs on Docker Hub for details and examples of using the image."/>
 <meta name="generator" content="Hugo 0.37.1" />
 
         
@@ -41,7 +41,7 @@ Next, you&rsquo;ll need to load PostGIS with data."/>
   "@type": "BlogPosting",
   "headline": "Getting Started with Tegola",
   "url": "/documentation/getting-started/",
-  "wordCount": "671",
+  "wordCount": "760",
   "datePublished": "2017-11-29T00:00:00&#43;00:00",
   "dateModified": "2017-11-29T00:00:00&#43;00:00",
   "author": {
@@ -173,7 +173,15 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
 
 <h2 id="1-download-tegola">1. Download Tegola</h2>
 
+<h3 id="executable">Executable</h3>
+
 <p><a href="https://github.com/go-spatial/tegola/releases">Choose the binary</a> that matches the operating system Tegola will run on. Find the Tegola file that was downloaded, unzip it, and move it into a fresh directory. Rename this file <code>tegola</code>.</p>
+
+<h3 id="docker-image">Docker Image</h3>
+
+<p>As of v0.6.0, Tegola also provides an official Docker release with support for both PostGIS and GeoPackage data providers.  Use <code>docker pull gospatial/tegola</code> to get the latest image.</p>
+
+<p><a href="https://hub.docker.com/r/gospatial/tegola/">Check out the docs on Docker Hub</a> for details and examples of using the image.</p>
 
 <h2 id="2-setup-a-data-provider">2. Setup a data provider</h2>
 
@@ -253,12 +261,20 @@ name = &quot;bonn&quot;
 
 <h2 id="4-start-tegola">4. Start Tegola</h2>
 
+<h3 id="executable-1">Executable</h3>
+
 <p>Navigate to the Tegola directory in your computer&rsquo;s terminal and run this command:</p>
 
 <pre><code class="language-sh">./tegola serve --config=config.toml
 </code></pre>
 
 <p>You should see a message confirming the config file load and Tegola being started on port 8080. If your computer&rsquo;s port 8080 is being used by another process, change the port in the config file to an open port.</p>
+
+<h3 id="docker-image-1">Docker Image</h3>
+
+<p>If you&rsquo;re using the docker image, starting Tegola will be slightly different in order to pass your config and possibly your data into the container.</p>
+
+<p><a href="https://hub.docker.com/r/gospatial/tegola/">Check out the docs on Docker Hub</a> for details and examples of using the image.</p>
 
 <h2 id="5-create-an-html-page">5. Create an HTML page</h2>
 
@@ -323,10 +339,18 @@ name = &quot;bonn&quot;
 <ul>
 <li>
 <ul>
-<li><a href="#1-download-tegola">1. Download Tegola</a></li>
+<li><a href="#1-download-tegola">1. Download Tegola</a>
+<ul>
+<li><a href="#executable">Executable</a></li>
+<li><a href="#docker-image">Docker Image</a></li>
+</ul></li>
 <li><a href="#2-setup-a-data-provider">2. Setup a data provider</a></li>
 <li><a href="#3-create-a-configuration-file">3. Create a configuration file</a></li>
-<li><a href="#4-start-tegola">4. Start Tegola</a></li>
+<li><a href="#4-start-tegola">4. Start Tegola</a>
+<ul>
+<li><a href="#executable-1">Executable</a></li>
+<li><a href="#docker-image-1">Docker Image</a></li>
+</ul></li>
 <li><a href="#5-create-an-html-page">5. Create an HTML page</a></li>
 </ul></li>
 </ul>
