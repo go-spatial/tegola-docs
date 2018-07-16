@@ -202,13 +202,14 @@ center = [-76.275329586789, 39.153492567373, 5.0]
 
 Map Layers define which [Provider Layers](#provider-layers) to render at what zoom levels. Map Layers have the following configuration parameters:
 
-| Param              | Required | Description                                                                              |
-|:-------------------|:---------|:-----------------------------------------------------------------------------------------|
-| provider_layer     | Yes      | The name of the provider and provider layer using dot syntax. (i.e. my_postgis.rivers).  |
-| min_zoom           | No       | The minimum zoom to render this layer at.                                                 |
-| max_zoom           | No       | The maximum zoom to render this layer at.                                                |
-| default_tags       | No       | Default tags to be added to features on this layer.                                      |
-| dont_simplify      | No       | Boolean to prevent feature simplification from being applied.                            |
+| Param              | Required | Description                                                                                                                              |
+|:-------------------|:---------|:-----------------------------------------------------------------------------------------------------------------------------------------|
+| provider_layer     | Yes      | The name of the provider and provider layer using dot syntax. (i.e. my_postgis.rivers).                                                  |
+| name               | No       | Overrides the `provider_layer` name. Can also be used to group multiple `provider_layers` under the same namespace.                      |
+| min_zoom           | No       | The minimum zoom to render this layer at.                                                                                                |
+| max_zoom           | No       | The maximum zoom to render this layer at.                                                                                                |
+| default_tags       | No       | Default tags to be added to features on this layer.                                                                                      |
+| dont_simplify      | No       | Boolean to prevent feature simplification from being applied.                                                                            |
 
 
 **Example Map Layer**
