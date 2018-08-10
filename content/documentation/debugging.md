@@ -14,7 +14,7 @@ menu:
 
 The following environment variables can be used for debugging the tegola server:
 
-`SQL_DEBUG`: specify the type of SQL debug information to output. Supports the following values:
+`TEGOLA_SQL_DEBUG`: specify the type of SQL debug information to output. Supports the following values:
 
 - `LAYER_SQL`: print layer SQL as they're parsed from the config file.
 - `EXECUTE_SQL`: print SQL that is executed for each tile request and the number of items it returns or an error.
@@ -23,7 +23,7 @@ The following environment variables can be used for debugging the tegola server:
 **Example**
 
 ```bash
-$ SQL_DEBUG=LAYER_SQL tegola --config=/path/to/conf.toml
+$ TEGOLA_SQL_DEBUG=LAYER_SQL tegola --config=/path/to/conf.toml
 ```
 
 ## Client side
