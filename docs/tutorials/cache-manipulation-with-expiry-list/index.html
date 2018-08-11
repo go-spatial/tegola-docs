@@ -4,18 +4,19 @@
         <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<meta property="og:title" content="Tegola With OL Mapbox Style (OLMS)" />
-<meta property="og:description" content="Introduction Tegola is a vector tile server written in Go. Tegola takes geospatial data from a PostGIS Database and slices it into vector tiles that can be efficiently delivered to any client.
-OLMS is a library used to take Mapbox stylesheets and convert them into OpenLayers scripted styles.
-This guide will show you how to use OLMS to convert and utilize a Mapbox style to render a map using OpenLayers." />
+<meta property="og:title" content="Cache Manipulation With Expiry List" />
+<meta property="og:description" content="systemd This method is the native solution for linux systems. Firstly it requires the bash wrapper provided later in this page.
+/usr/systemd/system/tegola-diffs.service:
+[Unit] Description=Service for updating tegola&#39;s cache via diffs [Service] ExecStart=/path/to/script/seed-by-diffs.sh [Path] PathChanged=/path/to/diffs/diff-directory/  Cache Seed Bash Wrapper seed-by-diffs.sh:
+#!/bin/bash diff_dir=&quot;/path/to/diffs/diff-directory/&quot; # this will be essentially treated as a pidfile queued_jobs=&quot;./in_progress.list&quot; # output of seeded completed_jobs=&quot;./completed.list&quot; # a directory to place the worked expiry lists # THIS MUST BE OUTSIDE OF $diff_dir completed_dir=$diff_dir&quot;/." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/tutorials/tegola-with-olms/" />
+<meta property="og:url" content="/tutorials/cache-manipulation-with-expiry-list/" />
 
 
 
-<meta property="article:published_time" content="2017-11-29T00:00:00&#43;00:00"/>
+<meta property="article:published_time" content="2018-03-28T00:00:00&#43;00:00"/>
 
-<meta property="article:modified_time" content="2017-11-29T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2018-03-28T00:00:00&#43;00:00"/>
 
 
 
@@ -28,10 +29,11 @@ This guide will show you how to use OLMS to convert and utilize a Mapbox style t
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Tegola With OL Mapbox Style (OLMS)"/>
-<meta name="twitter:description" content="Introduction Tegola is a vector tile server written in Go. Tegola takes geospatial data from a PostGIS Database and slices it into vector tiles that can be efficiently delivered to any client.
-OLMS is a library used to take Mapbox stylesheets and convert them into OpenLayers scripted styles.
-This guide will show you how to use OLMS to convert and utilize a Mapbox style to render a map using OpenLayers."/>
+<meta name="twitter:title" content="Cache Manipulation With Expiry List"/>
+<meta name="twitter:description" content="systemd This method is the native solution for linux systems. Firstly it requires the bash wrapper provided later in this page.
+/usr/systemd/system/tegola-diffs.service:
+[Unit] Description=Service for updating tegola&#39;s cache via diffs [Service] ExecStart=/path/to/script/seed-by-diffs.sh [Path] PathChanged=/path/to/diffs/diff-directory/  Cache Seed Bash Wrapper seed-by-diffs.sh:
+#!/bin/bash diff_dir=&quot;/path/to/diffs/diff-directory/&quot; # this will be essentially treated as a pidfile queued_jobs=&quot;./in_progress.list&quot; # output of seeded completed_jobs=&quot;./completed.list&quot; # a directory to place the worked expiry lists # THIS MUST BE OUTSIDE OF $diff_dir completed_dir=$diff_dir&quot;/."/>
 <meta name="generator" content="Hugo 0.37.1" />
 
         
@@ -39,22 +41,22 @@ This guide will show you how to use OLMS to convert and utilize a Mapbox style t
 {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
-  "headline": "Tegola With OL Mapbox Style (OLMS)",
-  "url": "/tutorials/tegola-with-olms/",
-  "wordCount": "395",
-  "datePublished": "2017-11-29T00:00:00&#43;00:00",
-  "dateModified": "2017-11-29T00:00:00&#43;00:00",
+  "headline": "Cache Manipulation With Expiry List",
+  "url": "/tutorials/cache-manipulation-with-expiry-list/",
+  "wordCount": "208",
+  "datePublished": "2018-03-28T00:00:00&#43;00:00",
+  "dateModified": "2018-03-28T00:00:00&#43;00:00",
   "author": {
     "@type": "Person",
-    "name": "Jpalms"
+    "name": "ear7h"
   }
 }
 </script>
 
 
 
-        <link rel="canonical" href="../../tutorials/tegola-with-olms/">
-        <title>Tegola With OL Mapbox Style (OLMS) | Tegola: An open source vector tile server</title>
+        <link rel="canonical" href="../../tutorials/cache-manipulation-with-expiry-list/">
+        <title>Cache Manipulation With Expiry List | Tegola: An open source vector tile server</title>
 
         
 
@@ -129,7 +131,7 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
                                     Tutorials Home
                                 </a>
                             
-                                <a class="dropdown-item " href="../../tutorials/cache-manipulation-with-expiry-list/">
+                                <a class="dropdown-item active" href="../../tutorials/cache-manipulation-with-expiry-list/">
                                     Cache Manipulation With Expiry List
                                 </a>
                             
@@ -141,7 +143,7 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
                                     Tegola With OpenLayers
                                 </a>
                             
-                                <a class="dropdown-item active" href="../../tutorials/tegola-with-olms/">
+                                <a class="dropdown-item " href="../../tutorials/tegola-with-olms/">
                                     Tegola With OLMS
                                 </a>
                             
@@ -166,10 +168,10 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
                 <div class="row">
                     <div class="col-sm-12 bg-info text-light pl-4 pt-4 pb-3">
                         <h1 class="display-4 mb-0">
-                            Tegola With OL Mapbox Style (OLMS)
+                            Cache Manipulation With Expiry List
                         </h1>
                         
-                            <p class="lead text-light">An easy way to use Mapbox styles with OpenLayers</p>
+                            <p class="lead text-light">Managing expired tiles from a list</p>
                         
                     </div>
                 </div>
@@ -179,67 +181,80 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
                         
                         
 
-<h2 id="introduction">Introduction</h2>
+<h2 id="systemd"><code>systemd</code></h2>
 
-<p><a href="https://github.com/go-spatial/tegola">Tegola</a> is a vector tile server written in Go. Tegola takes geospatial data from a PostGIS Database and slices it into vector tiles that can be efficiently delivered to any client.</p>
+<p>This method is the native solution for linux systems. Firstly it requires the <a href="#cache-seed-bash-wrapper">bash wrapper</a> provided later in this page.</p>
 
-<p><a href="https://github.com/boundlessgeo/ol-mapbox-style">OLMS</a> is a library used to take Mapbox stylesheets and convert them into OpenLayers scripted styles.</p>
+<p><code>/usr/systemd/system/tegola-diffs.service</code>:</p>
 
-<p>This guide will show you how to use OLMS to convert and utilize a Mapbox style to render a map using OpenLayers.</p>
+<pre><code class="language-apache">[Unit]
+Description=Service for updating tegola's cache via diffs
 
-<h2 id="getting-started">Getting Started</h2>
+[Service]
+ExecStart=/path/to/script/seed-by-diffs.sh
 
-<p>To get setup for using OLMS you&rsquo;ll need a Tegola source, a Mapbox stylesheet, and the OLMS library.</p>
-
-<h3 id="tegola-source">Tegola source</h3>
-
-<p>The first thing you&rsquo;ll need is a Tegola endpoint. You can either setup one locally by following the instructions located in the <a href="http://tegola.io/getting-started/">Tegola docs</a> or you can use an existing endpoint.</p>
-
-<p>For the following example we&rsquo;ll be pulling in data from a Tegola instance hosted at <a href="https://osm.tegola.io">https://osm.tegola.io</a>.</p>
-
-<h3 id="get-a-mapbox-stylesheet">Get a Mapbox stylesheet</h3>
-
-<p>You may either pull a Mapbox stylesheet from Mapbox directly using an API key, you can craft your own, or you may use a stylesheet provided in this repo in the style directory.</p>
-
-<p>For the following example we&rsquo;ll be using the stylesheet here <a href="https://osm.tegola.io">https://osm.tegola.io</a>.</p>
-
-<p>Note that stylesheets are specific to the layers of a source endpoint. Ensure that whatever styles you are using are compatible.</p>
-
-<h3 id="grab-the-olms-script">Grab the OLMS script</h3>
-
-<p>Either get the js file from the <a href="https://github.com/boundlessgeo/ol-mapbox-style">OLMS repo</a> or you can link to it from these docs here: <a href="https://osm.tegola.io">https://osm.tegola.io</a>.</p>
-
-<h2 id="setup-the-html">Setup the HTML</h2>
-
-<p>Next, we make an HTML page that will show the map. The following is a minimal example HTML page for rendering a map with OpenLayers and OLMS. Copy and paste the following code into an empty file and name it index.html.</p>
-
-<pre><code class="language-html">&lt;!doctype html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-    &lt;head&gt;
-        &lt;link rel=&quot;stylesheet&quot; href=&quot;https://openlayers.org/en/v4.5.0/css/ol.css&quot; type=&quot;text/css&quot;&gt;
-        &lt;style&gt;
-            #map{height:600px;width:100%;}
-        &lt;/style&gt;
-        &lt;script src=&quot;https://openlayers.org/en/v4.5.0/build/ol.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
-        &lt;script src=&quot;olms.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
-        &lt;title&gt;OpenLayers example&lt;/title&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;div id=&quot;map&quot;&gt;&lt;/div&gt;
-        &lt;script type=&quot;text/javascript&quot;&gt;
-            olms.apply('map','hot-osm.json');
-        &lt;/script&gt;
-    &lt;/body&gt;
-&lt;/html&gt;
+[Path]
+PathChanged=/path/to/diffs/diff-directory/
 </code></pre>
 
-<p>The piece that is doing all the heavy lifting here is <code>olms.apply('map','hot-osm.json');</code>. The first argument <code>map</code> is the id of the tag where the map will render. The next, <code>hot-osm.json</code> is the path to the style json file in Mapbox style format. Note that there is no source declaration in this HTML file. That is being defined as <code>https://osm.tegola.io</code> inside the <code>hot-osm.json</code> file.</p>
+<h2 id="cache-seed-bash-wrapper">Cache Seed Bash Wrapper</h2>
 
-<p>And here&rsquo;s what you should see when you open up a browser:</p>
+<p><code>seed-by-diffs.sh</code>:</p>
 
-<p><img src="../../images/screenshotOLMS.png" alt="custom styles screenshot" title="Map" /></p>
+<pre><code class="language-bash">#!/bin/bash
+diff_dir=&quot;/path/to/diffs/diff-directory/&quot;
+# this will be essentially treated as a pidfile
+queued_jobs=&quot;./in_progress.list&quot;
+# output of seeded
+completed_jobs=&quot;./completed.list&quot;
+# a directory to place the worked expiry lists
+# THIS MUST BE OUTSIDE OF $diff_dir
+completed_dir=$diff_dir&quot;/../purged&quot;
 
-<p>For more information on using OLMS, check out the official documentation: <a href="https://github.com/boundlessgeo/ol-mapbox-style">OL Mapbox Style</a>.</p>
+# assert no other jobs are running
+if [[ -f $queued_jobs ]]; then
+  echo &quot;$queued_jobs exists, is another seed process running?&quot;
+  exit
+else
+  touch $queued_jobs
+  if [[ ! $? ]]; then
+    rm $queued_jobs
+    exit
+  fi
+fi
+
+# en existance of completed directory
+if [[ ! -d $completed_dir ]]; then
+  echo &quot;$completed_dir directory not found&quot;
+  echo &quot;mkdir $completed_dir&quot;
+  mkdir $completed_dir
+fi
+
+# files newer than this amount of seconds will
+# not be used for this job
+imp_time=10
+imp_list=`find $diff_dir -type f -mtime +$(echo $imp_time)s`
+
+for f in $imp_list; do
+  echo &quot;$f&quot; &gt;&gt; $queued_jobs
+done
+
+for f in $imp_list; do
+  tegola cache seed --config=&quot;config.toml&quot; --tile-list=&quot;$(echo $f)&quot; --tile-name-format=&quot;/zxy&quot; --min-zoom=4 --max-zoom=14 --tile-name-format=&quot;/zxy&quot; --overwrite
+  if [[ &quot;$?&quot; != &quot;0&quot; ]]; then
+    #error
+    echo &quot;error, stopping&quot;
+    rm $queued_jobs
+    exit
+  fi
+
+  echo &quot;$f&quot; &gt;&gt; $completed_jobs
+  mv $f $completed_dir
+done
+
+rm $queued_jobs
+
+</code></pre>
 
                     </div>
                     <div class="col-sm-3">
@@ -251,14 +266,8 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
 <ul>
 <li>
 <ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#getting-started">Getting Started</a>
-<ul>
-<li><a href="#tegola-source">Tegola source</a></li>
-<li><a href="#get-a-mapbox-stylesheet">Get a Mapbox stylesheet</a></li>
-<li><a href="#grab-the-olms-script">Grab the OLMS script</a></li>
-</ul></li>
-<li><a href="#setup-the-html">Setup the HTML</a></li>
+<li><a href="#systemd"><code>systemd</code></a></li>
+<li><a href="#cache-seed-bash-wrapper">Cache Seed Bash Wrapper</a></li>
 </ul></li>
 </ul>
 </nav>

@@ -18,6 +18,16 @@
   </url>
   
   <url>
+    <loc>/tutorials/cache-manipulation-with-expiry-list/</loc>
+    <lastmod>2018-03-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tutorials/tegola-cheatsheet/</loc>
+    <lastmod>2018-03-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/documentation/getting-started/</loc>
     <lastmod>2017-11-29T00:00:00+00:00</lastmod>
   </url>
@@ -30,6 +40,11 @@
   <url>
     <loc>/tutorials/tegola-with-open-layers/</loc>
     <lastmod>2017-11-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/documentation/cache-seeding-and-purging/</loc>
+    <lastmod>2018-03-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>

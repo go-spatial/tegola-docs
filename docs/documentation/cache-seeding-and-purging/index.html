@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Cache Seeding and Purging" />
+<meta property="og:description" content="Overview The cache command manually manipulates Tegola&rsquo;s cache
+Examples
+ Simple seed Simple purge Bounds Tile name format Tile name format Simple tile list Non-default format tile list  Note: The tile-list methods of fetching tiles is inefficient and will regenerate lower zoom tiles repeatedly.
+Seeding The seed subcommand is used to cache tiles on demand.
+Note: the Tegola server does not need to be running for this command to execute." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/documentation/cache-seeding-and-purging/" />
+
+
+
+<meta property="article:published_time" content="2018-03-26T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2018-03-26T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Cache Seeding and Purging"/>
+<meta name="twitter:description" content="Overview The cache command manually manipulates Tegola&rsquo;s cache
+Examples
+ Simple seed Simple purge Bounds Tile name format Tile name format Simple tile list Non-default format tile list  Note: The tile-list methods of fetching tiles is inefficient and will regenerate lower zoom tiles repeatedly.
+Seeding The seed subcommand is used to cache tiles on demand.
+Note: the Tegola server does not need to be running for this command to execute."/>
+<meta name="generator" content="Hugo 0.37.1" />
+
+        
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Cache Seeding and Purging",
+  "url": "/documentation/cache-seeding-and-purging/",
+  "wordCount": "670",
+  "datePublished": "2018-03-26T00:00:00&#43;00:00",
+  "dateModified": "2018-03-26T00:00:00&#43;00:00",
+  "author": {
+    "@type": "Person",
+    "name": "ear7h"
+  }
+}
+</script>
+
+
+
+        <link rel="canonical" href="../../documentation/cache-seeding-and-purging/">
+        <title>Cache Seeding and Purging | Tegola: An open source vector tile server</title>
+
+        
+
+        
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-83708580-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+            
+
+        <link rel="stylesheet" href="../../css/bootstrap.min.css"/>
+<link href="../../css/site.css" rel="stylesheet"/>
+<link rel="stylesheet"
+href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <a class="navbar-brand" href="../../">
+        TEGOLA
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            
+            
+                
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documentation</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            
+                                <a class="dropdown-item " href="../../documentation/">
+                                    Documentation Home
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../documentation/getting-started/">
+                                    Getting Started
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../documentation/configuration/">
+                                    Tegola Configuration
+                                </a>
+                            
+                                <a class="dropdown-item active" href="../../documentation/cache-seeding-and-purging/">
+                                    Cache Seeding and Purging
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../documentation/http-endpoints/">
+                                    HTTP Endpoints
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../documentation/debugging/">
+                                    Debugging
+                                </a>
+                            
+                        </div>
+                    </li>
+                
+            
+                
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tutorials</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            
+                                <a class="dropdown-item " href="../../tutorials/">
+                                    Tutorials Home
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../tutorials/cache-manipulation-with-expiry-list/">
+                                    Cache Manipulation With Expiry List
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../tutorials/tegola-with-mapbox/">
+                                    Tegola With Mapbox
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../tutorials/tegola-with-open-layers/">
+                                    Tegola With OpenLayers
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../tutorials/tegola-with-olms/">
+                                    Tegola With OLMS
+                                </a>
+                            
+                        </div>
+                    </li>
+                
+            
+                
+                    <li class="nav-item ">
+                        <a class="nav-link" href="../../demo">Demo</a>
+                    </li>
+                
+            
+        </ul>
+        <a href="https://github.com/go-spatial/tegola/releases" class="btn btn-outline-info">Download</a>
+    </div>
+</nav>
+        
+        <div class="position-relative">
+
+            <div class="container-fluid pb-3 pr-3 heading">
+                <div class="row">
+                    <div class="col-sm-12 bg-info text-light pl-4 pt-4 pb-3">
+                        <h1 class="display-4 mb-0">
+                            Cache Seeding and Purging
+                        </h1>
+                        
+                            <p class="lead text-light">Using the cache command to seed and purge the cache</p>
+                        
+                    </div>
+                </div>
+                <div class="row pt-3 pb-4">
+                    <div class="col-sm-9 pl-4 content">
+                        
+                        
+                        
+
+<h1 id="overview">Overview</h1>
+
+<p>The cache command manually manipulates Tegola&rsquo;s cache</p>
+
+<p><strong>Examples</strong></p>
+
+<ul>
+<li><a href="#seed1">Simple seed</a></li>
+<li><a href="#purge1">Simple purge</a></li>
+<li><a href="#bounds1">Bounds</a></li>
+<li><a href="#tile-name-format1">Tile name format</a></li>
+<li><a href="#tile-name-format2">Tile name format</a></li>
+<li><a href="#tile-list1">Simple tile list</a></li>
+<li><a href="#tile-list2">Non-default format tile list</a></li>
+</ul>
+
+<p><strong>Note:</strong> The <code>tile-list</code> methods of fetching tiles is inefficient and will regenerate lower zoom tiles repeatedly.</p>
+
+<h2 id="seeding">Seeding</h2>
+
+<p>The <code>seed</code> subcommand is used to cache tiles on demand.</p>
+
+<p>Note: the Tegola server does not need to be running for this command to execute. However, your caching backend does.</p>
+
+<p><a name="seed1">Example: Simple seed</a></p>
+
+<pre><code class="language-shell">$ ./tegola cache seed --config=&quot;bonn.toml&quot; --tile-name=&quot;0/0/0&quot; --overwrite
+</code></pre>
+
+<p>This command will seed the only tile at zoom 0, based on the layers specified in the <code>bonn.toml</code> configuration file. The <code>--overwrite</code> ensures the previously cached tile gets overwritten.</p>
+
+<h2 id="purging">Purging</h2>
+
+<p>The <code>purge</code> command is used to remove tiles from the cache. This can be used to remove outdated data, as Tegola prioritizes the cache.</p>
+
+<p><a name="purge1">Example: Simple purge</a></p>
+
+<pre><code class="language-shell">$ ./tegola cache purge --tile-name=&quot;0/0/0&quot; --config=&quot;bonn.toml&quot;
+</code></pre>
+
+<p>This command will purge the only tile at zoom 0, based on the layers specified in the <code>bonn.toml</code> configuration file.</p>
+
+<h2 id="flags">Flags</h2>
+
+<p>Running <code>./tegola cache -h</code> will give a list of the flags with descriptions and defaults</p>
+
+<pre><code>Flags:
+      --bounds string             lat / long bounds to seed the cache with in the format: minx, miny, maxx, maxy (default &quot;-180,-85.0511,180,85.0511&quot;)
+      --concurrency int           number of workers to use, defaults to the number of CPUs  (default 4)
+  -h, --help                      help for cache
+      --map string                map name as defined in the config
+      --max-zoom int              max zoom to seed cache to (default -1)
+      --min-zoom int              min zoom to seed cache from (default -1)
+      --overwrite                 overwrite the cache if a tile already exists
+      --tile-list string          path to a file with tile entries separated by newlines and formatted according to tile-name-format
+      --tile-name string          operate on a single tile formatted according to tile-name-format
+      --tile-name-format string   4 character string where the first character is a non-numeric delimiter followed by &quot;z&quot;, &quot;x&quot; and &quot;y&quot; defining the coordinate order (default &quot;/zxy&quot;)
+</code></pre>
+
+<h3 id="bounds">Bounds</h3>
+
+<p>The <code>bounds</code> flag is used to specify latitude and longitude bounds for seeding and purging. Using this command should be used along with the <code>max-zoom</code> and <code>min-zoom</code> flags.</p>
+
+<p><a name="bounds1">Example: Bounds</a></p>
+
+<pre><code class="language-shell">$ ./tegola cache seed --bounds=&quot;-180,-85.0511,180,85.0511&quot; --maxzoom=1
+</code></pre>
+
+<p>This will seed the cache with all the tiles in zooms 0 and 1.</p>
+
+<h3 id="slippy">Slippy</h3>
+
+<p>The <code>tile-name</code> and <code>tile-name-format</code> are used to specify tiles according to the slippy tile scheme. The <code>tile-name</code> takes in the tile name with the default format <code>z/x/y</code>. See also <a href="#tile-name-format">tile name format</a>.</p>
+
+<h3 id="tile-name-format">Tile-Name-Format</h3>
+
+<p>The <code>tile-name-format</code> allows this format to be changed. It takes a length-four string, the firs character is the delimiter and the last three characters have to be &ldquo;x&rdquo;, &ldquo;y&rdquo;, and &ldquo;z&rdquo; in the desired order. For example, the format definition for <code>z/x/y</code> is <code>/zxy</code>. This flag can be used in conjunction with <code>file</code> and  <code>tile-name</code> flags.</p>
+
+<p><a name="tile-name-format1">Example: Tile name format</a></p>
+
+<pre><code class="language-shell">$ ./tegola cache seed --tile-name=&quot;0-0-18&quot; --tile-name-format=&quot;-xyz&quot;
+</code></pre>
+
+<p>In this example the <code>0-0-18</code> will be interpreted as <code>(z:18, x:0, y:0)</code></p>
+
+<p><a name="tile-name-format2">Example: Tile name format</a></p>
+
+<pre><code class="language-shell">$ ./tegola cache seed --tile-name=&quot;18 0 0&quot; --tile-name-format=&quot; zxy&quot;
+</code></pre>
+
+<p>In this example the <code>18 0 0</code> will be interpreted as <code>(z:18, x:0, y:0)</code></p>
+
+<h3 id="tile-list">Tile-List</h3>
+
+<p>The <code>tile-list</code> flag instructs Tegola to read tile names from a file. The file is expected to have one tile per line, and fomatted according to the <a href="#tile-name-format"><code>tile-name-format</code></a> flag.</p>
+
+<p><a name="tile-list1">Example: Simple file list</a>
+<code>expired_tiles.txt</code> (with <code>/zxy</code> format):</p>
+
+<pre><code>15/0/0
+15/0/1
+15/1/1
+</code></pre>
+
+<pre><code class="language-shell">$ ./tegola cache seed --tile-list=&quot;expired_tiles.txt&quot; --overwrite
+</code></pre>
+
+<p>This will read the <code>expired_tiles.txt</code> and seed the cache with the exact files in the list.</p>
+
+<p><a name="tile-list1">Example: Non-default format tile list</a>
+<code>expired_tiles.txt</code> (with <code>-xyz</code> format):</p>
+
+<pre><code>0-0-15
+0-1-15
+1-1-15
+</code></pre>
+
+<pre><code class="language-shell">$ ./tegola cache seed --tile-name-format=&quot;-xyz&quot; --tile-list=&quot;expired_tiles.txt&quot; --overwrite
+</code></pre>
+
+<p>This will do the same as the <a href="#tile-list1">above example</a> but using a different format.</p>
+
+<h3 id="other">Other</h3>
+
+<ul>
+<li><code>concurrency</code> int: number of workers to will run concurrently</li>
+<li><code>map</code> string: map name as defined in the config</li>
+<li><code>max-zoom</code> int: max zoom to seed cache to. The default value is <code>-1</code> which will attempt to imply the zoom</li>
+<li><code>min-zoom</code> int: min zoom to seed cache from. The default value is <code>-1</code> which will attempt to imply the zoom</li>
+<li><code>overwrite</code> string: overwrite the cache if a tile already exists</li>
+</ul>
+
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="sticky-top pt-3 sidebar">
+                            <div class="sidebar-edge nav display-block">
+                                <h6>CONTENTS</h6>
+                                <div class="display-block">
+                                    <nav id="TableOfContents">
+<ul>
+<li><a href="#overview">Overview</a>
+<ul>
+<li><a href="#seeding">Seeding</a></li>
+<li><a href="#purging">Purging</a></li>
+<li><a href="#flags">Flags</a>
+<ul>
+<li><a href="#bounds">Bounds</a></li>
+<li><a href="#slippy">Slippy</a></li>
+<li><a href="#tile-name-format">Tile-Name-Format</a></li>
+<li><a href="#tile-list">Tile-List</a></li>
+<li><a href="#other">Other</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="container-fluid p-4 bg-light">
+	<p class="text-muted small mb-0">
+    	Tegola is brought to you by the <a href="https://github.com/go-spatial">Go Spatial</a> team working (mainly) out of sunny San Diego.
+    	Code hosted on <a href="https://github.com/go-spatial/tegola">Github</a> under the liberal <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE">MIT</a> license.
+    </p>
+</footer>
+        </div>
+
+        <script src="../../libs/jquery-v3.2.1/jquery.js" type="text/javascript"></script>
+<script src="../../libs/popper/popper.js" type="text/javascript"></script>
+<script src="../../libs/bootstrap-v4.0.0/bootstrap.js" type="text/javascript"></script>
+<script src="../../js/site.js" type="text/javascript"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    </body>
+
+</html>

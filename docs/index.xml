@@ -23,6 +23,28 @@ This guide will take you through the steps to get Tegola rendering a map using M
     </item>
     
     <item>
+      <title>Cache Manipulation With Expiry List</title>
+      <link>/tutorials/cache-manipulation-with-expiry-list/</link>
+      <pubDate>Wed, 28 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tutorials/cache-manipulation-with-expiry-list/</guid>
+      <description>systemd This method is the native solution for linux systems. Firstly it requires the bash wrapper provided later in this page.
+/usr/systemd/system/tegola-diffs.service:
+[Unit] Description=Service for updating tegola&#39;s cache via diffs [Service] ExecStart=/path/to/script/seed-by-diffs.sh [Path] PathChanged=/path/to/diffs/diff-directory/  Cache Seed Bash Wrapper seed-by-diffs.sh:
+#!/bin/bash diff_dir=&amp;quot;/path/to/diffs/diff-directory/&amp;quot; # this will be essentially treated as a pidfile queued_jobs=&amp;quot;./in_progress.list&amp;quot; # output of seeded completed_jobs=&amp;quot;./completed.list&amp;quot; # a directory to place the worked expiry lists # THIS MUST BE OUTSIDE OF $diff_dir completed_dir=$diff_dir&amp;quot;/.</description>
+    </item>
+    
+    <item>
+      <title>Cache Manipulation With Expiry List</title>
+      <link>/tutorials/tegola-cheatsheet/</link>
+      <pubDate>Wed, 28 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tutorials/tegola-cheatsheet/</guid>
+      <description>Adding Tegola to your PATH While the Tegola binary can be run in any directory, it&amp;rsquo;s helpful to move it somewhere along your $PATH variable. This can be done with the following commands:
+# make a directory for binaries in your home directory $ mkdir ~/bin $ mv tegola ~/bin $ cd ~/bin # this command appends your .bashrc so you can access binaries in the new directory $ echo &amp;quot;export PATH=\&amp;quot;\$PATH:$(pwd)\&amp;quot;&amp;quot; &amp;gt;&amp;gt; ~/.</description>
+    </item>
+    
+    <item>
       <title>Getting Started with Tegola</title>
       <link>/documentation/getting-started/</link>
       <pubDate>Wed, 29 Nov 2017 00:00:00 +0000</pubDate>
@@ -53,6 +75,19 @@ Check out the docs on Docker Hub for details and examples of using the image.</d
       <description>Introduction Tegola is a vector tile server written in Go. Tegola takes geospatial data from a PostGIS Database and slices it into vector tiles that can be efficiently delivered to any client.
 OpenLayers is a client library for rendering MVT and raster maps. Combined with Tegola, developers may now render maps in the web or on mobile utilizing all open source technology.
 This guide will take you through the steps to get Tegola rendering a map using OpenLayers and visualized in a web browser.</description>
+    </item>
+    
+    <item>
+      <title>Cache Seeding and Purging</title>
+      <link>/documentation/cache-seeding-and-purging/</link>
+      <pubDate>Mon, 26 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/documentation/cache-seeding-and-purging/</guid>
+      <description>Overview The cache command manually manipulates Tegola&amp;rsquo;s cache
+Examples
+ Simple seed Simple purge Bounds Tile name format Tile name format Simple tile list Non-default format tile list  Note: The tile-list methods of fetching tiles is inefficient and will regenerate lower zoom tiles repeatedly.
+Seeding The seed subcommand is used to cache tiles on demand.
+Note: the Tegola server does not need to be running for this command to execute.</description>
     </item>
     
     <item>

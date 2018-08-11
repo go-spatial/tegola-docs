@@ -210,6 +210,7 @@ Map Layers define which [Provider Layers](#provider-layers) to render at what zo
 | max_zoom           | No       | The maximum zoom to render this layer at.                                                                                                |
 | default_tags       | No       | Default tags to be added to features on this layer.                                                                                      |
 | dont_simplify      | No       | Boolean to prevent feature simplification from being applied.                                                                            |
+| geometry_type      | No       | The layer geometry type. If not set, the table will be inspected at startup to try and infer the gemetry type. Valid values are: `Point`, `LineString`, `Polygon`, `MultiPoint`, `MultiLineString`, `MultiPolygon`, `GeometryCollection`. |
 
 
 **Example Map Layer**

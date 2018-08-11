@@ -41,7 +41,7 @@
   "@type": "BlogPosting",
   "headline": "Tegola Configuration",
   "url": "/documentation/configuration/",
-  "wordCount": "1758",
+  "wordCount": "1791",
   "datePublished": "2017-11-29T00:00:00&#43;00:00",
   "dateModified": "2017-11-29T00:00:00&#43;00:00",
   "author": {
@@ -104,6 +104,10 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
                                     Tegola Configuration
                                 </a>
                             
+                                <a class="dropdown-item " href="../../documentation/cache-seeding-and-purging/">
+                                    Cache Seeding and Purging
+                                </a>
+                            
                                 <a class="dropdown-item " href="../../documentation/http-endpoints/">
                                     HTTP Endpoints
                                 </a>
@@ -123,6 +127,10 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
                             
                                 <a class="dropdown-item " href="../../tutorials/">
                                     Tutorials Home
+                                </a>
+                            
+                                <a class="dropdown-item " href="../../tutorials/cache-manipulation-with-expiry-list/">
+                                    Cache Manipulation With Expiry List
                                 </a>
                             
                                 <a class="dropdown-item " href="../../tutorials/tegola-with-mapbox/">
@@ -628,6 +636,12 @@ center = [-76.275329586789, 39.153492567373, 5.0]
 <td align="left">dont_simplify</td>
 <td align="left">No</td>
 <td align="left">Boolean to prevent feature simplification from being applied.</td>
+</tr>
+
+<tr>
+<td align="left">geometry_type</td>
+<td align="left">No</td>
+<td align="left">The layer geometry type. If not set, the table will be inspected at startup to try and infer the gemetry type. Valid values are: <code>Point</code>, <code>LineString</code>, <code>Polygon</code>, <code>MultiPoint</code>, <code>MultiLineString</code>, <code>MultiPolygon</code>, <code>GeometryCollection</code>.</td>
 </tr>
 </tbody>
 </table>

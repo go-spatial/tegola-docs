@@ -4,14 +4,18 @@
         <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<meta property="og:title" content="Download Tegola" />
-<meta property="og:description" content="Tegola Docs" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="/download/" />
+<meta property="og:title" content="Cache Manipulation With Expiry List" />
+<meta property="og:description" content="Adding Tegola to your PATH While the Tegola binary can be run in any directory, it&rsquo;s helpful to move it somewhere along your $PATH variable. This can be done with the following commands:
+# make a directory for binaries in your home directory $ mkdir ~/bin $ mv tegola ~/bin $ cd ~/bin # this command appends your .bashrc so you can access binaries in the new directory $ echo &quot;export PATH=\&quot;\$PATH:$(pwd)\&quot;&quot; &gt;&gt; ~/." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/tutorials/tegola-cheatsheet/" />
 
 
 
-<meta property="og:updated_time" content="2017-11-29T00:00:00&#43;00:00"/>
+<meta property="article:published_time" content="2018-03-28T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2018-03-28T00:00:00&#43;00:00"/>
+
 
 
 
@@ -23,34 +27,33 @@
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Download Tegola"/>
-<meta name="twitter:description" content="Tegola Docs"/>
+<meta name="twitter:title" content="Cache Manipulation With Expiry List"/>
+<meta name="twitter:description" content="Adding Tegola to your PATH While the Tegola binary can be run in any directory, it&rsquo;s helpful to move it somewhere along your $PATH variable. This can be done with the following commands:
+# make a directory for binaries in your home directory $ mkdir ~/bin $ mv tegola ~/bin $ cd ~/bin # this command appends your .bashrc so you can access binaries in the new directory $ echo &quot;export PATH=\&quot;\$PATH:$(pwd)\&quot;&quot; &gt;&gt; ~/."/>
 <meta name="generator" content="Hugo 0.37.1" />
 
         
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
-  "@type": "Blog",
-  "headline": "Tegola: An open source vector tile server",
-  "url" : "/download/",
+  "@type": "BlogPosting",
+  "headline": "Cache Manipulation With Expiry List",
+  "url": "/tutorials/tegola-cheatsheet/",
+  "wordCount": "86",
+  "datePublished": "2018-03-28T00:00:00&#43;00:00",
+  "dateModified": "2018-03-28T00:00:00&#43;00:00",
   "author": {
     "@type": "Person",
-    "name": "Go Spatial"
-  },
-  "dateModified": "2017-11-29T00:00:00&#43;00:00",
-  "keywords": "",
-  "description": "Tegola Docs"
+    "name": "ear7h"
+  }
 }
 </script>
 
 
-        <link rel="canonical" href="../download/">
-        <title>Tegola: An open source vector tile server</title>
 
-        
-            <!-- RSS 2.0 feed -->
-            <link href="../download/index.xml" rel="alternate" type="application/rss+xml" title="Tegola: An open source vector tile server" />
+        <link rel="canonical" href="../../tutorials/tegola-cheatsheet/">
+        <title>Cache Manipulation With Expiry List | Tegola: An open source vector tile server</title>
+
         
 
         
@@ -63,15 +66,15 @@ ga('send', 'pageview');
 
             
 
-        <link rel="stylesheet" href="../css/bootstrap.min.css"/>
-<link href="../css/site.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="../../css/bootstrap.min.css"/>
+<link href="../../css/site.css" rel="stylesheet"/>
 <link rel="stylesheet"
 href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
-    <a class="navbar-brand" href="../">
+    <a class="navbar-brand" href="../../">
         TEGOLA
     
     </a>
@@ -87,27 +90,27 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
                         <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documentation</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             
-                                <a class="dropdown-item " href="../documentation/">
+                                <a class="dropdown-item " href="../../documentation/">
                                     Documentation Home
                                 </a>
                             
-                                <a class="dropdown-item " href="../documentation/getting-started/">
+                                <a class="dropdown-item " href="../../documentation/getting-started/">
                                     Getting Started
                                 </a>
                             
-                                <a class="dropdown-item " href="../documentation/configuration/">
+                                <a class="dropdown-item " href="../../documentation/configuration/">
                                     Tegola Configuration
                                 </a>
                             
-                                <a class="dropdown-item " href="../documentation/cache-seeding-and-purging/">
+                                <a class="dropdown-item " href="../../documentation/cache-seeding-and-purging/">
                                     Cache Seeding and Purging
                                 </a>
                             
-                                <a class="dropdown-item " href="../documentation/http-endpoints/">
+                                <a class="dropdown-item " href="../../documentation/http-endpoints/">
                                     HTTP Endpoints
                                 </a>
                             
-                                <a class="dropdown-item " href="../documentation/debugging/">
+                                <a class="dropdown-item " href="../../documentation/debugging/">
                                     Debugging
                                 </a>
                             
@@ -120,23 +123,23 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
                         <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tutorials</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             
-                                <a class="dropdown-item " href="../tutorials/">
+                                <a class="dropdown-item " href="../../tutorials/">
                                     Tutorials Home
                                 </a>
                             
-                                <a class="dropdown-item " href="../tutorials/cache-manipulation-with-expiry-list/">
+                                <a class="dropdown-item " href="../../tutorials/cache-manipulation-with-expiry-list/">
                                     Cache Manipulation With Expiry List
                                 </a>
                             
-                                <a class="dropdown-item " href="../tutorials/tegola-with-mapbox/">
+                                <a class="dropdown-item " href="../../tutorials/tegola-with-mapbox/">
                                     Tegola With Mapbox
                                 </a>
                             
-                                <a class="dropdown-item " href="../tutorials/tegola-with-open-layers/">
+                                <a class="dropdown-item " href="../../tutorials/tegola-with-open-layers/">
                                     Tegola With OpenLayers
                                 </a>
                             
-                                <a class="dropdown-item " href="../tutorials/tegola-with-olms/">
+                                <a class="dropdown-item " href="../../tutorials/tegola-with-olms/">
                                     Tegola With OLMS
                                 </a>
                             
@@ -146,7 +149,7 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
             
                 
                     <li class="nav-item ">
-                        <a class="nav-link" href="../demo">Demo</a>
+                        <a class="nav-link" href="../../demo">Demo</a>
                     </li>
                 
             
@@ -161,10 +164,10 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
                 <div class="row">
                     <div class="col-sm-12 bg-info text-light pl-4 pt-4 pb-3">
                         <h1 class="display-4 mb-0">
-                            Download Tegola
+                            Cache Manipulation With Expiry List
                         </h1>
                         
-                            <p class="lead text-light">Select your operating system and get started</p>
+                            <p class="lead text-light">Managing expired tiles from a list</p>
                         
                     </div>
                 </div>
@@ -174,19 +177,18 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
                         
                         
 
-<h2 id="latest-version">Latest Version</h2>
+<h2 id="adding-tegola-to-your-path">Adding Tegola to your <code>PATH</code></h2>
 
-<p>Download the latest release for you operating system <a href="https://github.com/terranodo/tegola/releases">here</a>.</p>
+<p>While the Tegola binary can be run in any directory, it&rsquo;s helpful to move it somewhere along your <code>$PATH</code> variable. This can be done with the following commands:</p>
 
-<h2 id="docker-image">Docker Image</h2>
-
-<p>As of v0.6.0, Tegola also provides an official Docker release with support for both PostGIS and GeoPackage data providers.  Use <code>docker pull gospatial/tegola</code> to get the latest image.</p>
-
-<p><a href="https://hub.docker.com/r/gospatial/tegola/">Check out the docs on Docker Hub</a> for details and examples of using the image.</p>
-
-<h2 id="next-steps">Next Steps</h2>
-
-<p>Once you&rsquo;ve downloaded Tegola, read the <a href="../documentation/getting-started/">Getting Started Guide</a>.</p>
+<pre><code class="language-shell"># make a directory for binaries in your home directory
+$ mkdir ~/bin
+$ mv tegola ~/bin
+$ cd ~/bin
+# this command appends your .bashrc so you can access binaries in the new directory
+$ echo &quot;export PATH=\&quot;\$PATH:$(pwd)\&quot;&quot; &gt;&gt; ~/.bashrc
+$ source ~/.bashrc # change this to '~/.zshrc' if you use zsh
+</code></pre>
 
                     </div>
                     <div class="col-sm-3">
@@ -198,9 +200,7 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
 <ul>
 <li>
 <ul>
-<li><a href="#latest-version">Latest Version</a></li>
-<li><a href="#docker-image">Docker Image</a></li>
-<li><a href="#next-steps">Next Steps</a></li>
+<li><a href="#adding-tegola-to-your-path">Adding Tegola to your <code>PATH</code></a></li>
 </ul></li>
 </ul>
 </nav>
@@ -218,10 +218,10 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night
 </footer>
         </div>
 
-        <script src="../libs/jquery-v3.2.1/jquery.js" type="text/javascript"></script>
-<script src="../libs/popper/popper.js" type="text/javascript"></script>
-<script src="../libs/bootstrap-v4.0.0/bootstrap.js" type="text/javascript"></script>
-<script src="../js/site.js" type="text/javascript"></script>
+        <script src="../../libs/jquery-v3.2.1/jquery.js" type="text/javascript"></script>
+<script src="../../libs/popper/popper.js" type="text/javascript"></script>
+<script src="../../libs/bootstrap-v4.0.0/bootstrap.js" type="text/javascript"></script>
+<script src="../../js/site.js" type="text/javascript"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
     </body>
