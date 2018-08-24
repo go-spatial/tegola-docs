@@ -1,7 +1,7 @@
 ---
 author: "Jpalms"
 date: 2017-11-29
-linktitle: Tegola Configuration
+linktitle: Configuration
 title: Tegola Configuration
 weight: 3
 subtitle: Configure Tegola to process your geospatial data
@@ -54,14 +54,15 @@ The providers configuration tells Tegola where your data lives. Data providers e
 
 Load data from a Postgres/PostGIS database. In addition to the required `name` and `type` parameters, a PostGIS data provider supports the following parameters:
 
-| Param    | Required |  Default | Description                                     |
-|:---------|:---------|:---------|:------------------------------------------------|
-| host     | Yes      |          | The database host.                              |
-| port     | No       | 5432     | The port the database is listening on.          |
-| database | Yes      |          | The name of the database                        |
-| user     | Yes      |          | The database user                               |
-| password | Yes      |          | The database user's password                    |
-| srid     | No       | 3857     | The default SRID for this data provider         |
+| Param               | Required |  Default | Description                                        |
+|:--------------------|:---------|:---------|:---------------------------------------------------|
+| host                | Yes      |          | The database host.                                 |
+| port                | No       | 5432     | The port the database is listening on.             |
+| database            | Yes      |          | The name of the database                           |
+| user                | Yes      |          | The database user                                  |
+| password            | Yes      |          | The database user's password                       |
+| srid                | No       | 3857     | The default SRID for this data provider            |
+| max_connections     | No       | 100      | max number of connections in the connection pool.  |
 
 **Example PostGIS Provider config**
 
