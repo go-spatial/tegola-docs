@@ -453,6 +453,13 @@ filepath = &quot;/path/to/my/sample_gpkg.gpkg&quot;
 <td align="left"></td>
 <td align="left">Fields to include as tag values. Useful when using <strong>tablename</strong></td>
 </tr>
+
+<tr>
+<td align="left">geometry_type</td>
+<td align="left">No</td>
+<td align="left"></td>
+<td align="left">The layer geometry type. If not set, the table will be inspected at startup to try and infer the gemetry type. Valid values are: <code>Point</code>, <code>LineString</code>, <code>Polygon</code>, <code>MultiPoint</code>, <code>MultiLineString</code>, <code>MultiPolygon</code>, <code>GeometryCollection</code>.</td>
+</tr>
 </tbody>
 </table>
 
@@ -643,12 +650,6 @@ center = [-76.275329586789, 39.153492567373, 5.0]
 <td align="left">dont_simplify</td>
 <td align="left">No</td>
 <td align="left">Boolean to prevent feature simplification from being applied.</td>
-</tr>
-
-<tr>
-<td align="left">geometry_type</td>
-<td align="left">No</td>
-<td align="left">The layer geometry type. If not set, the table will be inspected at startup to try and infer the gemetry type. Valid values are: <code>Point</code>, <code>LineString</code>, <code>Polygon</code>, <code>MultiPoint</code>, <code>MultiLineString</code>, <code>MultiPolygon</code>, <code>GeometryCollection</code>.</td>
 </tr>
 </tbody>
 </table>
