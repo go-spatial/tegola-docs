@@ -1,0 +1,11 @@
+
+{{$file := .Get 0}}
+{{$content := readFile $file}}
+{{$shell := "shell"}}
+{{ with .Get "lang"}} {{$shell = . }} {{end}}
+{{$opts := "linenos=table"}}
+{{ with .Get "opts"}} {{$opts = . }} {{end}}
+
+{{highlight $content $shell $opts}}
+
+
