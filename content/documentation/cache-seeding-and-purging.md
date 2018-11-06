@@ -16,11 +16,9 @@ The cache command manually manipulates Tegola's cache
 
 - [Simple seed](#seed1)
 - [Simple purge](#purge1)
-- [Bounds](#bounds1)
-- [Tile name format](#tile-name-format1)
-- [Tile name format](#tile-name-format2)
+- [tile_name](#seed_tile_name)
 - [Simple tile list](#tile-list1)
-- [Non-default format tile list](#tile-list2)
+- [Tile name format](#tile-name-format1)
 
 **Note:** The `tile-list` methods of fetching tiles is inefficient and will regenerate lower zoom tiles repeatedly.
 
