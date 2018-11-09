@@ -8,4 +8,4 @@ Navigate to the repository and then run `hugo server`.
 
 ### Deploying the docs
 
-Build the site to the `docs/` folder, then commit and push to master. Running `hugo` will build to the `docs/` folder.
+The docs are auto deployed using netlify. If you want to preview what will be built, run `hugo` and the output will be written to the `docs/` folder. The `docs/` folder is ignored by .gitignore.
