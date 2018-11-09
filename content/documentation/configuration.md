@@ -28,7 +28,16 @@ The webserver part of the config has the following parameters:
 |-----------------------|:---------|:----------------------------|:-------------------------------------------------------------------------------|
 | port                  | No       | :8080                       | A string with the value for port.                                              |
 | hostname              | No       | HTTP Hostname in request    | Set the hostname used to generate URLs for JSON based responses                |
-| cors_allowed_origin   | No       | *                           | Allowed [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) origin. |
+
+
+### Headers
+
+Allows tegola to respond to tile request with user defined headers. Default [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) headers values:
+
+| Header                       | Default        |
+|------------------------------|:---------------|
+| Access-Control-Allow-Origin  | "*"            |
+| Access-Control-Allow-Methods | "GET, OPTIONS" |
 
 
 **Example Webserver config**
@@ -37,7 +46,10 @@ The webserver part of the config has the following parameters:
 [webserver]
 port = ":8080"
 hostname = "tiles.example.com"
-cors_allowed_origin = "map.example.com"
+
+  [webserver.headers]
+  # redefine default cors origin
+  Access-Control-Allow-Origin = "http://map.example.com"
 ```
 
 ## Providers
