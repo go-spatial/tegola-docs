@@ -128,8 +128,8 @@ Create a new HTML file, copy in the contents below, and open in a browser:
 <html>
   <head>
     <title>Tegola Sample</title>
-    <link rel="stylesheet" href="http://openlayers.org/en/v3.16.0/css/ol.css" type="text/css">
-    <script src="http://openlayers.org/en/v3.16.0/build/ol.js"></script>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css" type="text/css">
+    <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
     <style>
       #map {
         width: 100%;
