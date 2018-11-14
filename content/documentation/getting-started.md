@@ -24,7 +24,7 @@ As of v0.6.0, Tegola also provides an official Docker release with support for b
 
 Tegola needs geospatial data to run. Currently, Tegola supports PostGIS which is a geospatial extension for PostgreSQL, and GeoPackage. If you don't have PostGIS installed, [download PostGIS](http://postgis.net/install/).
 
-Next, you'll need to load PostGIS with data. For your convenience you can download [PostGIS data for Bonn, Germany](https://s3-us-west-2.amazonaws.com/tegola/bonn_osm.sql.tgz).
+Next, you'll need to load PostGIS with data. For your convenience you can download [PostGIS data for Bonn, Germany](https://github.com/go-spatial/tegola-example-data/raw/master/bonn_osm.sql.tar.gz).
 
 Create a new database named `bonn`, and use a restore command to import the unzipped sql file into the database. Documentation can be found [here](https://www.postgresql.org/docs/current/static/backup.html) under the section titled "Restoring the dump". The command should look something like this:
 
