@@ -58,25 +58,25 @@ port = 5432             # postgis database port
 database = "bonn"       # postgis database name
 user = "tegola"         # postgis database user
 password = ""           # postgis database password
-srid = 3857             # The default srid for this provider. If not provided it will be WebMercator (3857)
+srid = 4326             # The default srid for this provider. If not provided it will be WebMercator (3857)
 
   [[providers.layers]]
   name = "road"
   geometry_fieldname = "wkb_geometry"
   id_fieldname = "ogc_fid"
-  sql = "SELECT ST_AsBinary(wkb_geometry) AS wkb_geometry, name, ogc_fid FROM all_roads_3857 WHERE wkb_geometry && !BBOX!"
+  sql = "SELECT ST_AsBinary(wkb_geometry) AS wkb_geometry, name, ogc_fid FROM all_roads WHERE wkb_geometry && !BBOX!"
 
   [[providers.layers]]
   name = "main_roads"
   geometry_fieldname = "wkb_geometry"
   id_fieldname = "ogc_fid"
-  sql = "SELECT ST_AsBinary(wkb_geometry) AS wkb_geometry, name, ogc_fid FROM main_roads_3857 WHERE wkb_geometry && !BBOX!"
+  sql = "SELECT ST_AsBinary(wkb_geometry) AS wkb_geometry, name, ogc_fid FROM main_roads WHERE wkb_geometry && !BBOX!"
 
   [[providers.layers]]
   name = "lakes"
   geometry_fieldname = "wkb_geometry"
   id_fieldname = "ogc_fid"
-  sql = "SELECT ST_AsBinary(wkb_geometry) AS wkb_geometry, name, ogc_fid FROM lakes_3857 WHERE wkb_geometry && !BBOX!"
+  sql = "SELECT ST_AsBinary(wkb_geometry) AS wkb_geometry, name, ogc_fid FROM lakes WHERE wkb_geometry && !BBOX!"
 
 [[maps]]
 name = "bonn"
