@@ -138,6 +138,20 @@ PostGIS Provider Layers define how Tegola will fetch data for a layer form a [Po
 &#42; Either `tablename` or `sql` is required, but not both.
 
 
+#### Supported SQL Tokens
+
+The `sql` configuration supports the following tokens
+
+| Token               | Required | Description                                                      |
+|:--------------------|:---------|:-----------------------------------------------------------------|
+| !BBOX!              | Yes      | Will be replaced with the bounding box of the tile before the query is sent to the database. !bbox! and!BOX! are supported as well for compatibilitiy with queries from Mapnik and MapServer styles. |
+| !ZOOM!              | No       | Will be replaced with the "Z" (zoom) value of the requested tile.|
+| !SCALE_DENOMINATOR! | No       | Scale denominator, assuming 90.7 DPI (i.e. 0.28mm pixel size)    |
+| !PIXEL_WIDTH!       | No       | The pixel width in meters, assuming 256x256 tiles.               |
+| !PIXEL_HEIGHT!      | No       | The pixel height in meters, assuming 256x256 tiles.              |
+
+
+
 **Example minimum Provider Layer config with `tablename` defined**
 
 ```toml
