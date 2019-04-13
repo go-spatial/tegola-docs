@@ -29,6 +29,11 @@ googleAnalytics = "UA-83708580-1"
   url = "/demo"
   weight = 3
 
+[[menu.main]]
+  name = "Support"
+  url = "/support"
+  weight = 3
+
 # Theme variables
 [params]
 
