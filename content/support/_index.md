@@ -45,18 +45,18 @@ Application specific data is data that will be delivered in conjunction with a b
 Looking for us to teach you or your team how to best deploy tegola and the associated infrastructure? We can do remote sessions or on-premise training. We will cover best practices, ETL, configuration, deployment, scaling and much more.
 
 ### Pricing
-Commercial pricing is available on request. Please inquire with <support@gospatial.org>.
+Commercial pricing is available on request. Please inquire with <alex@xanderdev.com>.
 
 ### Partners
 Commercial support is provided by:
 
-- Xander
-- Terranodo
+- [Xander](https://xanderdev.com)
+- [Terranodo](http://terranodo.io)
 
 ## Organization Support
 
-We’re committed to building open source geospatial software and helping foster the FOSS community. If you find any of the Go Spatial tools a valuable part of your organization and would like to help support the ongoing development efforts please contact us at <support@gospatial.org>.
+We’re committed to building open source geospatial software and helping foster the FOSS community. If you find any of the Go Spatial tools a valuable part of your organization and would like to help support the ongoing development efforts please contact us at <alex@xanderdev.com>.
 
 ## Get involved
 
-If you or your organization would like to collaborate by contributing code, documentation or by supporting users in your local area, get in touch with us at <support@gospatial.org>.
+If you or your organization would like to collaborate by contributing code, documentation or by supporting users in your local area, get in touch with us at <alex@xanderdev.com>.
