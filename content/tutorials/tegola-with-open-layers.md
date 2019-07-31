@@ -18,9 +18,9 @@ menu:
 
 This guide will take you through the steps to get Tegola rendering a map using OpenLayers and visualized in a web browser.
 
-## Getting Started 
+## Getting Started
 
-The first thing you'll need is a Tegola endpoint. You can either setup one locally by following the instructions located in the [Tegola docs](http://tegola.io/getting-started/) or you can use an existing endpoint.
+The first thing you'll need is a Tegola endpoint. You can either setup one locally by following the instructions located in the [Tegola docs](http://tegola.io/documentation/getting-started/) or you can use an existing endpoint.
 
 For the following example we'll be pulling in data from a Tegola instance hosted at https://osm.tegola.io.
 
@@ -130,7 +130,7 @@ var map = new ol.Map({
         center: ol.proj.fromLonLat([-117.15,32.72]), //coordinates the map will center on initially
         zoom: 14
     })
-}); 
+});
 ```
 
 Copy and paste the above code into the script tag of the HTML document defined above.

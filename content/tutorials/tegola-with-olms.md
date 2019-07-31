@@ -18,12 +18,12 @@ menu:
 
 This guide will show you how to use OLMS to convert and utilize a Mapbox style to render a map using OpenLayers.
 
-## Getting Started 
+## Getting Started
 
 To get setup for using OLMS you'll need a Tegola source, a Mapbox stylesheet, and the OLMS library.
 
 ### Tegola source
-The first thing you'll need is a Tegola endpoint. You can either setup one locally by following the instructions located in the [Tegola docs](http://tegola.io/getting-started/) or you can use an existing endpoint.
+The first thing you'll need is a Tegola endpoint. You can either setup one locally by following the instructions located in the [Tegola docs](http://tegola.io/documentation/getting-started/) or you can use an existing endpoint.
 
 For the following example we'll be pulling in data from a Tegola instance hosted at https://osm.tegola.io.
 
