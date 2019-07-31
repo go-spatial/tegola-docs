@@ -19,6 +19,10 @@ The Tegola config file uses [TOML](https://github.com/toml-lang/toml) syntax and
 - [Maps](#maps): map configuration including map names, layers and zoom levels.
 - [Cache](#cache): cache configurations.
 
+## Global
+| Param            | Requered     | Default      | Description                                             |
+|------------------|:-------------|:-------------|:--------------------------------------------------------|
+|tile_buffer       | No           | 64           | The amount of pixels to extend a tile's rendered extent |
 
 ## Webserver
 
@@ -92,7 +96,7 @@ srid = 3857             # The default srid for this provider. If not provided it
 
 ### GeoPackage
 
-Load data from a [GeoPackage](http://www.geopackage.org) database. The GeoPackage provider requires that Tegola is built with CGO. Prebuilt CGO binaries can be found [here](https://github.com/go-spatial/tegola/releases) and are indicated with the suffix `_cgo`. 
+Load data from a [GeoPackage](http://www.geopackage.org) database. The GeoPackage provider requires that Tegola is built with CGO. Prebuilt CGO binaries can be found [here](https://github.com/go-spatial/tegola/releases) and are indicated with the suffix `_cgo`.
 
 In addition to the required `name` and `type` parameters, a GeoPackage data provider has the following
 additional params:
@@ -158,7 +162,7 @@ The `sql` configuration supports the following tokens
 [[providers.layers]]
 name = "landuse"
 # this table uses 'geom' for the geometry_fieldname and 'gid' for the id_fieldname (the defaults)
-tablename = "gis.zoning_base_3857"  
+tablename = "gis.zoning_base_3857"
 ```
 
 **Example minimum Provider Layer config with `sql` defined**
@@ -193,13 +197,13 @@ When using the **sql** param with GeoPackage:
 [[providers.layers]]
 name = "a_points"
 sql = """
-    SELECT 
+    SELECT
         fid, geom, amenity, religion, tourism, shop, si.minx, si.miny, si.maxx, si.maxy
-    FROM 
+    FROM
         land_polygons lp
-    JOIN 
+    JOIN
         rtree_land_polygons_geom si ON lp.fid = si.id
-    WHERE 
+    WHERE
         !BBOX!
 """
 ```
@@ -217,6 +221,7 @@ Tegola is responsible for serving vector map tiles, which are made up of numerou
 | name               | No       | Defaults to the provider layer name unless specified. Map layers with the same name are grouped and can't have overlapping zooms.|
 | bounds             | No       | The bounds in latitude and longitude values, in the order left, bottom, right, top. Default: `[-180.0, -85.0511, 180.0, 85.0511]`|
 | center             | No       | The center of the map to be displayed in the preview. (`[lon, lat, zoom]`).                                                      |
+| tile_buffer        | No       | The amount of pixels to extend a tile's rendered extent, defaults to 64 or the [global](#global) value                           |
 
 
 ```toml
@@ -251,14 +256,14 @@ max_zoom = 16                       	# maximum zoom level to include this layer
 
 #### Default Tags
 
-Map Layer Default Tags provide a convenient way to encode additional tags that are not supplied by a data provider. If a Default Tag is defined and the same tag is returned by the Provider, the Provider defined tage will take precedence. 
+Map Layer Default Tags provide a convenient way to encode additional tags that are not supplied by a data provider. If a Default Tag is defined and the same tag is returned by the Provider, the Provider defined tage will take precedence.
 
 Default Tags are `key = value` pairs.
 
 **Example Map Layer Default Tags**
 
 ```toml
-[maps.layers.default_tags]      
+[maps.layers.default_tags]
 class = "park"			# a default tag to encode into the feature
 ```
 
@@ -347,7 +352,7 @@ srid = 3857             # The default srid for this provider. If not provided it
     tablename = "gis.zoning_base_3857"    # sql or table_name are required
     geometry_fieldname = "geom"           # geom field. default is geom
     id_fieldname = "gid"                  # geom id field. default is gid
-    srid = 4326                           # the SRID of the geometry field if different than 
+    srid = 4326                           # the SRID of the geometry field if different than
 
     [[providers.layers]]
     name = "roads"                         # will be encoded as the layer name in the tile
@@ -358,7 +363,7 @@ srid = 3857             # The default srid for this provider. If not provided it
 
     [[providers.layers]]
     name = "rivers"                        # will be encoded as the layer name in the tile
-    # Custom sql to be used for this layer. 
+    # Custom sql to be used for this layer.
     # Note that the geometry field is wrapped in a ST_AsBinary()
     sql = "SELECT gid, ST_AsBinary(geom) AS geom FROM gis.rivers WHERE geom && !BBOX!"
 
