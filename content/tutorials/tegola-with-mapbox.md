@@ -22,7 +22,7 @@ This guide will take you through the steps to get Tegola rendering a map using M
 
 ### Build the Tegola Server
 
-The first thing you'll need is a Tegola endpoint. You can either set one up locally by following the instructions located in the [getting started guide](http://tegola.io/getting-started/) or you can use an existing endpoint.
+The first thing you'll need is a Tegola endpoint. You can either set one up locally by following the instructions located in the [getting started guide](http://tegola.io/documentation/getting-started/) or you can use an existing endpoint.
 
 ### Get a Mapbox Access Token
 
