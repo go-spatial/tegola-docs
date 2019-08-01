@@ -12,17 +12,21 @@ menu:
 
 ## Overview
 
-The Tegola config file uses [TOML](https://github.com/toml-lang/toml) syntax and is comprised of three primary sections:
+The Tegola config file uses [TOML](https://github.com/toml-lang/toml) syntax with additional support for [environment variables](#env-var). It is comprised of five primary sections:
 
+- [Global](#global): global options
 - [Webserver](#webserver): webserver configuration.
 - [Providers](#providers): data provider configuration (i.e. PostGIS).
 - [Maps](#maps): map configuration including map names, layers and zoom levels.
 - [Cache](#cache): cache configurations.
 
 ## Global
-| Param            | Requered     | Default      | Description                                             |
-|------------------|:-------------|:-------------|:--------------------------------------------------------|
-|tile_buffer       | No           | 64           | The amount of pixels to extend a tile's rendered extent |
+
+Unlike the other sections, global config options do not have `[[]]` heading.
+
+| Param            | Requered     | Default      | Description                                           |
+|------------------|:-------------|:-------------|:------------------------------------------------------|
+| tile_buffer      | No           | 64           | The number of pixels to extend a tile's clipping area |
 
 ## Webserver
 
@@ -221,7 +225,7 @@ Tegola is responsible for serving vector map tiles, which are made up of numerou
 | name               | No       | Defaults to the provider layer name unless specified. Map layers with the same name are grouped and can't have overlapping zooms.|
 | bounds             | No       | The bounds in latitude and longitude values, in the order left, bottom, right, top. Default: `[-180.0, -85.0511, 180.0, 85.0511]`|
 | center             | No       | The center of the map to be displayed in the preview. (`[lon, lat, zoom]`).                                                      |
-| tile_buffer        | No       | The amount of pixels to extend a tile's rendered extent, defaults to 64 or the [global](#global) value                           |
+| tile_buffer        | No       | The number of pixels to extend a tile's clipping area, defaults to `64` or the [global](#global) value                           |
 
 
 ```toml
@@ -322,12 +326,25 @@ $ export AWS_ACCESS_KEY_ID=YOUR_AKID
 $ export AWS_SECRET_ACCESS_KEY=YOUR_SECRET_KEY
 ```
 
+## Env Var
+
+Evironmental variables can be used in any configuration option. However, they must be written within quotes as a string:
+
+```toml
+tile_buffer = "${TEGOLA_TILE_BUFFER}"     # note that tile buffer expects an integer, tegola will handle the conversion
+
+[cache]
+type = "redis"
+password = "${SECRET_REDIS_PASSWORD}"
+```
 
 ## Full Config Example
 
 The following config demonstrates the various concepts discussed above:
 
 ```toml
+tile_buffer = 64
+
 [webserver]
 port = ":9090"
 
@@ -370,6 +387,7 @@ srid = 3857             # The default srid for this provider. If not provided it
 # maps are made up of layers
 [[maps]]
 name = "zoning"                             # used in the URL to reference this map (/maps/:map_name)
+tile_buffer = 0                             # number of pixels to extend a tile's clipping area
 
     [[maps.layers]]
     provider_layer = "test_postgis.landuse" # must match a data provider layer
