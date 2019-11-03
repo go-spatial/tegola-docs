@@ -130,7 +130,7 @@ Provider Layers are referenced by [Map Layers](#map-layers) using the dot syntax
 
 ### PostGIS
 
-PostGIS Provider Layers define how Tegola will fetch data for a layer form a [PostGIS](#postgis) Provider. The configuration requires either `tablename` or `sql` to be defined, but not both. The PostGIS Provider Layer has the following configuration parameters:
+PostGIS Provider Layers define how Tegola will fetch data for a layer from a [PostGIS](#postgis) Provider. The configuration requires either `tablename` or `sql` to be defined, but not both. The PostGIS Provider Layer has the following configuration parameters:
 
 | Param              | Required |  Default | Description                                                      |
 |:-------------------|:---------|:---------|:-----------------------------------------------------------------|
@@ -138,7 +138,7 @@ PostGIS Provider Layers define how Tegola will fetch data for a layer form a [Po
 | **sql**            | Yes*     |          | Custom SQL. Requires a `!BBOX!` token                            |
 | geometry_fieldname | No       | geom     | The name of the geometry field in the table                      |
 | id_fieldname       | No       | gid      | The name of the feature ID field in the table                    |
-| srid               | No       | 3857     | The SRID for the table. Can be 3857 of 4326.                     |
+| srid               | No       | 3857     | The SRID for the table. Can be 3857 or 4326.                     |
 | fields             | No       |          | Fields to include as tag values. Useful when using **tablename** |
 | geometry_type      | No       |          | The layer geometry type. If not set, the table will be inspected at startup to try and infer the gemetry type. Valid values are: `Point`, `LineString`, `Polygon`, `MultiPoint`, `MultiLineString`, `MultiPolygon`, `GeometryCollection`. |
 
@@ -152,7 +152,7 @@ The `sql` configuration supports the following tokens
 
 | Token               | Required | Description                                                      |
 |:--------------------|:---------|:-----------------------------------------------------------------|
-| !BBOX!              | Yes      | Will be replaced with the bounding box of the tile before the query is sent to the database. !bbox! and!BOX! are supported as well for compatibilitiy with queries from Mapnik and MapServer styles. |
+| !BBOX!              | Yes      | Will be replaced with the bounding box of the tile before the query is sent to the database. !bbox! and !BOX! are supported as well for compatibility with queries from Mapnik and MapServer styles. |
 | !ZOOM!              | No       | Will be replaced with the "Z" (zoom) value of the requested tile.|
 | !SCALE_DENOMINATOR! | No       | Scale denominator, assuming 90.7 DPI (i.e. 0.28mm pixel size)    |
 | !PIXEL_WIDTH!       | No       | The pixel width in meters, assuming 256x256 tiles.               |
