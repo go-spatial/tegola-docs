@@ -223,7 +223,6 @@ Tegola is responsible for serving vector map tiles, which are made up of numerou
 |:-------------------|:---------|:---------------------------------------------------------------------------------------------------------------------------------|
 | name               | Yes      | The map that will be referenced in the URL (i.e. /maps/:map_name.                                                                |
 | attribution        | No       | Attribution string to be included in the TileJSON.                                                                               |
-| name               | No       | Defaults to the provider layer name unless specified. Map layers with the same name are grouped and can't have overlapping zooms.|
 | bounds             | No       | The bounds in latitude and longitude values, in the order left, bottom, right, top. Default: `[-180.0, -85.0511, 180.0, 85.0511]`|
 | center             | No       | The center of the map to be displayed in the preview. (`[lon, lat, zoom]`).                                                      |
 | tile_buffer        | No       | The number of pixels to extend a tile's clipping area, defaults to `64` or the [global](#global) value                           |
