@@ -117,7 +117,7 @@ If you're using the docker image, starting Tegola will be slightly different in 
 [Check out the docs on Docker Hub](https://hub.docker.com/r/gospatial/tegola/) for details and examples of using the image.
 
 
-## 5. Create an HTML page
+## 5. Create an HTML Page
 
 Tegola delivers geospatial vector tile data to any requesting client. For simplicity, we'll be setting up a basic HTML page as our client that will display the rendered map. We'll be using the [OpenLayers](http://openlayers.org/) client side library to display and style the vector tile content.
 

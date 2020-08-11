@@ -28,7 +28,7 @@ $ TEGOLA_SQL_DEBUG=LAYER_SQL tegola --config=/path/to/conf.toml
 
 ## Client side
 
-When debugging client side, it's often helpful to to see an outline of a tile along with it's Z/X/Y values. To encode a debug layer into every tile add the query string variable debug=true to the URL template being used to request tiles. For example:
+When debugging client side, it's often helpful to see an outline of a tile along with it's Z/X/Y values. To encode a debug layer into every tile add the query string variable debug=true to the URL template being used to request tiles. For example:
 
 ```
 http://localhost:8080/maps/mymap/{z}/{x}/{y}.vector.pbf?debug=true
