@@ -22,9 +22,9 @@ The cache command manually manipulates Tegola's cache
 
 **Note:** The `tile-list` methods of fetching tiles is inefficient and will regenerate lower zoom tiles repeatedly.
 
-### Gobal Flags
+### Global Flags
 
-Global Flags are valid for all subcommnds
+Global Flags are valid for all subcommands
 
 Running `./tegola cache -h` will give a lost of flags with descriptions:
 
@@ -98,7 +98,7 @@ This command will purge the only tile at zoom 0, based on the layers specified i
 
 ### cache [seed|purge] tile-name
 
-The `tile-name` command and `format` flag are used to specify tiles according to the slippy tile scheme. The `tile-name` command takes in the tile decribed by the format.
+The `tile-name` command and `format` flag are used to specify tiles according to the slippy tile scheme. The `tile-name` command takes in the tile described by the format.
 
 
 ##### Flags
@@ -111,7 +111,7 @@ Flags:
       --min-zoom uint   min zoom to seed cache from
 ```
 
-* min-zoom -- If specified; Tegola will generate a range of tiles (from min-zoom to max-zoom (defaults to 22) for each tile listed in the file.
+* min-zoom -- If specified; Tegola will generate a range of tiles (from min-zoom to max-zoom (defaults to 22)) for each tile listed in the file.
 * max-zoom -- If specified; Tegola will generate a range of tiles (from min-zoom (defaults to 0) to max-zoom) for each tile listed in the file.
 * format -- 4 characters string defining the tile format. See: [tile_format](#tile-name-format).
 
@@ -139,7 +139,7 @@ Flags:
       --min-zoom uint   min zoom to seed cache from
 ```
 
-* min-zoom -- If specified; Tegola will generate a range of tiles (from min-zoom to max-zoom (defaults to 22) for each tile listed in the file.
+* min-zoom -- If specified; Tegola will generate a range of tiles (from min-zoom to max-zoom (defaults to 22)) for each tile listed in the file.
 * max-zoom -- If specified; Tegola will generate a range of tiles (from min-zoom (defaults to 0) to max-zoom) for each tile listed in the file.
 * format -- 4 characters string defining the tile format. See: [tile_format](#tile-name-format).
 
@@ -203,9 +203,9 @@ In this example the `18 0 0` will be interpreted as `(z:18, x:0, y:0)`
 
 ### Global Flags
 
-Global Flags are valid for all subcommnds
+Global Flags are valid for all subcommands
 
 * concurrency -- the amount of concurrency to use.
-* config -- path to config file (default "config.toml")
+* config -- path to config file (default “config.toml”)
 * map -- the name of the map to use from the config file 
-* overwrite -- if the tile already exists overwrite the it.
+* overwrite -- if the tile already exists overwrite it.
