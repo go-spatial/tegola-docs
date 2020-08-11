@@ -192,7 +192,7 @@ function styleFunction(feature, resolution){
 }
 ```
 
-Finally, the oceans are generally not defined as features inside of the data sources. To give the oceans a color, let's give our div a `background-color`.
+Finally, the oceans are generally not defined as features inside the data sources. To give the oceans a color, let's give our div a `background-color`.
 
 ``` css
 #map{height:600px;width:100%;background-color:#1C79B5;}
