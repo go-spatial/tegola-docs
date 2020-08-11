@@ -69,9 +69,9 @@ Next, we make an HTML page that will show the map. The following is a minimal ex
 </html>
 ```
 
-We are including the Mapbox GL JS library from https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.js and the matching css file in the head of the document. In the body, we define `<div id="map"></div>` which is the container that will hold the rendered map.
+We are including the Mapbox GL JS library from https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.js and the matching CSS file in the head of the document. In the body, we define `<div id="map"></div>` which is the container that will hold the rendered map.
 
-To render the map we will use a javascript snippet.
+To render the map we will use a JavaScript snippet.
 
 ```js
   mapboxgl.accessToken = ''
@@ -100,7 +100,7 @@ Now that we have the basemap and the server, we will finish this tutorial by add
 
 ### Choosing your layers
 
-Lets have a look at your toml file first:
+Let's have a look at your toml file first:
 
 ```toml
 [[maps]]
@@ -122,7 +122,7 @@ name = "bonn"
   max_zoom = 20
 ```
 
-The name of this source is `bonn`. This will be part of the API call you make to retrieve the layers. Next, you have the names of the layers. In this source, you see `road`, `lakes`, `main_roads`. Each layer shows the content of the source, which can style from within the browser when we call the indivdual layers. Lets add the roads:
+The name of this source is `bonn`. This will be part of the API call you make to retrieve the layers. Next, you have the names of the layers. In this source, you see `road`, `lakes`, `main_roads`. Each layer shows the content of the source, which can style from within the browser when we call the individual layers. Let's add the roads:
 
 First, we need to choose the trigger when the map content gets loaded. We will use the `'load'` trigger (You can read more about the triggers available [here](https://www.mapbox.com/mapbox-gl-js/api/#map#on)):
 
@@ -156,7 +156,7 @@ You'll notice here that we're selecting content from the `bonn` map which we con
     }
   });
 ```
-This gives provides the browser with the instruction on how we want to style the layer. Together, it all looks like the following:
+This provides the browser with the instruction on how we want to style the layer. Together, it all looks like the following:
 
 
 ```html
