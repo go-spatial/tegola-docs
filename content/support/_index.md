@@ -11,7 +11,7 @@ subtitle:
 
 We strive to make Tegola robust and easy to use, but sometimes you could use some additional help. We have an active community on GitHub that respond to questions and provide support but if your request needs immediate attention commercial support is a great option.
 
-Mapping platforms have lots of moving pieces and the GoSpatial team has experience working on all types of deployments, both large and small. When it comes to commercial support can help with the following:
+Mapping platforms have lots of moving pieces and the Go Spatial team has experience working on all types of deployments, both large and small. When it comes to commercial support can help with the following:
 
 ### Bug fixes
 Is there a bug in Tegola that needs immediate attention for your use case? Let’s move it up in priority.
