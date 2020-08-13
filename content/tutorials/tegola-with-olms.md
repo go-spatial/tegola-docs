@@ -23,7 +23,7 @@ This guide will show you how to use OLMS to convert and utilize a Mapbox style t
 To get setup for using OLMS you'll need a Tegola source, a Mapbox stylesheet, and the OLMS library.
 
 ### Tegola source
-The first thing you'll need is a Tegola endpoint. You can either setup one locally by following the instructions located in the [Tegola docs](http://tegola.io/documentation/getting-started/) or you can use an existing endpoint.
+The first thing you'll need is a Tegola endpoint. You can either set up one locally by following the instructions located in the [Tegola docs](http://tegola.io/documentation/getting-started/) or you can use an existing endpoint.
 
 For the following example we'll be pulling in data from a Tegola instance hosted at https://osm.tegola.io.
 
@@ -37,7 +37,7 @@ Note that stylesheets are specific to the layers of a source endpoint. Ensure th
 ### Grab the OLMS script
 Either get the js file from the [OLMS repo](https://github.com/boundlessgeo/ol-mapbox-style) or you can link to it from these docs here: https://osm.tegola.io.
 
-## Setup the HTML
+## Set up the HTML
 
 Next, we make an HTML page that will show the map. The following is a minimal example HTML page for rendering a map with OpenLayers and OLMS. Copy and paste the following code into an empty file and name it index.html.
 

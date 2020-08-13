@@ -28,7 +28,7 @@ The first thing you'll need is a Tegola endpoint. You can either set one up loca
 
 The second thing you'll need is a [Mapbox](https://www.mapbox.com) GL access token. You should have a look at [their docs](https://www.mapbox.com/help/how-access-tokens-work/) if you need more assistance in obtaining a new token.
 
-## Setup the HTML
+## Set up the HTML
 
 Next, we make an HTML page that will show the map. The following is a minimal example HTML page for rendering a map with Mapbox GL JS. Copy and paste the following code into an empty file and name it index.html.
 
@@ -142,7 +142,7 @@ Now, we add the source:
   }
 ```
 
-You'll notice here that we're selecting content from the `bonn` map which we configured in the .toml file earlier. Now, we add a layer:
+You'll notice here that we're selecting content from the `bonn` map which we configured in the toml file earlier. Now, we add a layer:
 
 ```js
   map.addLayer({

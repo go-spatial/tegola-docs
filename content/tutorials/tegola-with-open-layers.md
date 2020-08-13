@@ -24,7 +24,7 @@ The first thing you'll need is a Tegola endpoint. You can either set up one loca
 
 For the following example we'll be pulling in data from a Tegola instance hosted at https://osm.tegola.io.
 
-## Setup the HTML
+## Set up the HTML
 
 Next, we make an HTML page that will show the map. The following is a minimal example HTML page for rendering a map with OpenLayers. Copy and paste the following code into an empty file and name it index.html.
 
@@ -175,7 +175,7 @@ var streetStyle = new ol.style.Style({
 });
 ```
 
-Here we define two styles - a deep blue for the water features and a violet for streets. Next we can apply these styles to specific features with `if` statements inside `styleFunction`.
+Here we define two styles — a deep blue for the water features and a violet for streets. Next we can apply these styles to specific features with `if` statements inside `styleFunction`.
 
 ``` javascript
 function styleFunction(feature, resolution){

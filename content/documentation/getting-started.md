@@ -16,17 +16,17 @@ menu:
 [Choose the binary](https://github.com/go-spatial/tegola/releases) that matches the operating system Tegola will run on. Find the Tegola file that was downloaded, unzip it, and move it into a fresh directory. Rename this file `tegola`.
 
 ### Docker Image
-As of v0.6.0, Tegola also provides an official Docker release with support for both PostGIS and GeoPackage data providers.  Use `docker pull gospatial/tegola` to get the latest image.
+Tegola provides an official Docker release with support for both PostGIS and GeoPackage data providers.  Use `docker pull gospatial/tegola` to get the latest image.
 
 [Check out the docs on Docker Hub](https://hub.docker.com/r/gospatial/tegola/) for details and examples of using the image.
 
-## 2. Setup a data provider
+## 2. Set up a data provider
 
 Tegola needs geospatial data to run. Currently, Tegola supports PostGIS which is a geospatial extension for PostgreSQL, and GeoPackage. If you don't have PostGIS installed, [download PostGIS](http://postgis.net/install/).
 
 Next, you'll need to load PostGIS with data. For your convenience you can download [PostGIS data for Bonn, Germany](https://github.com/go-spatial/tegola-example-data/raw/master/bonn_osm.sql.tar.gz).
 
-Create a new database named `bonn`, and use a restore command to import the unzipped sql file into the database. Documentation can be found [here](https://www.postgresql.org/docs/current/static/backup.html) under the section titled "Restoring the dump". The command should look something like this:
+Create a new database named `bonn`, and use a restore command to import the unzipped SQL file into the database. Documentation can be found [here](https://www.postgresql.org/docs/current/static/backup.html) under the section titled "Restoring the dump". The command should look something like this:
 
 ```sh
 psql bonn < bonn_osm.sql
@@ -97,7 +97,7 @@ name = "bonn"
   max_zoom = 20
 ```
 
-Note: This configuration file is specific to the Bonn data provided in step 2. If you're using another dataset reference the [Configuration Documentation](/documentation/configuration/).
+Note: This configuration file is specific to the Bonn data provided in step 2 if you're using another dataset reference the [Configuration Documentation](/documentation/configuration/).
 
 ## 4. Start Tegola
 

@@ -11,7 +11,7 @@ subtitle: Select your operating system and get started
 Download the latest release for your operating system [here](https://github.com/terranodo/tegola/releases).
 
 ## Docker Image
-As of v0.6.0, Tegola also provides an official Docker release with support for both PostGIS and GeoPackage data providers.  Use `docker pull gospatial/tegola` to get the latest image.
+Tegola also provides an official Docker release with support for both PostGIS and GeoPackage data providers.  Use `docker pull gospatial/tegola` to get the latest image.
 
 [Check out the docs on Docker Hub](https://hub.docker.com/r/gospatial/tegola/) for details and examples of using the image.
 

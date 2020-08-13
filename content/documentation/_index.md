@@ -12,4 +12,4 @@ menu:
 
 ## Overview
 
-This is the official Tegola documentation. Keep in mind Tegola is pre 1.0 so these docs are constantly changing to keep up-to-date with code changes.
+This is the official Tegola documentation. Keep in mind Tegola is pre-1.0 so these docs are constantly changing to keep up-to-date with code changes.
