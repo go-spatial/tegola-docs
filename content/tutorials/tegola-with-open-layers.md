@@ -14,17 +14,17 @@ menu:
 
 [Tegola](https://github.com/go-spatial/tegola) is a vector tile server written in Go. Tegola takes geospatial data from a PostGIS Database and slices it into vector tiles that can be efficiently delivered to any client.
 
-[OpenLayers](https://openlayers.org/) is a client library for rendering MVT and raster maps. Combined with Tegola, developers may now render maps in the web or on mobile utilizing all open source technology.
+[OpenLayers](https://openlayers.org/) is a client library for rendering MVT and raster maps. Combined with Tegola, developers may now render maps on the web or on mobile utilizing all open source technology.
 
 This guide will take you through the steps to get Tegola rendering a map using OpenLayers and visualized in a web browser.
 
 ## Getting Started
 
-The first thing you'll need is a Tegola endpoint. You can either setup one locally by following the instructions located in the [Tegola docs](http://tegola.io/documentation/getting-started/) or you can use an existing endpoint.
+The first thing you'll need is a Tegola endpoint. You can either set up one locally by following the instructions located in the [Tegola docs](http://tegola.io/documentation/getting-started/) or you can use an existing endpoint.
 
 For the following example we'll be pulling in data from a Tegola instance hosted at https://osm.tegola.io.
 
-## Setup the HTML
+## Set up the HTML
 
 Next, we make an HTML page that will show the map. The following is a minimal example HTML page for rendering a map with OpenLayers. Copy and paste the following code into an empty file and name it index.html.
 
@@ -64,7 +64,7 @@ Next, we make an HTML page that will show the map. The following is a minimal ex
 
 We are including the OpenLayers library from https://openlayers.org/en/v4.5.0/build/ol.js in the head of the document. In the body, we define `<div id="map"></div>` which is the container that will hold the rendered map.
 
-To render the map we will use a javascript snippet that creates a new instance of `ol.Map`.
+To render the map we will use a JavaScript snippet that creates a new instance of `ol.Map`.
 
 ``` javascript
 var map = new ol.Map({
@@ -94,7 +94,7 @@ A map of San Diego, CA rendered with the default styles provided by the Open Lay
 
 ## Styling the Map
 
-To style the map we'll need to define a javascript function to apply fills and borders to the various features of our map. Let's start by applying a default style to every feature on the map.
+To style the map we'll need to define a JavaScript function to apply fills and borders to the various features of our map. Let's start by applying a default style to every feature on the map.
 
 OpenLayers applies map styling by utilizing a style function. Every feature in a given map layer will call the style function. The style function then returns an array of styles to apply to the given feature.
 
@@ -141,7 +141,7 @@ Here we're defining `styleFunction` which will take over responsibility for styl
 
 Now we can start to pick out the features we'd like to apply custom styles to. Inside the `styleFunction` we can determine different features based on their attributes. The attributes we'll be using in the following example are `type` and `layer`.
 
-OpenLayers allows you to reference attributes using the `feature.get()` function. The following snippet shows an console log example of this usage.
+OpenLayers allows you to reference attributes using the `feature.get()` function. The following snippet shows a console log example of this usage.
 
 ``` javascript
 function styleFunction(feature, resolution){
@@ -175,7 +175,7 @@ var streetStyle = new ol.style.Style({
 });
 ```
 
-Here we define two styles - a deep blue for the water features and a violet for streets. Next we can apply these styles to specific features with `if` statements inside `styleFunction`.
+Here we define two styles — a deep blue for the water features and a violet for streets. Next we can apply these styles to specific features with `if` statements inside `styleFunction`.
 
 ``` javascript
 function styleFunction(feature, resolution){
@@ -192,7 +192,7 @@ function styleFunction(feature, resolution){
 }
 ```
 
-Finally the oceans are generally not defined as features inside of the data sources. To give the oceans a color, let's give our div a `background-color`.
+Finally, the oceans are generally not defined as features inside the data sources. To give the oceans a color, let's give our div a `background-color`.
 
 ``` css
 #map{height:600px;width:100%;background-color:#1C79B5;}

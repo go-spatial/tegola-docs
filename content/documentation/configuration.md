@@ -141,7 +141,7 @@ PostGIS Provider Layers define how Tegola will fetch data for a layer from a [Po
 | id_fieldname       | No       | gid      | The name of the feature ID field in the table                    |
 | srid               | No       | 3857     | The SRID for the table. Can be 3857 or 4326.                     |
 | fields             | No       |          | Fields to include as tag values. Useful when using **tablename** |
-| geometry_type      | No       |          | The layer geometry type. If not set, the table will be inspected at startup to try and infer the gemetry type. Valid values are: `Point`, `LineString`, `Polygon`, `MultiPoint`, `MultiLineString`, `MultiPolygon`, `GeometryCollection`. |
+| geometry_type      | No       |          | The layer geometry type. If not set, the table will be inspected at startup to try and infer the geometry type. Valid values are: `Point`, `LineString`, `Polygon`, `MultiPoint`, `MultiLineString`, `MultiPolygon`, `GeometryCollection`. |
 
 
 &#42; Either `tablename` or `sql` is required, but not both.
@@ -260,7 +260,7 @@ max_zoom = 16                       	# maximum zoom level to include this layer
 
 #### Default Tags
 
-Map Layer Default Tags provide a convenient way to encode additional tags that are not supplied by a data provider. If a Default Tag is defined and the same tag is returned by the Provider, the Provider defined tage will take precedence.
+Map Layer Default Tags provide a convenient way to encode additional tags that are not supplied by a data provider. If a Default Tag is defined and the same tag is returned by the Provider, the Provider defined tag will take precedence.
 
 Default Tags are `key = value` pairs.
 
@@ -310,7 +310,7 @@ Cache tiles in Amazon S3.
 | Param    | Required | Default        | Description                                                         |
 |:---------|:---------|:---------------|:--------------------------------------------------------------------|
 | bucket   | Yes      |                | The name of the S3 bucket to use.                                   |
-| basepath | No       |                | A path prefix added to all cache operations inside of the S3 bucket |
+| basepath | No       |                | A path prefix added to all cache operations inside the S3 bucket |
 | region   | No       | us-east-1      | The region the bucket is in.                                        |
 | aws_access_key_id | No |             | The AWS access key id to use.                                       |
 | aws_secret_access_key | No |         | The AWS secret access key to use.                                   |
@@ -328,7 +328,7 @@ $ export AWS_SECRET_ACCESS_KEY=YOUR_SECRET_KEY
 
 ## Env Var
 
-Evironmental variables can be used in any configuration option. However, they must be written within quotes as a string:
+Environmental variables can be used in any configuration option. However, they must be written within quotes as a string:
 
 ```toml
 tile_buffer = "${TEGOLA_TILE_BUFFER}"     # note that tile buffer expects an integer, tegola will handle the conversion

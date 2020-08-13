@@ -9,21 +9,21 @@ subtitle:
 
 ## Commercial Support
 
-We strive to make Tegola robust and easy to use, but sometimes you could use some additional help. We have an active community on Github that respond to questions and provide support but if your request needs immediate attention commercial support is a great option.
+We strive to make Tegola robust and easy to use, but sometimes you could use some additional help. We have an active community on GitHub that respond to questions and provide support but if your request needs immediate attention commercial support is a great option.
 
-Mapping platforms have lots of moving pieces and the GoSpatial team has experience working on all types of deployments, both large and small. When it comes to commercial support can help with the following:
+Mapping platforms have lots of moving pieces and the Go Spatial team has experience working on all types of deployments, both large and small. When it comes to commercial support can help with the following:
 
 ### Bug fixes
-Is there a bug in tegola that needs immediate attention for your use case? Let’s move it up in priority.
+Is there a bug in Tegola that needs immediate attention for your use case? Let’s move it up in priority.
 
 ### Feature requests
 Need support for a new database or cache back end? Have a feature request that would make tegola better for your deployment? Let’s talk it through and figure out how to best implement it alongside our current development efforts.
 
-### Configuring tegola
+### Configuring Tegola
 Tegola configuration files are designed to be simple and easy to use, but they still provide a lot of power and customization. We can review your configuration file and provide suggestions relating to:
 
 - **Query optimization:** Are your queries properly using spatial indexes? Do you understand the nuances of multi-polygons and handling them correctly? Well tuned queries will reduce the load on your database and reduce tile latency.
-- **Database design:** A well designed spatial database can help reduce database load and allow for data updates.
+- **Database design:** A well-designed spatial database can help reduce database load and allow for data updates.
 - **Tile optimization:** Tile optimization is all about reducing the amount of information encoded in a tile. Reducing the number of points necessary for feature geometry data and limiting the number of feature tags will dramatically reduce map tile size. Optimize your tiles to match your cartographic needs to improve the downstream user experience.
 
 ### Cartography
