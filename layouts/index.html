@@ -8,9 +8,8 @@
         <link rel="canonical" href="{{ .Permalink }}">
         <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
 
-        {{ if .RSSLink }}
-            {{ "<!-- RSS 2.0 feed -->" | safeHTML }}
-            <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+        {{ with .OutputFormats.Get "RSS" }}
+            <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
         {{ end }}
 
         {{ template "_internal/google_analytics_async.html" . }}

@@ -1,6 +1,6 @@
 # tegola docs
 
-This repo hosts the docs for [Tegola](https://github.com/go-spatial/tegola). To build the docs you will need [Hugo](https://gohugo.io/) minimum version 0.25.
+This repo hosts the docs for [Tegola](https://github.com/go-spatial/tegola). To build the docs you will need [Hugo](https://gohugo.io/) version v0.80.0 or newer.
 
 ### Serving the docs locally
 
