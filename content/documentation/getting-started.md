@@ -26,10 +26,16 @@ Tegola needs geospatial data to run. Currently, Tegola supports PostGIS which is
 
 Next, you'll need to load PostGIS with data. For your convenience you can download [PostGIS data for Bonn, Germany](https://github.com/go-spatial/tegola-example-data/raw/master/bonn_osm.sql.tar.gz).
 
-Create a new database named `bonn`, and use a restore command to import the unzipped SQL file into the database. Documentation can be found [here](https://www.postgresql.org/docs/current/static/backup.html) under the section titled "Restoring the dump". The command should look something like this:
+Create a new database named `bonn`:
 
 ```sh
-psql bonn < bonn_osm.sql
+psql -c 'CREATE DATABASE bonn;'
+```
+
+ Use the restore command to import the unzipped SQL file into the database. Documentation can be found [here](https://www.postgresql.org/docs/current/static/backup.html) under the section titled "Restoring the dump". The command should look something like this:
+
+```sh
+psql bonn < bonn_osm.dump
 ```
 
 To enable Tegola to connect to the database, create a database user named `tegola` and grant the privileges required to read the tables in the `public` schema of the `bonn` database, using these commands:
@@ -80,6 +86,7 @@ srid = 4326             # The default srid for this provider. If not provided it
 
 [[maps]]
 name = "bonn"
+center = [7.0982, 50.7374, 11.0] # set the center of the map so the user is auto navigated to Bonn
 
   [[maps.layers]]
   provider_layer = "bonn.road"
@@ -110,6 +117,10 @@ Navigate to the Tegola directory in your computer's terminal and run this comman
 ```
 
 You should see a message confirming the config file load and Tegola being started on port 8080. If your computer's port 8080 is being used by another process, change the port in the config file to an open port.
+
+Next open up your browser to `localhost:8080` to launch the internal tegola viewer. If everything is working you should see a map of Boon similar to:
+
+![Bonn, Germany](/images/bonn_internal_viewer.png)
 
 ### Docker Image
 If you're using the docker image, starting Tegola will be slightly different in order to pass your config and possibly your data into the container.
