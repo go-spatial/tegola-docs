@@ -101,7 +101,7 @@ srid = 3857             # The default srid for this provider. If not provided it
 
 ### GeoPackage
 
-Load data from a [GeoPackage](http://www.geopackage.org) database. The GeoPackage provider requires that Tegola is built with CGO. Prebuilt CGO binaries can be found [here](https://github.com/go-spatial/tegola/releases) and are indicated with the suffix `_cgo`.
+Load data from a [GeoPackage](http://www.geopackage.org) database. The GeoPackage provider requires that Tegola is built with CGO. You can [find prebuilt CGO binaries on GitHub](https://github.com/go-spatial/tegola/releases).
 
 In addition to the required `name` and `type` parameters, a GeoPackage data provider has the following
 additional params:
