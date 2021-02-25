@@ -25,17 +25,17 @@ To get setup for using OLMS you'll need a Tegola source, a Mapbox stylesheet, an
 ### Tegola source
 The first thing you'll need is a Tegola endpoint. You can either set up one locally by following the instructions located in the [Tegola docs](http://tegola.io/documentation/getting-started/) or you can use an existing endpoint.
 
-For the following example we'll be pulling in data from a Tegola instance hosted at https://osm.tegola.io.
+For the following example we'll be pulling in data from a Tegola instance hosted at https://tegola-osm-demo.go-spatial.org.
 
 ### Get a Mapbox stylesheet
 You may either pull a Mapbox stylesheet from Mapbox directly using an API key, you can craft your own, or you may use a stylesheet provided in this repo in the style directory.
 
-For the following example we'll be using the stylesheet here https://osm.tegola.io.
+For the following example we'll be using the stylesheet here https://tegola-osm-demo.go-spatial.org.
 
 Note that stylesheets are specific to the layers of a source endpoint. Ensure that whatever styles you are using are compatible.
 
 ### Grab the OLMS script
-Either get the js file from the [OLMS repo](https://github.com/boundlessgeo/ol-mapbox-style) or you can link to it from these docs here: https://osm.tegola.io.
+Either get the js file from the [OLMS repo](https://github.com/boundlessgeo/ol-mapbox-style) or you can link to it from these docs here: https://tegola-osm-demo.go-spatial.org.
 
 ## Set up the HTML
 
@@ -62,7 +62,7 @@ Next, we make an HTML page that will show the map. The following is a minimal ex
 </html>
 ```
 
-The piece that is doing all the heavy lifting here is `olms.apply('map','hot-osm.json');`. The first argument `map` is the id of the tag where the map will render. The next, `hot-osm.json` is the path to the style json file in Mapbox style format. Note that there is no source declaration in this HTML file. That is being defined as `https://osm.tegola.io` inside the `hot-osm.json` file.
+The piece that is doing all the heavy lifting here is `olms.apply('map','hot-osm.json');`. The first argument `map` is the id of the tag where the map will render. The next, `hot-osm.json` is the path to the style json file in Mapbox style format. Note that there is no source declaration in this HTML file. That is being defined as `https://tegola-osm-demo.go-spatial.org` inside the `hot-osm.json` file.
 
 And here's what you should see when you open up a browser:
 

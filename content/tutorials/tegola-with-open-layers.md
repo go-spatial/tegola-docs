@@ -22,7 +22,7 @@ This guide will take you through the steps to get Tegola rendering a map using O
 
 The first thing you'll need is a Tegola endpoint. You can either set up one locally by following the instructions located in the [Tegola docs](http://tegola.io/documentation/getting-started/) or you can use an existing endpoint.
 
-For the following example we'll be pulling in data from a Tegola instance hosted at https://osm.tegola.io.
+For the following example we'll be pulling in data from a Tegola instance hosted at https://tegola-osm-demo.go-spatial.org.
 
 ## Set up the HTML
 
@@ -48,7 +48,7 @@ Next, we make an HTML page that will show the map. The following is a minimal ex
                     new ol.layer.VectorTile({
                         source: new ol.source.VectorTile({
                             format: new ol.format.MVT(),
-                            url:'https://osm.tegola.io/maps/osm/{z}/{x}/{y}.pbf'
+                            url:'https://tegola-osm-demo.go-spatial.org/maps/osm/{z}/{x}/{y}.pbf'
                         })
                     })
                 ],
@@ -73,7 +73,7 @@ var map = new ol.Map({
         new ol.layer.VectorTile({
             source: new ol.source.VectorTile({
                 format: new ol.format.MVT(),
-                url:'https://osm.tegola.io/maps/osm/{z}/{x}/{y}.pbf'
+                url:'https://tegola-osm-demo.go-spatial.org/maps/osm/{z}/{x}/{y}.pbf'
             })
         })
     ],
@@ -121,7 +121,7 @@ var map = new ol.Map({
         new ol.layer.VectorTile({
             source: new ol.source.VectorTile({
                 format: new ol.format.MVT(),
-                url:'https://osm.tegola.io/maps/osm/{z}/{x}/{y}.pbf'
+                url:'https://tegola-osm-demo.go-spatial.org/maps/osm/{z}/{x}/{y}.pbf'
             }),
             style:styleFunction // here we apply the styleFunction to the layer
         })
@@ -266,7 +266,7 @@ The following is the full HTML file with custom styling for water and streets.
                     new ol.layer.VectorTile({
                         source: new ol.source.VectorTile({
                             format: new ol.format.MVT(),
-                            url:'https://osm.tegola.io/maps/osm/{z}/{x}/{y}.pbf'
+                            url:'https://tegola-osm-demo.go-spatial.org/maps/osm/{z}/{x}/{y}.pbf'
                         }),
                         style:styleFunction
                     })

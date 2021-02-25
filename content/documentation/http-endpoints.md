@@ -82,7 +82,7 @@ Returns information about a map matching the [TileJSON 2.1 specification](https:
   "description": null,
   "scheme": "xyz",
   "tilejson": "2.1.0",
-  "tiles": ["https://osm.tegola.io/maps/osm/{z}/{x}/{y}.pbf"],
+  "tiles": ["https://tegola-osm-demo.go-spatial.org/v1/maps/osm/{z}/{x}/{y}.pbf"],
   "grids": [],
   "data": [],
   "version": "1.0.0",
@@ -96,7 +96,7 @@ Returns information about a map matching the [TileJSON 2.1 specification](https:
     "geometry_type": "point",
     "minzoom": 0,
     "maxzoom": 20,
-    "tiles": ["https://osm.tegola.io/maps/osm/populated_places/{z}/{x}/{y}.pbf"]
+    "tiles": ["https://tegola-osm-demo.go-spatial.org/v1/maps/osm/populated_places/{z}/{x}/{y}.pbf"]
   }, {
     "version": 2,
     "extent": 4096,
@@ -105,7 +105,7 @@ Returns information about a map matching the [TileJSON 2.1 specification](https:
     "geometry_type": "line",
     "minzoom": 0,
     "maxzoom": 10,
-    "tiles": ["https://osm.tegola.io/maps/osm/country_lines/{z}/{x}/{y}.pbf"]
+    "tiles": ["https://tegola-osm-demo.go-spatial.org/v1/maps/osm/country_lines/{z}/{x}/{y}.pbf"]
   }]
 }
 ```
