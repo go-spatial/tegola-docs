@@ -138,7 +138,7 @@ PostGIS Provider Layers define how Tegola will fetch data for a layer from a [Po
 | **tablename**      | Yes*     |          | The name of the database table to query                          |
 | **sql**            | Yes*     |          | Custom SQL. Requires a `!BBOX!` token                            |
 | geometry_fieldname | No       | geom     | The name of the geometry field in the table                      |
-| id_fieldname       | No       | gid      | The name of the feature ID field in the table                    |
+| id_fieldname       | No       | gid      | The name of the feature ID field in the table. Only positive integer IDs are supported. |
 | srid               | No       | 3857     | The SRID for the table. Can be 3857 or 4326.                     |
 | fields             | No       |          | Fields to include as tag values. Useful when using **tablename** |
 | geometry_type      | No       |          | The layer geometry type. If not set, the table will be inspected at startup to try and infer the geometry type. Valid values are: `Point`, `LineString`, `Polygon`, `MultiPoint`, `MultiLineString`, `MultiPolygon`, `GeometryCollection`. |
@@ -185,7 +185,7 @@ sql = "SELECT gid, ST_AsBinary(geom) AS geom FROM gis.rivers WHERE geom && !BBOX
 |:-------------------|:---------|:---------|:-----------------------------------------------------------------------------------|
 | **tablename**      | Yes*     |          | The name of the database table to query against.                                   |
 | **sql**            | Yes*     |          | Custom SQL to use. Requires a `!BBOX!` token.                                      |
-| id_fieldname       | No       | `fid`    | The name of the feature id field.                                                  |
+| id_fieldname       | No       | `fid`    | The name of the feature id field. Only positive integer IDs are supported         |
 | fields             | No       |          | A list of fields (column names) to include as feature tags when using **tablename**.|
 
 &#42; Either `tablename` or `sql` is required, but not both.
