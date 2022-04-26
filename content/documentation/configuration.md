@@ -59,6 +59,9 @@ hostname = "tiles.example.com"
   [webserver.headers]
   # redefine default cors origin
   Access-Control-Allow-Origin = "http://map.example.com"
+
+  # define CDN max age
+  Cache-Control = "s-maxage=300"
 ```
 
 ## Providers
@@ -68,34 +71,64 @@ The providers configuration tells Tegola where your data lives. Data providers e
 | Param    | Description                                                                                |
 |:---------|:-------------------------------------------------------------------------------------------|
 | name     | User defined data provider name. This is used by map layers to reference the data provider.|
-| type     | The type of data provider. (i.e. "postgis")                                                |
+| type     | The type of data provider. (i.e. "postgis", "mvt_postgis")                                                |
 
 
-### PostGIS
+### PostGIS & MVT_PostGIS
 
 Load data from a Postgres/PostGIS database. In addition to the required `name` and `type` parameters, a PostGIS data provider supports the following parameters:
 
 | Param               | Required |  Default | Description                                        |
 |:--------------------|:---------|:---------|:---------------------------------------------------|
-| host                | Yes      |          | The database host.                                 |
+| uri                 | Yes      |          | The database connection string.                    |
+| host                | No       |          | The database host.                                 |
 | port                | No       | 5432     | The port the database is listening on.             |
-| database            | Yes      |          | The name of the database                           |
-| user                | Yes      |          | The database user                                  |
-| password            | Yes      |          | The database user's password                       |
+| database            | No       |          | The name of the database                           |
+| user                | No       |          | The database user                                  |
+| password            | No       |          | The database user's password                       |
 | srid                | No       | 3857     | The default SRID for this data provider            |
+| ssl_mode            | No       | prefer   | PostGIS SSL mode.                                  |
 | max_connections     | No       | 100      | max number of connections in the connection pool.  |
+| max_connection_idle_time     | No       | 30m      | max connection idle time.  |
+| max_connection_lifetime     | No       | 1h      | max connection lifetime.  |
+
+Establishing a connection via connection string (`uri`) will become the default connection method as of v0.16.0.
+Connecting via host/port/database is flagged for deprecation as of v0.15.0 but will be possible until v0.16.0 still.
+
+**Example**
+
+```
+# {protocol}://{user}:{password}@{host}:{port}/{database}?{options}=
+
+postgres://tegola:supersecret@localhost:5432/tegola?sslmode=prefer&pool_max_conns=10
+```
+
+**Options**
+
+- `sslmode`: [Optional] PostGIS SSL mode. Default: "prefer"
+- `pool_max_conns`: [Optional] The max connections to maintain in the connection pool. Defaults to 100. 0 means no max.
+- `pool_max_conn_idle_time`: [Optional] The maximum time an idle connection is kept alive. Defaults to "30m".
+- `max_connection_lifetime` [Optional] The maximum time a connection lives before it is terminated and recreated. Defaults to "1h".
 
 **Example PostGIS Provider config**
 
 ```toml
 [[providers]]
-name = "test_postgis"   # provider name is referenced from map layers
-type = "postgis"        # the type of data provider.
-host = "localhost"      # postgis database host
-port = 5432             # postgis database port
-database = "tegola"     # postgis database name
-user = "tegola"         # postgis database user
-password = ""           # postgis database password
+name = "test_postgis"       # provider name is referenced from map layers (required)
+type = "postgis"            # the type of data provider must be "postgis" for this data provider (required)
+
+uri = "postgres://tegola:supersecret@localhost:5432/tegola?sslmode=prefer" # PostGIS connection string (required)
+
+host = "localhost"                # PostGIS database host (deprecated)
+port = 5432                       # PostGIS database port (deprecated)
+database = "tegola"               # PostGIS database name (deprecated)
+user = "tegola"                   # PostGIS database user (deprecated)
+password = "supersecret"          # PostGIS database password (deprecated)
+ssl_mode = "prefer"
+max_connections = 10              # PostGIS max connections (deprecated)
+max_connection_idle_time = "30m"  # PostGIS max connection idle time (deprecated)
+max_connection_lifetime = "1h"    # PostGIS max connection life time (deprecated)
+
 srid = 3857             # The default srid for this provider. If not provided it will be WebMercator (3857)
 ```
 
@@ -158,7 +191,9 @@ The `sql` configuration supports the following tokens
 | !SCALE_DENOMINATOR! | No       | Scale denominator, assuming 90.7 DPI (i.e. 0.28mm pixel size)    |
 | !PIXEL_WIDTH!       | No       | The pixel width in meters, assuming 256x256 tiles.               |
 | !PIXEL_HEIGHT!      | No       | The pixel height in meters, assuming 256x256 tiles.              |
-
+| !ID_FIELD!          | No       | The id field name.                                               |
+| !GEOM_FIELD!        | No       | The geom field name.                                             |
+| !GEOM_TYPE!         | No       | The geom type if defined otherwise.              |
 
 
 **Example minimum Provider Layer config with `tablename` defined**
@@ -177,6 +212,23 @@ tablename = "gis.zoning_base_3857"
 name = "landuse"
 # note that the geometry field is wrapped in ST_AsBinary() and the use of the required !BBOX! token
 sql = "SELECT gid, ST_AsBinary(geom) AS geom FROM gis.rivers WHERE geom && !BBOX!"
+```
+
+### MVT_PostGIS
+
+The PostGIS MVT provider (`mvt_postgis`) manages querying for tile requests against a Postgres database (version 12+) with the [PostGIS](http://postgis.net/)(version 3.0+) extension installed and leverages [ST_AsMVT](https://postgis.net/docs/ST_AsMVT.html) to handle the MVT encoding at the database.
+
+When using the PostGIS MVT Provider the `ST_AsMVTGeom()` MUST be used. The MVT provider otherwise shares connection options, SQL tokens and layer configuration with the PostGIS Provider.
+
+**Example mvt_postgis and map config**
+
+```toml
+[[providers.layers]]
+name = "landuse"
+# MVT data provider must use SQL statements
+# this table uses "geom" for the geometry_fieldname and "gid" for the id_fieldname so they don't need to be configured
+# Wrapping the geom with ST_AsMVTGeom is required. 
+sql = "SELECT ST_AsMVTGeom(geom,!BBOX!) AS geom, gid FROM gis.landuse WHERE geom && !BBOX!"
 ```
 
 ### GeoPackage
@@ -302,6 +354,7 @@ instance with default configuration.
 | address  | No       | 127.0.0.1:6379 | The address of Redis in the form `ip:port`.                  |
 | password | No       |                | Password to use when connecting.                             |
 | db       | No       |                | Database to use (int).                                       |
+| ssl      | No       | false          | Encrypt connection to the Redis server.                      |
 
 ### S3
 
