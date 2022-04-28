@@ -81,19 +81,7 @@ Load data from a Postgres/PostGIS database. In addition to the required `name` a
 | Param               | Required |  Default | Description                                        |
 |:--------------------|:---------|:---------|:---------------------------------------------------|
 | uri                 | Yes      |          | The database connection string.                    |
-| host                | No       |          | The database host.                                 |
-| port                | No       | 5432     | The port the database is listening on.             |
-| database            | No       |          | The name of the database                           |
-| user                | No       |          | The database user                                  |
-| password            | No       |          | The database user's password                       |
 | srid                | No       | 3857     | The default SRID for this data provider            |
-| ssl_mode            | No       | prefer   | PostGIS SSL mode.                                  |
-| max_connections     | No       | 100      | max number of connections in the connection pool.  |
-| max_connection_idle_time     | No       | 30m      | max connection idle time.  |
-| max_connection_lifetime     | No       | 1h      | max connection lifetime.  |
-
-Establishing a connection via connection string (`uri`) will become the default connection method as of v0.16.0.
-Connecting via host/port/database is flagged for deprecation as of v0.15.0 but will be possible until v0.16.0 still.
 
 **Example**
 
@@ -107,8 +95,10 @@ postgres://tegola:supersecret@localhost:5432/tegola?sslmode=prefer&pool_max_conn
 
 - `sslmode`: [Optional] PostGIS SSL mode. Default: "prefer"
 - `pool_max_conns`: [Optional] The max connections to maintain in the connection pool. Defaults to 100. 0 means no max.
+- `pool_min_conns`: [Optional] The min connections to maintain in the connection pool. Defaults to 0. 0 mean there are no open connections in the pool if not needed.
 - `pool_max_conn_idle_time`: [Optional] The maximum time an idle connection is kept alive. Defaults to "30m".
-- `max_connection_lifetime` [Optional] The maximum time a connection lives before it is terminated and recreated. Defaults to "1h".
+- `pool_max_conn_lifetime` [Optional] The maximum time a connection lives before it is terminated and recreated. Defaults to "1h".
+- `pool_health_check_period` [Optional] Time in between health checks. Defaults to "1m".
 
 **Example PostGIS Provider config**
 
@@ -118,17 +108,6 @@ name = "test_postgis"       # provider name is referenced from map layers (requi
 type = "postgis"            # the type of data provider must be "postgis" for this data provider (required)
 
 uri = "postgres://tegola:supersecret@localhost:5432/tegola?sslmode=prefer" # PostGIS connection string (required)
-
-host = "localhost"                # PostGIS database host (deprecated)
-port = 5432                       # PostGIS database port (deprecated)
-database = "tegola"               # PostGIS database name (deprecated)
-user = "tegola"                   # PostGIS database user (deprecated)
-password = "supersecret"          # PostGIS database password (deprecated)
-ssl_mode = "prefer"
-max_connections = 10              # PostGIS max connections (deprecated)
-max_connection_idle_time = "30m"  # PostGIS max connection idle time (deprecated)
-max_connection_lifetime = "1h"    # PostGIS max connection life time (deprecated)
-
 srid = 3857             # The default srid for this provider. If not provided it will be WebMercator (3857)
 ```
 
@@ -409,11 +388,7 @@ basepath="/tmp/tegola"  # cache specific config
 [[providers]]
 name = "test_postgis"   # provider name is referenced from map layers
 type = "postgis"        # the type of data provider. currently only supports postgis
-host = "localhost"      # postgis database host
-port = 5432             # postgis database port
-database = "tegola"     # postgis database name
-user = "tegola"         # postgis database user
-password = ""           # postgis database password
+uri = "postgres://tegola:supersecret@localhost:5432/tegola?sslmode=prefer" # PostGIS connection string (required)
 srid = 3857             # The default srid for this provider. If not provided it will be WebMercator (3857)
 
     # Example data
