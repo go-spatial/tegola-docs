@@ -21,17 +21,13 @@ Let's get started!
 ## Prerequisites
 
 - [Install Docker](https://docs.docker.com/get-docker/) for your OS.
-- [Install PSQL](https://www.postgresql.org/download/) for your OS.
 
-Now you can clone the example repository into a location of your choosing.
+Clone the example repository into a location of your choosing.
 
 ```bash
 git clone https://github.com/iwpnd/tegola-example-bonn.git
 cd tegola-example-bonn
 ```
-
-Now you download and unzip the
-[Bonn dataset](https://github.com/go-spatial/tegola-example-data/raw/master/bonn_osm.sql.tar.gz) and put `bonn_osm.dump` into the `bin/` directory.
 
 Next up, you start Tegola and Postgres/PostGIS in a containerized environment
 
@@ -39,23 +35,21 @@ Next up, you start Tegola and Postgres/PostGIS in a containerized environment
 docker compose up
 ```
 
-With the following you load the Bonn example data into your
-recently started Postgres/PostGIS database.
+This will take care of
 
-```bash
-PGPASSWORD=postgres sh bin/init.sh
-```
+- unpacking the example data
+- starting all required services
+- database migration
+
+wait until the migration step exits and you're done.
 
 ## Tegola viewer
 
-This examples comes with two providers.
+This example comes with the `mvt_postgis` provider. After you ran the prerequisites,
+you can access the tegola viewer via `http://localhost:8080`.
 
-- the `postgis` provider via `http://localhost:8081`
-- the `mvt_postgis` provider via `http://localhost:8080`
-
-(for more on the differences see [provider layers]({{< ref "/documentation/configuration#provider-layers" >}} "provider layers").
-
-Either will great you with Tegola's build-in viewer:
+(for more on the differences see
+[provider layers]({{< ref "/documentation/configuration#provider-layers" >}} "provider layers").
 
 ![Bonn, Germany](/images/bonn_internal_viewer.png)
 
@@ -123,5 +117,9 @@ If everything was successful, you should see a map of Bonn in your browser.
 
 ## Next steps
 
-Check out our other [tutorials]({{< ref "/tutorials" >}} "tutorials") and start
-using your own data!
+- Check out how to create your own
+  [config]({{< ref "/documentation/configuration" >}} "tutorials")
+- Check out our other [tutorials]({{< ref "/tutorials" >}} "tutorials") and start
+  using your own data!
+- Join [gophers#go-spatial on slack](https://app.slack.com/client/T029RQSE6/C029RQSEE/)
+  and show us what you built with tegola!
