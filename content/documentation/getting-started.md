@@ -25,7 +25,7 @@ Let's get started!
 Clone the example repository into a location of your choosing.
 
 ```bash
-git clone https://github.com/iwpnd/tegola-example-bonn.git
+git clone https://github.com/go-spatial/tegola-example-bonn.git
 cd tegola-example-bonn
 ```
 
