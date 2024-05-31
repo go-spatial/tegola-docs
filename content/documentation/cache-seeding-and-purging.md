@@ -28,7 +28,7 @@ Global Flags are valid for all subcommands
 
 Running `./tegola cache -h` will give a lost of flags with descriptions:
 
-```text
+```
 Available Commands:
   seed        seed tiles to the cache
   purge       purge tiles from the cache
@@ -46,7 +46,7 @@ These subcommands are used to manipulate Tegola's cache.
 
 #### Flags
 
-```text
+```
 Available Commands:
   tile-list   operate on a list of tile names separated by new lines
   tile-name   operate on a single tile formatted according to --format
